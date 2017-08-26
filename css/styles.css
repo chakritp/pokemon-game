@@ -1,0 +1,98 @@
+h1:first-child {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.player-board {
+  width: 300px;
+  border: 2px solid black;
+  margin-bottom: 50px;
+}
+
+#player-1{
+  float: left;
+  margin-left: 15%;
+}
+
+#player-2{
+  float: right;
+  margin-right: 15%;
+}
+
+.name, .health {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  margin: 50px auto 0;
+}
+
+/* Health Bar CSS */
+.health-bar {
+  height: 30px;
+  width: 80%;
+  position: relative;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.remaining-health {
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: inherit;
+  width: 100%;
+  background: green;
+  border-radius: 4px;
+}
+
+/* End Health Bar CSS */
+
+/* Begin CSS for moves */
+.moves {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.moves ul {
+  padding: 0;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.moves li {
+  margin-top: 10px;
+  padding: 5px 0;
+  list-style: none;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.party-pokemon {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.party {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 100px;
+  padding-top: 15px;
+  vertical-align: center;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.options {
+  clear: both;
+  margin: 0 auto;
+  text-align: center;
+  width: 400px;
+}
