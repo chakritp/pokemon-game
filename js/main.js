@@ -2,19 +2,36 @@ var pokemon1 = {
   name: 'Charizard',
   health: 1000,
   avatar: {
-    front: '',
-    back: ''
+    front: 'http://www.pokestadium.com/sprites/xy/charizard-megay.gif',
+    back: 'http://www.pokestadium.com/sprites/xy/back/charizard.gif'
   },
   attack: 200,
   defence: 200,
   speed: 500,
   specialAttack: 2000,
   specialDefence: 1000,
-  moves: ['fire punch', 'flamethrower', 'scratch', 'fire blast'],
-  firePunch: function(opponent){
-    opponent.health -= 200;
-    console.log('Charizard used fire punch on ' + opponent.name + " for 200 damage. " + opponent.name + " has " + opponent.health + " remaining.");
-  }
+  moves: [
+    {
+      name: 'Fire Punch',
+      damage: 100,
+      element: 'fire'
+    },
+    {
+      name: 'Flamethrower',
+      damage: 100,
+      element: 'fire'
+    },
+    {
+      name: 'Scratch',
+      damage: 100,
+      element: 'normal'
+    },
+    {
+      name: 'Fire Blast',
+      damage: 100,
+      element: 'fire'
+    }
+  ]
 }
 
 var pokemon2 = {
@@ -80,28 +97,36 @@ var pokemon6 = {
   moves: ['ice beam', 'hyper beam', 'fly', 'blizzard']
 }
 
-pokemon1.nextPokemon = pokemon2;
-pokemon2.nextPokemon = pokemon3;
-pokemon3.nextPokemon = pokemon4;
-pokemon4.nextPokemon = pokemon5;
-pokemon5.nextPokemon = pokemon6;
-pokemon6.nextPokemon = pokemon1;
+var ash = {
+  name: "Ash",
+  pokemon: [pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6]
+}
 
-var myPokemon = [];
-myPokemon.unshift(pokemon2);
-myPokemon.unshift(pokemon3);
-myPokemon.push(pokemon4);
-myPokemon.push(pokemon5);
-myPokemon.push(pokemon6);
-myPokemon.push(pokemon1);
-
+var gary = {
+  name: "Gary",
+  pokemon: []
+}
 
 var game = {
-  player1: pokemon1,
-  player2: pokemon2,
+  player1: ash,
+  player2: gary,
   start: function(){
-    
+    // Name
+    document.querySelector('#player-1 .name').innerText = this.player1.pokemon[0].name;
+    // document.querySelector('#player-2 .name').innerText = this.player2.pokemon[0].name;
+
+    //Avatar
+    document.querySelector('#player-1 .avatar img').setAttribute('src', this.player1.pokemon[0].avatar.back);
+    // document.querySelector('#player-1 .avatar img').setAttribute('src', this.player2.pokemon[0].avatar.back);
+
+    //Moves
+    for(var i = 0; i < this.player1.pokemon[0].moves.length; i++){
+      document.querySelector('#player-1 #move-' + (i+1)).innerText = this.player1.pokemon[0].moves[i].name;
+      document.querySelector('#player-1 #move-' + (i+1)).setAttribute('class', this.player1.pokemon[0].moves[i].element);
+    }
   }
-}
+};
+
+game.start();
 
 
