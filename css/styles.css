@@ -4,7 +4,7 @@ h1:first-child {
 }
 
 .player-board {
-  width: 300px;
+  width: 400px;
   border: 2px solid black;
   margin-bottom: 50px;
 }
@@ -113,27 +113,55 @@ h1:first-child {
   background: yellow;
 }
 
+.flying {
+  color: white;
+  background: #914C1C;
+}
+
+.psychic {
+  color: white;
+  background: purple;
+}
+
 /* End CSS for moves */
 
 .party-pokemon {
-  margin-top: 50px;
+  margin-top: 20px;
   text-align: center;
 }
 
 .party {
-  width: 50px;
-  height: 50px;
-  /* border: 1px solid black; */
   border-radius: 100px;
   padding-top: 15px;
-  vertical-align: center;
   display: inline-block;
   box-sizing: border-box;
 }
 
 .party img {
-  width: 100%;
-  height: 100%;
+  width: 50px;
+  height: 50px;
+}
+
+.party img.rotate {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  -ms-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+
+
+.tooltip {
+  padding: 5px;
+  border: 2px solid black;
+  color: black;
+  background: #ccc;
 }
 
 .options {
