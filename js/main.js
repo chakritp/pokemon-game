@@ -217,8 +217,8 @@ var pokemon6 = {
 var pokemonA = {
   name: 'Blastoise',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/charizard-megay.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/charizard.gif'
+    front: 'http://www.pokestadium.com/sprites/xy/blastoise.gif',
+    back: 'http://www.pokestadium.com/sprites/xy/back/blastoise.gif'
   },
   health: 3500,
   attack: 3000,
@@ -228,81 +228,206 @@ var pokemonA = {
   specialDefence: 4000,
   moves: [
     {
+      name: "Hydropump",
+      element: "water",
+      damage: 100
+    },
+    {
+      name: "Surf",
+      element: "water",
+      damage: 100
+    },
+    {
       name: "Ice Beam",
       element: "ice",
       damage: 100
     },
     {
-      name: "Hyper Beam",
-      element: "normal",
-      damage: 100
-    },
-    {
-      name: "Fly",
-      element: "flying",
-      damage: 100
-    },
-    {
-      name: "Blizzard",
-      element: "ice",
+      name: "Dive",
+      element: "water",
       damage: 100
     }
   ]
 }
 
 var pokemonB = {
-  name: 'Articuno',
+  name: 'Mewtwo',
+  avatar: {
+    front: 'http://www.pokestadium.com/sprites/xy/mewtwo.gif',
+    back: 'http://www.pokestadium.com/sprites/xy/back/mewtwo.gif'
+  },
   health: 3500,
   attack: 3000,
   defence: 700,
   speed: 900,
   specialAttack: 3000,
   specialDefence: 4000,
-  moves: ['ice beam', 'hyper beam', 'fly', 'blizzard']
+  moves: [
+    {
+      name: "Psychic",
+      element: "psychic",
+      damage: 100
+    },
+    {
+      name: "Hyperbeam",
+      element: "normal",
+      damage: 100
+    },
+    {
+      name: "Psycho Cut",
+      element: "psychic",
+      damage: 100
+    },
+    {
+      name: "Swift",
+      element: "normal",
+      damage: 100
+    }
+  ]
 }
 
 var pokemonC = {
-  name: 'Articuno',
+  name: 'Moltres',
+  avatar: {
+    front: 'http://www.pokestadium.com/sprites/xy/moltres.gif',
+    back: 'http://www.pokestadium.com/sprites/xy/back/moltres.gif'
+  },
   health: 3500,
   attack: 3000,
   defence: 700,
   speed: 900,
   specialAttack: 3000,
   specialDefence: 4000,
-  moves: ['ice beam', 'hyper beam', 'fly', 'blizzard']
+  moves: [
+    {
+      name: "Flamethrower",
+      element: "fire",
+      damage: 100
+    },
+    {
+      name: "Fly",
+      element: "normal",
+      damage: 100
+    },
+    {
+      name: "Fire Blast",
+      element: "psychic",
+      damage: 100
+    },
+    {
+      name: "Sky Attack",
+      element: "flying",
+      damage: 100
+    }
+  ]
 }
 
 var pokemonD = {
-  name: 'Articuno',
+  name: 'Pikachu',
+  avatar: {
+    front: 'http://www.pokestadium.com/sprites/xy/pikachu.gif',
+    back: 'http://www.pokestadium.com/sprites/xy/back/pikachu.gif'
+  },
   health: 3500,
   attack: 3000,
   defence: 700,
   speed: 900,
   specialAttack: 3000,
   specialDefence: 4000,
-  moves: ['ice beam', 'hyper beam', 'fly', 'blizzard']
+  moves: [
+    {
+      name: "Thunder",
+      element: "electric",
+      damage: 100
+    },
+    {
+      name: "Thunderbolt",
+      element: "electric",
+      damage: 100
+    },
+    {
+      name: "Quick Attack",
+      element: "normal",
+      damage: 100
+    },
+    {
+      name: "Slam",
+      element: "normal",
+      damage: 100
+    }
+  ]
 }
 
 var pokemonE = {
-  name: 'Articuno',
+  name: 'Gyarados',
+  avatar: {
+    front: 'http://www.pokestadium.com/sprites/xy/pikachu.gif',
+    back: 'http://www.pokestadium.com/sprites/xy/back/pikachu.gif'
+  },
   health: 3500,
   attack: 3000,
   defence: 700,
   speed: 900,
   specialAttack: 3000,
   specialDefence: 4000,
-  moves: ['ice beam', 'hyper beam', 'fly', 'blizzard']
+  moves: [
+    {
+      name: "Hydropump",
+      element: "electric",
+      damage: 100
+    },
+    {
+      name: "Surf",
+      element: "electric",
+      damage: 100
+    },
+    {
+      name: "Hyperbeam",
+      element: "normal",
+      damage: 100
+    },
+    {
+      name: "Dragon Rage",
+      element: "dragon",
+      damage: 100
+    }
+  ]
 }
 
 var pokemonF = {
-  name: 'Articuno',
+  name: 'Aerodactyl',
+  avatar: {
+    front: 'http://www.pokestadium.com/sprites/xy/aerodactyl.gif',
+    back: 'http://www.pokestadium.com/sprites/xy/back/aerodactyl.gif'
+  },
   health: 3500,
   attack: 3000,
   defence: 700,
   speed: 900,
   specialAttack: 3000,
   specialDefence: 4000,
-  moves: ['ice beam', 'hyper beam', 'fly', 'blizzard']
+  moves: [
+    {
+      name: "Rock Slide",
+      element: "rock",
+      damage: 100
+    },
+    {
+      name: "Ancient Power",
+      element: "rock",
+      damage: 100
+    },
+    {
+      name: "Hyperbeam",
+      element: "normal",
+      damage: 100
+    },
+    {
+      name: "Wing Attack",
+      element: "flying",
+      damage: 100
+    }
+  ]
 }
 
 var ash = {
@@ -317,6 +442,11 @@ var gary = {
 
 var rotatePokeball = function(){
   this.classList.toggle('rotate');
+}
+
+var toggleTooltip = function() {
+  console.log(this.previousSibling.previousSibling)
+  this.previousSibling.previousSibling.classList.toggle('hide')
 }
 
 var game = {
@@ -346,9 +476,20 @@ var game = {
       // Set listener to rotate and un-rotate
       partyPokemon[i].querySelector('img').addEventListener('mouseenter', rotatePokeball);
       partyPokemon[i].querySelector('img').addEventListener('mouseout', rotatePokeball);
+
+      // Set tooltip text
+      partyPokemon[i].querySelector('.tooltip').innerText = this.player1.pokemon[i + 1].name;
+
+      // Set listener to show and hide tooltip
+      partyPokemon[i].querySelector('img').addEventListener('mouseenter', toggleTooltip);
+      partyPokemon[i].querySelector('img').addEventListener('mouseout', toggleTooltip);
     }
   }
 };
+
+var switchPokemon = function() {
+  
+}
 
 game.start();
 

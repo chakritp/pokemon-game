@@ -126,11 +126,12 @@ h1:first-child {
 /* End CSS for moves */
 
 .party-pokemon {
-  margin-top: 20px;
+  margin-top: 50px;
   text-align: center;
 }
 
 .party {
+  position: relative;
   border-radius: 100px;
   padding-top: 15px;
   display: inline-block;
@@ -155,13 +156,22 @@ h1:first-child {
   transition-duration: 0.2s;
 }
 
-
-
 .tooltip {
+  position: absolute;
+  bottom: 55px;
+  left: -5px;
   padding: 5px;
   border: 2px solid black;
   color: black;
   background: #ccc;
+  width: 130%;
+  opacity: 1;
+  transition: opacity 0.1s ease-in;
+}
+
+.hide {
+  opacity: 0;
+  transition: opacity 0.1s ease-out;
 }
 
 .options {
