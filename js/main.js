@@ -1,3 +1,5 @@
+console.log(jQuery)
+
 var pokemon1 = {
   name: 'Charizard',
   health: 1000,
