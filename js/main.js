@@ -23,25 +23,33 @@ $(function() {
       $playerOneBox.find('.name').text(p1FirstPokemon.name)
       $playerTwoBox.find('.name').text(p2FirstPokemon.name)
 
-      //Avatar
+      // Avatar
       $playerOneBox.find('.avatar img').prop('src', p1FirstPokemon.avatar.back)
       $playerTwoBox.find('.avatar img').prop('src', p2FirstPokemon.avatar.front)
 
-      //Moves
-      for(var i = 0; i < p1FirstPokemon.moves.length; i++){
-        document.querySelector('#player-1 #move-' + (i+1)).innerText = p1FirstPokemon.moves[i].name;
-        document.querySelector('#player-1 #move-' + (i+1)).setAttribute('class', p1FirstPokemon.moves[i].element);
-      }
+      // Moves
+      var $movesPlayerOne = $playerOneBox.find('.moves li')
+      $movesPlayerOne.each(function(index, move){
+        $(move).addClass(p1FirstPokemon.moves[index].element)
+        $(move).text(p1FirstPokemon.moves[index].name)
+      })
 
+      var $movesPlayerTwo = $playerTwoBox.find('.moves li')
+      $movesPlayerTwo.each(function(index, move){
+        $(move).addClass(p2FirstPokemon.moves[index].element)
+        $(move).text(p2FirstPokemon.moves[index].name)
+      })
+
+      // Party Pokemon
       var $partyPokemonP1 = $playerOneBox.find('.party')
       var $partyPokemonP2 = $playerTwoBox.find('.party')
 
       // set tooltip text
-      $.each($partyPokemonP1, function(index, partyPokemon) {
+      $partyPokemonP1.each(function(index, partyPokemon) {
         $(partyPokemon).find('.tooltip').text(game.player1.pokemon[index + 1].name)
       })
 
-      $.each($partyPokemonP2, function(index, partyPokemon) {
+      $partyPokemonP2.each(function(index, partyPokemon) {
         $(partyPokemon).find('.tooltip').text(game.player2.pokemon[index + 1].name)
       })
 
