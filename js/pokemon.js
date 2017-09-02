@@ -171,78 +171,83 @@ moves: [
 
 var kyogre = new Pokemon('Kyogre', avatar, stats, moves)
 
+avatar = {
+  front: 'http://www.pokestadium.com/sprites/xy/groudon.gif',
+  back: 'http://www.pokestadium.com/sprites/xy/back/groudon.gif'
+}
 
-var pokemon5 = {
-  name: 'Groudon',
-  avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/groudon.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/groudon.gif'
-  },
+stats = {
   health: 3500,
   attack: 3000,
   defence: 700,
   speed: 900,
   specialAttack: 3000,
-  specialDefence: 4000,
-  moves: [
-    {
-      name: 'Earthquake',
-      damage: 100,
-      element: 'ground'
-    },
-    {
-      name: 'Hyper Beam',
-      damage: 100,
-      element: 'normal'
-    },
-    {
-      name: 'Fire Blast',
-      damage: 100,
-      element: 'fire'
-    },
-    {
-      name: 'Blaze',
-      damage: 100,
-      element: 'fire'
-    }
-  ]
+  specialDefence: 4000
 }
 
-var pokemon6 = {
-  name: 'Articuno',
-  avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/articuno.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/articuno.gif'
+moves: [
+  {
+    name: 'Earthquake',
+    damage: 100,
+    element: 'ground'
   },
+  {
+    name: 'Hyper Beam',
+    damage: 100,
+    element: 'normal'
+  },
+  {
+    name: 'Fire Blast',
+    damage: 100,
+    element: 'fire'
+  },
+  {
+    name: 'Blaze',
+    damage: 100,
+    element: 'fire'
+  }
+]
+
+var groudon = new Pokemon('Groudon', avatar, stats, moves)
+
+avatar = {
+  front: 'http://www.pokestadium.com/sprites/xy/articuno.gif',
+  back: 'http://www.pokestadium.com/sprites/xy/back/articuno.gif'
+}
+
+stats = {
   health: 3500,
   attack: 3000,
   defence: 700,
   speed: 900,
   specialAttack: 3000,
-  specialDefence: 4000,
-  moves: [
-    {
-      name: 'Ice Beam',
-      damage: 100,
-      element: 'ice'
-    },
-    {
-      name: 'Hyper Beam',
-      damage: 100,
-      element: 'normal'
-    },
-    {
-      name: 'Fly',
-      damage: 100,
-      element: 'flying'
-    },
-    {
-      name: 'Blizzard',
-      damage: 100,
-      element: 'ice'
-    }
-  ]
+  specialDefence: 4000
 }
+
+moves: [
+  {
+    name: 'Ice Beam',
+    damage: 100,
+    element: 'ice'
+  },
+  {
+    name: 'Hyper Beam',
+    damage: 100,
+    element: 'normal'
+  },
+  {
+    name: 'Fly',
+    damage: 100,
+    element: 'flying'
+  },
+  {
+    name: 'Blizzard',
+    damage: 100,
+    element: 'ice'
+  }
+]
+
+var articuno = new Pokemon('Articuno', avatar, stats, moves)
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 

@@ -1,6 +1,6 @@
 var ash = {
   name: "Ash",
-  pokemon: [charizard, hooh, lugia, kyogre, pokemon5, pokemon6]
+  pokemon: [charizard, hooh, lugia, kyogre, groudon, articuno]
 }
 
 var gary = {
