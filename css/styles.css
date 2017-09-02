@@ -1,3 +1,11 @@
+html { 
+  background: url(../images/pokemon_background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 h1:first-child {
   text-align: center;
   text-transform: uppercase;
@@ -7,6 +15,7 @@ h1:first-child {
   width: 400px;
   border: 2px solid black;
   margin-bottom: 50px;
+  background: white;
 }
 
 #player-1{

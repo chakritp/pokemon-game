@@ -1,11 +1,11 @@
 var ash = {
   name: "Ash",
-  pokemon: [pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6]
+  pokemon: [charizard, hooh, lugia, kyogre, pokemon5, pokemon6]
 }
 
 var gary = {
   name: "Gary",
-  pokemon: [pokemonA, pokemonB, pokemonC, pokemonD, pokemonE, pokemonF]
+  pokemon: [blastoise, pokemonB, pokemonC, pokemonD, pokemonE, pokemonF]
 }
 
 $(function() {

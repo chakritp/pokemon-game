@@ -1,146 +1,176 @@
-var pokemon1 = {
-  name: 'Charizard',
+function Pokemon(name, avatar, stats, moves) {
+  this.name = name
+  this.avatar = {
+    front: avatar.front,
+    back: avatar.back
+  }
+  this.stats = {
+    health: stats.health,
+    attack: stats.attack,
+    defense: stats.defense,
+    speed: stats.speed,
+    specialAttack: stats.specialAttack,
+    specialDefence: stats.specialDefence,
+  }
+  this.moves = moves
+}
+
+avatar = {
+  front: 'http://www.pokestadium.com/sprites/xy/charizard-megay.gif',
+  back: 'http://www.pokestadium.com/sprites/xy/back/charizard.gif'
+}
+
+stats = {
   health: 1000,
-  avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/charizard-megay.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/charizard.gif'
-  },
   attack: 200,
   defence: 200,
   speed: 500,
   specialAttack: 2000,
-  specialDefence: 1000,
-  moves: [
-    {
-      name: 'Fire Punch',
-      damage: 100,
-      element: 'fire'
-    },
-    {
-      name: 'Flamethrower',
-      damage: 100,
-      element: 'fire'
-    },
-    {
-      name: 'Scratch',
-      damage: 100,
-      element: 'normal'
-    },
-    {
-      name: 'Fire Blast',
-      damage: 100,
-      element: 'fire'
-    }
-  ]
+  specialDefence: 1000
 }
 
-var pokemon2 = {
-  name: 'Ho Oh',
-  health: 3000,
-  avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/ho-oh.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/ho-oh.gif'
+moves = [
+  {
+    name: 'Fire Punch',
+    damage: 100,
+    element: 'fire'
   },
+  {
+    name: 'Flamethrower',
+    damage: 100,
+    element: 'fire'
+  },
+  {
+    name: 'Scratch',
+    damage: 100,
+    element: 'normal'
+  },
+  {
+    name: 'Fire Blast',
+    damage: 100,
+    element: 'fire'
+  }
+]
+
+var charizard = new Pokemon('Charizard', avatar, stats, moves)
+
+avatar = {
+  front: 'http://www.pokestadium.com/sprites/xy/ho-oh.gif',
+  back: 'http://www.pokestadium.com/sprites/xy/back/ho-oh.gif'
+}
+
+stats = {
+  health: 3000,
   attack: 240,
   defence: 500,
   speed: 800,
   specialAttack: 4000,
   specialDefence: 2000,
-  moves: [
-    {
-      name: 'Fly',
-      damage: 100,
-      element: 'flying'
-    },
-    {
-      name: 'Fireblast',
-      damage: 100,
-      element: 'fire'
-    },
-    {
-      name: 'Rainbow Blast',
-      damage: 100,
-      element: 'fire'
-    },
-    {
-      name: 'Peck',
-      damage: 100,
-      element: 'flying'
-    }
-  ]
 }
 
-var pokemon3 = {
-  name: 'Lugia',
-  avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/lugia.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/lugia.gif'
+moves = [
+  {
+    name: 'Fly',
+    damage: 100,
+    element: 'flying'
   },
-  health: 3500,
+  {
+    name: 'Fireblast',
+    damage: 100,
+    element: 'fire'
+  },
+  {
+    name: 'Rainbow Blast',
+    damage: 100,
+    element: 'fire'
+  },
+  {
+    name: 'Peck',
+    damage: 100,
+    element: 'flying'
+  }
+]
+
+var hooh = new Pokemon('Ho Oh', avatar, stats, moves)
+
+avatar = {
+  front: 'http://www.pokestadium.com/sprites/xy/lugia.gif',
+  back: 'http://www.pokestadium.com/sprites/xy/back/lugia.gif'
+}
+
+stats = {
+  health: 3000,
   attack: 3000,
   defence: 700,
   speed: 900,
   specialAttack: 3000,
   specialDefence: 4000,
-  moves: [
-    {
-      name: 'Hydropump',
-      damage: 100,
-      element: 'water'
-    },
-    {
-      name: 'Hyper Beam',
-      damage: 100,
-      element: 'normal'
-    },
-    {
-      name: 'Surf',
-      damage: 100,
-      element: 'water'
-    },
-    {
-      name: 'Psychic',
-      damage: 100,
-      element: 'psychic'
-    }
-  ]
 }
 
-var pokemon4 = {
-  name: 'Kyogre',
-  avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/kyogre.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/kyogre.gif'
+moves = [
+  {
+    name: 'Hydropump',
+    damage: 100,
+    element: 'water'
   },
+  {
+    name: 'Hyper Beam',
+    damage: 100,
+    element: 'normal'
+  },
+  {
+    name: 'Surf',
+    damage: 100,
+    element: 'water'
+  },
+  {
+    name: 'Psychic',
+    damage: 100,
+    element: 'psychic'
+  }
+]
+
+var lugia = new Pokemon('Lugia', avatar, stats, moves)
+
+avatar = {
+  front: 'http://www.pokestadium.com/sprites/xy/kyogre.gif',
+  back: 'http://www.pokestadium.com/sprites/xy/back/kyogre.gif'
+}
+
+stats = {
   health: 3500,
   attack: 3000,
   defence: 700,
   speed: 900,
   specialAttack: 3000,
-  specialDefence: 4000,
-  moves: [
-    {
-      name: 'Hydropump',
-      damage: 100,
-      element: 'water'
-    },
-    {
-      name: 'Waterfall',
-      damage: 100,
-      element: 'water'
-    },
-    {
-      name: 'Surf',
-      damage: 100,
-      element: 'water'
-    },
-    {
-      name: 'Dive',
-      damage: 100,
-      element: 'water'
-    }
-  ]
+  specialDefence: 4000
 }
+
+moves: [
+  {
+    name: 'Hydropump',
+    damage: 100,
+    element: 'water'
+  },
+  {
+    name: 'Waterfall',
+    damage: 100,
+    element: 'water'
+  },
+  {
+    name: 'Surf',
+    damage: 100,
+    element: 'water'
+  },
+  {
+    name: 'Dive',
+    damage: 100,
+    element: 'water'
+  }
+]
+
+var kyogre = new Pokemon('Kyogre', avatar, stats, moves)
+
 
 var pokemon5 = {
   name: 'Groudon',
@@ -214,7 +244,9 @@ var pokemon6 = {
   ]
 }
 
-var pokemonA = {
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
+var blastoise = {
   name: 'Blastoise',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/blastoise.gif',
