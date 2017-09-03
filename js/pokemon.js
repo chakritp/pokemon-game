@@ -16,8 +16,13 @@ function Pokemon(name, avatar, stats, moves) {
 }
 
 // attack functionality
-Pokemon.prototype.attack = function(pokemon){
-  console.log('test')
+Pokemon.prototype.attack = function(moveIndex, opponent){
+  moveName = this.moves[moveIndex].name
+  damage = this.moves[moveIndex].damage
+  console.log("Before attack: " + opponent.stats.health)
+  opponent.stats.health -= damage
+  
+  console.log(this.name + " used " + moveName + ". " + opponent.name + " has " + opponent.stats.health + " remaining")
 }
 
 avatar = {
@@ -255,42 +260,44 @@ moves: [
 var articuno = new Pokemon('Articuno', avatar, stats, moves)
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
+avatar = {
+  front: 'http://www.pokestadium.com/sprites/xy/blastoise.gif',
+  back: 'http://www.pokestadium.com/sprites/xy/back/blastoise.gif'
+}
 
-var blastoise = {
-  name: 'Blastoise',
-  avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/blastoise.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/blastoise.gif'
-  },
+stats = {
   health: 3500,
   attack: 3000,
   defence: 700,
   speed: 900,
   specialAttack: 3000,
-  specialDefence: 4000,
-  moves: [
-    {
-      name: "Hydropump",
-      element: "water",
-      damage: 100
-    },
-    {
-      name: "Surf",
-      element: "water",
-      damage: 100
-    },
-    {
-      name: "Ice Beam",
-      element: "ice",
-      damage: 100
-    },
-    {
-      name: "Dive",
-      element: "water",
-      damage: 100
-    }
-  ]
+  specialDefence: 4000
 }
+
+moves = [
+  {
+    name: "Hydropump",
+    element: "water",
+    damage: 100
+  },
+  {
+    name: "Surf",
+    element: "water",
+    damage: 100
+  },
+  {
+    name: "Ice Beam",
+    element: "ice",
+    damage: 100
+  },
+  {
+    name: "Dive",
+    element: "water",
+    damage: 100
+  }
+]
+
+var blastoise = new Pokemon('Blastoise', avatar, stats, moves)
 
 var pokemonB = {
   name: 'Mewtwo',

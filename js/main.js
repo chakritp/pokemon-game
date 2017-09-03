@@ -1,11 +1,17 @@
 var ash = {
   name: "Ash",
-  pokemon: [charizard, hooh, lugia, kyogre, groudon, articuno]
+  pokemon: [charizard, hooh, lugia, kyogre, groudon, articuno],
+  currentPokemon: function() {
+    return this.pokemon[0]
+  }
 }
 
 var gary = {
   name: "Gary",
-  pokemon: [blastoise, pokemonB, pokemonC, pokemonD, pokemonE, pokemonF]
+  pokemon: [blastoise, pokemonB, pokemonC, pokemonD, pokemonE, pokemonF],
+  currentPokemon: function() {
+    return this.pokemon[0]
+  }
 }
 
 $(function() {
@@ -72,6 +78,12 @@ $(function() {
         $(this).toggleClass('rotate')
       })
 
+      // add listeners for moves
+      $('.moves').on('click', 'li', function() {
+        var moveId = $(this).prop('id').replace('move-', '')
+        console.log(game.currentPlayer.currentPokemon())
+        game.currentPlayer.currentPokemon().attack(moveId, game.player2.currentPokemon())
+      })
     }
   };
 
