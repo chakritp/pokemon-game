@@ -15,6 +15,11 @@ function Pokemon(name, avatar, stats, moves) {
   this.moves = moves
 }
 
+// attack functionality
+Pokemon.prototype.attack = function(pokemon){
+  console.log('test')
+}
+
 avatar = {
   front: 'http://www.pokestadium.com/sprites/xy/charizard-megay.gif',
   back: 'http://www.pokestadium.com/sprites/xy/back/charizard.gif'

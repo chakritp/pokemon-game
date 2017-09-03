@@ -15,6 +15,15 @@ $(function() {
   var game = {
     player1: ash,
     player2: gary,
+    currentPlayer: ash,
+    switchPlayers: function() {
+      if(this.currentPlayer === this.player1) {
+        this.currentPlayer = this.player2
+      }
+      else {
+        this.currentPlayer = this.player1
+      }
+    },
     start: function(){
       // Name
       p1FirstPokemon = this.player1.pokemon[0];
@@ -66,7 +75,8 @@ $(function() {
     }
   };
 
-  game.start();
+  currentPlayer = game.player1
+  game.start()
 })
 
 
