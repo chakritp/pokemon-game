@@ -14,6 +14,33 @@ var gary = {
   }
 }
 
+function setCssHealthBox(box, currentHealth, maxHealth){
+  currentHealth = Number(currentHealth)
+  maxHealth = Number(maxHealth)
+
+  //remove border radius
+  // box.css('border-radius', '0')
+  
+  //set color of health
+  var color = ''
+  var ratio = currentHealth / maxHealth * 100
+
+  if(ratio > 50){
+    color = 'green'
+  } else if (ratio > 20) {
+    color = 'yellow'
+  } else {
+    color = 'red'
+  }
+
+  box.find('.health-bar > .remaining-health').css({
+    width: ratio  + '%',
+    background: color,
+    borderTopRightRadius: '0',
+    borderBottomRightRadius: '0'
+  })
+}
+
 $(function() {
   $playerOneBox = $('#player-1')
   $playerTwoBox = $('#player-2')
@@ -37,9 +64,7 @@ $(function() {
         $playerTwoBox.find('.health .remaining').text(currentHealth)
     
         //set width of healthbox
-        $playerTwoBox.find('.health-bar > .remaining-health').css({
-          width: (Number(currentHealth) / Number(maxHealth) * 100)  + '%'
-        })
+        setCssHealthBox($playerTwoBox, currentHealth, maxHealth)
       }
       else {
         currentHealth = game.player1.currentPokemon().stats.health
@@ -47,9 +72,7 @@ $(function() {
         $playerOneBox.find('.health .remaining').text(currentHealth)
     
         //set width of healthbox
-        $playerOneBox.find('.health-bar > .remaining-health').css({
-          width: (Number(currentHealth) / Number(maxHealth) * 100)  + '%'
-        })
+        setCssHealthBox($playerOneBox, currentHealth, maxHealth)
       }
     },
     start: function(){
