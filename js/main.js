@@ -88,15 +88,37 @@ $(function() {
       $('.moves').on('click', 'li', function() {
         var currentPlayerBox = $(this).closest('.player-board').prop('id')
         var moveId = $(this).prop('id').replace('move-', '')
-        console.log(game.currentPlayer.currentPokemon())
-        game.currentPlayer.currentPokemon().attack(moveId, game.player2.currentPokemon())
 
-        //adjust health of pokemon
-        if(currentPlayerBox === 'player-1') {
-          $playerTwoBox.find('.health .remaining').text(game.player2.currentPokemon().stats.health)
+        if(game.currentPlayer == game.player1){
+          game.currentPlayer.currentPokemon().attack(moveId, game.player2.currentPokemon())
         }
         else {
-          $playerOneBox.find('.health .remaining').text(game.player1.currentPokemon().stats.health)
+          game.currentPlayer.currentPokemon().attack(moveId, game.player1.currentPokemon())
+        }
+
+        //adjust health of pokemon
+        var currentHealth = '';
+        var maxHealth = '';
+
+        if(currentPlayerBox === 'player-1') {
+          currentHealth = game.player2.currentPokemon().stats.health
+          maxHealth = $playerTwoBox.find('.health-points .max').text()
+          $playerTwoBox.find('.health .remaining').text(currentHealth)
+
+          //set width of healthbox
+          $playerTwoBox.find('.health-bar > .remaining-health').css({
+            width: (Number(currentHealth) / Number(maxHealth) * 100)  + '%'
+          })
+        }
+        else {
+          currentHealth = game.player1.currentPokemon().stats.health
+          maxHealth = $playerOneBox.find('.health-points .max').text()
+          $playerOneBox.find('.health .remaining').text(currentHealth)
+
+          //set width of healthbox
+          $playerOneBox.find('.health-bar > .remaining-health').css({
+            width: (Number(currentHealth) / Number(maxHealth) * 100)  + '%'
+          })
         }
       })
     }
