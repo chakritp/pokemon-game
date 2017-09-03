@@ -6,6 +6,15 @@ html {
   background-size: cover;
 }
 
+#dialogueBox {
+  height: 50px;
+  width: 50%;
+  margin: 0 auto;
+  background: white;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
 h1:first-child {
   text-align: center;
   text-transform: uppercase;

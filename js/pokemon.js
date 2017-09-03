@@ -22,7 +22,17 @@ Pokemon.prototype.attack = function(moveIndex, opponent){
   console.log("Before attack: " + opponent.stats.health)
   opponent.stats.health -= damage
   
+  // opponent's health can't drop below 0
+  if(opponent.stats.health < 0) {
+    opponent.stats.health = 0
+  }
+  
   console.log(this.name + " used " + moveName + ". " + opponent.name + " has " + opponent.stats.health + " remaining")
+}
+
+// check fainted
+Pokemon.prototype.fainted = function() {
+  return this.stats.health <= 0
 }
 
 avatar = {

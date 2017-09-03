@@ -3,6 +3,11 @@ var ash = {
   pokemon: [charizard, hooh, lugia, kyogre, groudon, articuno],
   currentPokemon: function() {
     return this.pokemon[0]
+  },
+  switchPokemon: function(index) {
+    if(index) {
+      this.currentPokemon
+    }
   }
 }
 
@@ -17,9 +22,6 @@ var gary = {
 function setCssHealthBox(box, currentHealth, maxHealth){
   currentHealth = Number(currentHealth)
   maxHealth = Number(maxHealth)
-
-  //remove border radius
-  // box.css('border-radius', '0')
   
   //set color of health
   var color = ''
@@ -60,19 +62,33 @@ $(function() {
     setHealth: function(player) {
       if(player === 'player-1') {
         currentHealth = game.player2.currentPokemon().stats.health
+        
         maxHealth = $playerTwoBox.find('.health-points .max').text()
         $playerTwoBox.find('.health .remaining').text(currentHealth)
-    
+        
         //set width of healthbox
         setCssHealthBox($playerTwoBox, currentHealth, maxHealth)
+        
+        // if pokemon fainted, switch to next pokemon
+        if(game.player2.currentPokemon().fainted()) {
+          console.log(game.player2.currentPokemon().name + " fainted!")
+          game.player2.switchPokemon()
+        }
       }
       else {
         currentHealth = game.player1.currentPokemon().stats.health
+        
         maxHealth = $playerOneBox.find('.health-points .max').text()
         $playerOneBox.find('.health .remaining').text(currentHealth)
     
         //set width of healthbox
         setCssHealthBox($playerOneBox, currentHealth, maxHealth)
+        
+        // if pokemon fainted, switch to next pokemon
+        if(game.player1.currentPokemon().fainted()) {
+          console.log(game.player1.currentPokemon().name + " fainted!")
+          game.player1.switchPokemon()
+        }
       }
     },
     start: function(){
@@ -143,6 +159,9 @@ $(function() {
 
         //adjust health of pokemon
         game.setHealth(currentPlayer)
+
+        //switch turns
+        // game.switchPlayers()
       })
     }
   };
