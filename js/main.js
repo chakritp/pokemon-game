@@ -30,6 +30,28 @@ $(function() {
         this.currentPlayer = this.player1
       }
     },
+    setHealth: function(player) {
+      if(player === 'player-1') {
+        currentHealth = game.player2.currentPokemon().stats.health
+        maxHealth = $playerTwoBox.find('.health-points .max').text()
+        $playerTwoBox.find('.health .remaining').text(currentHealth)
+    
+        //set width of healthbox
+        $playerTwoBox.find('.health-bar > .remaining-health').css({
+          width: (Number(currentHealth) / Number(maxHealth) * 100)  + '%'
+        })
+      }
+      else {
+        currentHealth = game.player1.currentPokemon().stats.health
+        maxHealth = $playerOneBox.find('.health-points .max').text()
+        $playerOneBox.find('.health .remaining').text(currentHealth)
+    
+        //set width of healthbox
+        $playerOneBox.find('.health-bar > .remaining-health').css({
+          width: (Number(currentHealth) / Number(maxHealth) * 100)  + '%'
+        })
+      }
+    },
     start: function(){
       // Name
       p1FirstPokemon = this.player1.pokemon[0];
@@ -86,7 +108,7 @@ $(function() {
 
       // add listeners for moves
       $('.moves').on('click', 'li', function() {
-        var currentPlayerBox = $(this).closest('.player-board').prop('id')
+        var currentPlayer = $(this).closest('.player-board').prop('id')
         var moveId = $(this).prop('id').replace('move-', '')
 
         if(game.currentPlayer == game.player1){
@@ -97,29 +119,7 @@ $(function() {
         }
 
         //adjust health of pokemon
-        var currentHealth = '';
-        var maxHealth = '';
-
-        if(currentPlayerBox === 'player-1') {
-          currentHealth = game.player2.currentPokemon().stats.health
-          maxHealth = $playerTwoBox.find('.health-points .max').text()
-          $playerTwoBox.find('.health .remaining').text(currentHealth)
-
-          //set width of healthbox
-          $playerTwoBox.find('.health-bar > .remaining-health').css({
-            width: (Number(currentHealth) / Number(maxHealth) * 100)  + '%'
-          })
-        }
-        else {
-          currentHealth = game.player1.currentPokemon().stats.health
-          maxHealth = $playerOneBox.find('.health-points .max').text()
-          $playerOneBox.find('.health .remaining').text(currentHealth)
-
-          //set width of healthbox
-          $playerOneBox.find('.health-bar > .remaining-health').css({
-            width: (Number(currentHealth) / Number(maxHealth) * 100)  + '%'
-          })
-        }
+        game.setHealth(currentPlayer)
       })
     }
   };
