@@ -31,7 +31,7 @@ avatar = {
 }
 
 stats = {
-  health: 1000,
+  health: 3500,
   attack: 200,
   defence: 200,
   speed: 500,

@@ -42,6 +42,12 @@ $(function() {
       $playerOneBox.find('.avatar img').prop('src', p1FirstPokemon.avatar.back)
       $playerTwoBox.find('.avatar img').prop('src', p2FirstPokemon.avatar.front)
 
+      // Health
+      $playerOneBox.find('.health .remaining').text(p1FirstPokemon.stats.health)
+      $playerOneBox.find('.health .max').text(p1FirstPokemon.stats.health)
+      $playerTwoBox.find('.health .remaining').text(p2FirstPokemon.stats.health)
+      $playerTwoBox.find('.health .max').text(p2FirstPokemon.stats.health)
+
       // Moves
       var $movesPlayerOne = $playerOneBox.find('.moves li')
       $movesPlayerOne.each(function(index, move){
@@ -80,9 +86,18 @@ $(function() {
 
       // add listeners for moves
       $('.moves').on('click', 'li', function() {
+        var currentPlayerBox = $(this).closest('.player-board').prop('id')
         var moveId = $(this).prop('id').replace('move-', '')
         console.log(game.currentPlayer.currentPokemon())
         game.currentPlayer.currentPokemon().attack(moveId, game.player2.currentPokemon())
+
+        //adjust health of pokemon
+        if(currentPlayerBox === 'player-1') {
+          $playerTwoBox.find('.health .remaining').text(game.player2.currentPokemon().stats.health)
+        }
+        else {
+          $playerOneBox.find('.health .remaining').text(game.player1.currentPokemon().stats.health)
+        }
       })
     }
   };
