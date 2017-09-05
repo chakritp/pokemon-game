@@ -83,7 +83,7 @@ $(function() {
             $opponentBox.find('.avatar img').prop('src', newPokemon.avatar.front)
           }
           else {
-            $opponentBox.find('.avatar img').text('src', newPokemon.avatar.back)
+            $opponentBox.find('.avatar img').prop('src', newPokemon.avatar.back)
           }
   
           //health
@@ -199,7 +199,7 @@ $(function() {
         game.setHealth(currentPlayer)
 
         //switch turns
-        // game.switchPlayers()
+        game.switchPlayers()
       }) 
     } // end start method
   }; // end game object

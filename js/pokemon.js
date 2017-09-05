@@ -41,7 +41,7 @@ var charizardProps = {
   moves: [
     {
       name: 'Fire Punch',
-      damage: 500,
+      damage: 1000,
       element: 'fire'
     },
     {
@@ -80,7 +80,7 @@ var hoohProps = {
   moves: [
     {
       name: 'Fly',
-      damage: 100,
+      damage: 1000,
       element: 'flying'
     },
     {
@@ -119,7 +119,7 @@ var lugiaProps = {
   moves: [
     {
       name: 'Hydropump',
-      damage: 100,
+      damage: 1000,
       element: 'water'
     },
     {
@@ -158,7 +158,7 @@ var kyogreProps = {
   moves: [
     {
       name: 'Hydropump',
-      damage: 100,
+      damage: 1000,
       element: 'water'
     },
     {
@@ -197,7 +197,7 @@ var groudonProps = {
   moves: [
     {
       name: 'Earthquake',
-      damage: 100,
+      damage: 1000,
       element: 'ground'
     },
     {
@@ -236,7 +236,7 @@ var articunoProps = {
   moves: [
     {
       name: 'Ice Beam',
-      damage: 100,
+      damage: 1000,
       element: 'ice'
     },
     {
@@ -279,7 +279,7 @@ var blastoiseProps = {
     {
       name: "Hydropump",
       element: "water",
-      damage: 500
+      damage: 1000
     },
     {
       name: "Surf",
@@ -318,7 +318,7 @@ var mewtwoProps = {
     {
       name: "Psychic",
       element: "psychic",
-      damage: 100
+      damage: 1000
     },
     {
       name: "Hyperbeam",
@@ -357,7 +357,7 @@ var moltresProps = {
     {
       name: "Flamethrower",
       element: "fire",
-      damage: 100
+      damage: 1000
     },
     {
       name: "Fly",
@@ -396,7 +396,7 @@ var pikachuProps = {
     {
       name: "Thunder",
       element: "electric",
-      damage: 100
+      damage: 1000
     },
     {
       name: "Thunderbolt",
@@ -435,7 +435,7 @@ var gyaradosProps = {
     {
       name: "Hydropump",
       element: "water",
-      damage: 100
+      damage: 1000
     },
     {
       name: "Surf",
@@ -474,7 +474,7 @@ var aerodactylProps = {
     {
       name: "Rock Slide",
       element: "rock",
-      damage: 100
+      damage: 1000
     },
     {
       name: "Ancient Power",
