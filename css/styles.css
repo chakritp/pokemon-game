@@ -168,6 +168,10 @@ h1:first-child {
   height: 50px;
 }
 
+.party.fainted {
+  opacity: 0.2;
+}
+
 .party img.rotate {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
