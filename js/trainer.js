@@ -10,11 +10,12 @@ Trainer.prototype.switchPokemon = function(index) {
     this.currentPokemon = this.pokemon[index]
   }
   else { // use the first non fainted pokemon
-    this.pokemon.forEach(function(currentPokemon){
-      if(!currentPokemon.fainted()){
-        this.currentPokemon = currentPokemon
+    for(var i = 0; i < this.pokemon.length; i++) {
+      if(!this.pokemon[i].fainted()){
+        this.currentPokemon = this.pokemon[i]
+        break;
       }
-    })
+    }
   }
 
   return this.currentPokemon

@@ -45,35 +45,59 @@ $(function() {
       }
     },
     setHealth: function(player) {
+      var opponent, $opponentBox;
+
       if(player === 'player-1') {
-        currentHealth = game.player2.currentPokemon.stats.health
-        
-        maxHealth = $playerTwoBox.find('.health-points .max').text()
-        $playerTwoBox.find('.health .remaining').text(currentHealth)
-        
-        //set width of healthbox
-        setCssHealthBox($playerTwoBox, currentHealth, maxHealth)
-        
-        // if pokemon fainted, switch to next pokemon
-        if(game.player2.currentPokemon.fainted()) {
-          console.log(game.player2.currentPokemon.name + " fainted!")
-          game.player2.switchPokemon()
-        }
+        opponent = game.player2
+        $opponentBox = $playerTwoBox
       }
       else {
-        currentHealth = game.player1.currentPokemon.stats.health
+        opponent = game.player1
+        $opponentBox = $playerOneBox
+      }
+      currentHealth = opponent.currentPokemon.stats.health
+      
+      maxHealth = $opponentBox.find('.health-points .max').text()
+      $opponentBox.find('.health .remaining').text(currentHealth)
+      
+      //set width of healthbox
+      setCssHealthBox($opponentBox, currentHealth, maxHealth)
+      
+      // if pokemon fainted, switch to next pokemon
+      if(opponent.currentPokemon.fainted()) {
+        console.log(opponent.currentPokemon.name + " fainted!")
+        opponent.switchPokemon()
+        console.log(opponent.currentPokemon.name + " switched in!")
+
+        //reinitialize box with new pokemon
+        // name
+        $opponentBox.find('.name').text(opponent.currentPokemon.name)
         
-        maxHealth = $playerOneBox.find('.health-points .max').text()
-        $playerOneBox.find('.health .remaining').text(currentHealth)
-    
-        //set width of healthbox
-        setCssHealthBox($playerOneBox, currentHealth, maxHealth)
-        
-        // if pokemon fainted, switch to next pokemon
-        if(game.player1.currentPokemon.fainted()) {
-          console.log(game.player1.currentPokemon.name + " fainted!")
-          game.player1.switchPokemon()
+        // avatar
+        if(player == 'player-1'){
+          $opponentBox.find('.avatar img').prop('src', opponent.currentPokemon.avatar.front)
         }
+        else {
+          $opponentBox.find('.avatar img').text('src', opponent.currentPokemon.avatar.back)
+        }
+
+        //health
+        $opponentBox.find('.health .remaining').text(opponent.currentPokemon.stats.health)
+        $opponentBox.find('.health .max').text(opponent.currentPokemon.stats.health)
+
+        //moves
+        var $moves = $opponentBox.find('.moves li')
+        $moves.each(function(index, move){
+          $(move).removeClass()
+          $(move).addClass(opponent.currentPokemon.moves[index].element)
+          $(move).text(opponent.currentPokemon.moves[index].name)
+        })
+
+        //party pokemon
+
+        //tooltip text
+
+
       }
     },
     start: function(){
@@ -146,13 +170,10 @@ $(function() {
         game.setHealth(currentPlayer)
 
         //switch turns
-        game.switchPlayers()
-      })
-    } // end game object
-
-    // switch pokemon when it dies
-    
-  };
+        // game.switchPlayers()
+      }) 
+    } // end start method
+  }; // end game object
 
   game.start()
 })

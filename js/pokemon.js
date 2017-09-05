@@ -420,8 +420,8 @@ var pikachu = new Pokemon('Pikachu', pikachuProps)
 
 var gyaradosProps = {
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/pikachu.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/pikachu.gif'
+    front: 'http://www.pokestadium.com/sprites/xy/gyarados.gif',
+    back: 'http://www.pokestadium.com/sprites/xy/back/gyarados.gif'
   },
   stats: {
     health: 3500,
