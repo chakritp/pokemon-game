@@ -5,16 +5,25 @@ var pokemonPlayer2 = [blastoise, mewtwo, moltres, pikachu, gyarados, aerodactyl]
 var trainer2 = new Trainer("Gary", pokemonPlayer2)
 
 function setTurn($player) {
-  $player.toggleClass('active-player')
   $player.find('.overlay').hide()
-
+  $player.addClass('active-player')
+  
   //set overlay for other player
   if($player.prop('id') == 'player-1'){
+    $('.player-board#player-2').removeClass('active-player')
     $('.player-board#player-2 .overlay').show()
   }
   else {
+    $('.player-board#player-1').removeClass('active-player')
     $('.player-board#player-1 .overlay').show()
   }
+}
+
+function disableBothPlayers() {
+  $('.overlay').css({
+    height: "100%"
+  })
+  $('.overlay').show()
 }
 
 function setDialogueBoxText(text) {
@@ -56,9 +65,11 @@ $(function() {
     switchPlayers: function() {
       if(this.currentPlayer === this.player1) {
         this.currentPlayer = this.player2
+        setTurn($('#player-2'))
       }
       else {
         this.currentPlayer = this.player1
+        setTurn($('#player-1'))
       }
     },
     setHealth: function(player) {
@@ -216,7 +227,7 @@ $(function() {
       })
       
       // set turn to player 1 (for now)
-      setTurn($playerTwoBox)
+      setTurn($playerOneBox)
     } // end start method
   }; // end game object
 
