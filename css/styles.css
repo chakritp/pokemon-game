@@ -31,6 +31,29 @@ h1:first-child {
   border-radius: 5px;
   margin-bottom: 50px;
   background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+.active-player {
+  border-color: #FFFF33;
+}
+
+.overlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 45%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 9999;
+}
+
+.overlay#player1Overlay {
+
+}
+
+.overlay#player2Overlay {
+  
 }
 
 #player-1{

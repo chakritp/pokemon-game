@@ -15,66 +15,11 @@
 <body>
   <h1>Pokemon Battle</h1>
   <div id="dialogueBox"></div>
-  <div class="player-board" id="player-1">
-    <!-- Name -->
-    <div class="name">
-      Name
-    </div>
-
-    <!-- Avatar -->
-    <div class="avatar">
-      <img src="http://thecraftchop.com/files/others/Pokeball.svg" alt="">
-    </div>
-
-    <!-- Health -->
-    <div class="health">
-      Health
-      <div class="health-points"><span class="remaining">100</span> / <span class="max">100</span></div>
-      <div class="health-bar">
-        <div class="remaining-health"></div>
-      </div>
-    </div>
-
-    <!-- Moves -->
-    <div class="moves">
-      <ul>
-        <li id="move-0">Move 1</li>
-        <li id="move-1">Move 2</li>
-        <li id="move-2">Move 3</li>
-        <li id="move-3">Move 4</li>
-      </ul>
-    </div>
-    
-    <!-- Party Pokemon -->
-    <div class="party-pokemon">
-      <div class="party" id="party-1">
-        <div class="tooltip hide">Tooltip</div>
-        <img src="http://thecraftchop.com/files/others/Pokeball.svg">
-      </div>
-      <div class="party" id="party-2">
-        <div class="tooltip hide">Tooltip</div>
-        <img src="http://thecraftchop.com/files/others/Pokeball.svg">
-      </div>
-      <div class="party" id="party-3">
-        <div class="tooltip hide">Tooltip</div>
-        <img src="http://thecraftchop.com/files/others/Pokeball.svg">
-      </div>
-      <div class="party" id="party-4">
-        <div class="tooltip hide">Tooltip</div>
-        <img src="http://thecraftchop.com/files/others/Pokeball.svg">
-      </div>
-      <div class="party" id="party-5">
-        <div class="tooltip hide">Tooltip</div>
-        <img src="http://thecraftchop.com/files/others/Pokeball.svg">
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="player-board" id="player-2">
-    <!-- Name -->
-    <div class="name">
+  <div id="playerContainer">
+    <div class="player-board" id="player-1">
+      <div class="overlay" id="player1Overlay"></div>
+      <!-- Name -->
+      <div class="name">
         Name
       </div>
   
@@ -125,6 +70,65 @@
           <img src="http://thecraftchop.com/files/others/Pokeball.svg">
         </div>
       </div>
+    </div>
+  
+  
+  
+    <div class="player-board" id="player-2">
+      <div class="overlay" id="player2Overlay"></div>
+      <!-- Name -->
+      <div class="name">
+          Name
+        </div>
+    
+        <!-- Avatar -->
+        <div class="avatar">
+          <img src="http://thecraftchop.com/files/others/Pokeball.svg" alt="">
+        </div>
+    
+        <!-- Health -->
+        <div class="health">
+          Health
+          <div class="health-points"><span class="remaining">100</span> / <span class="max">100</span></div>
+          <div class="health-bar">
+            <div class="remaining-health"></div>
+          </div>
+        </div>
+    
+        <!-- Moves -->
+        <div class="moves">
+          <ul>
+            <li id="move-0">Move 1</li>
+            <li id="move-1">Move 2</li>
+            <li id="move-2">Move 3</li>
+            <li id="move-3">Move 4</li>
+          </ul>
+        </div>
+        
+        <!-- Party Pokemon -->
+        <div class="party-pokemon">
+          <div class="party" id="party-1">
+            <div class="tooltip hide">Tooltip</div>
+            <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+          </div>
+          <div class="party" id="party-2">
+            <div class="tooltip hide">Tooltip</div>
+            <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+          </div>
+          <div class="party" id="party-3">
+            <div class="tooltip hide">Tooltip</div>
+            <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+          </div>
+          <div class="party" id="party-4">
+            <div class="tooltip hide">Tooltip</div>
+            <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+          </div>
+          <div class="party" id="party-5">
+            <div class="tooltip hide">Tooltip</div>
+            <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+          </div>
+        </div>
+    </div>
   </div>
   <div class="options">
     <button>Reset Game</button>
