@@ -63,41 +63,50 @@ $(function() {
       //set width of healthbox
       setCssHealthBox($opponentBox, currentHealth, maxHealth)
       
-      // if pokemon fainted, switch to next pokemon
+      // if pokemon fainted, switch to next pokemon if they have pokemon remaining
       if(opponent.currentPokemon.fainted()) {
         console.log(opponent.currentPokemon.name + " fainted!")
-        opponent.switchPokemon()
-        console.log(opponent.currentPokemon.name + " switched in!")
-
-        //reinitialize box with new pokemon
-        // name
-        $opponentBox.find('.name').text(opponent.currentPokemon.name)
-        
-        // avatar
-        if(player == 'player-1'){
-          $opponentBox.find('.avatar img').prop('src', opponent.currentPokemon.avatar.front)
+        if(opponent.hasPokemonRemaining()){ 
+          opponent.switchPokemon()
+          console.log(opponent.currentPokemon.name + " switched in!")
+  
+  
+          //reinitialize box with new pokemon
+          // name
+          $opponentBox.find('.name').text(opponent.currentPokemon.name)
+          
+          // avatar
+          if(player == 'player-1'){
+            $opponentBox.find('.avatar img').prop('src', opponent.currentPokemon.avatar.front)
+          }
+          else {
+            $opponentBox.find('.avatar img').text('src', opponent.currentPokemon.avatar.back)
+          }
+  
+          //health
+          $opponentBox.find('.health .remaining').text(opponent.currentPokemon.stats.health)
+          $opponentBox.find('.health .max').text(opponent.currentPokemon.stats.health)
+  
+          //moves
+          var $moves = $opponentBox.find('.moves li')
+          $moves.each(function(index, move){
+            $(move).removeClass()
+            $(move).addClass(opponent.currentPokemon.moves[index].element)
+            $(move).text(opponent.currentPokemon.moves[index].name)
+          })
+  
+          //party pokemon
+  
+          //tooltip text
         }
-        else {
-          $opponentBox.find('.avatar img').text('src', opponent.currentPokemon.avatar.back)
+        else { //opponent has lost
+          if(player == 'player-1'){
+            console.log("GAME OVER! " + game.player1.name + " has won")
+          }
+          else {
+            console.log("GAME OVER! " + game.player2.name + " has won")
+          }
         }
-
-        //health
-        $opponentBox.find('.health .remaining').text(opponent.currentPokemon.stats.health)
-        $opponentBox.find('.health .max').text(opponent.currentPokemon.stats.health)
-
-        //moves
-        var $moves = $opponentBox.find('.moves li')
-        $moves.each(function(index, move){
-          $(move).removeClass()
-          $(move).addClass(opponent.currentPokemon.moves[index].element)
-          $(move).text(opponent.currentPokemon.moves[index].name)
-        })
-
-        //party pokemon
-
-        //tooltip text
-
-
       }
     },
     start: function(){

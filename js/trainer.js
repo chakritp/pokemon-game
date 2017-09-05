@@ -21,3 +21,13 @@ Trainer.prototype.switchPokemon = function(index) {
   return this.currentPokemon
 }
 
+Trainer.prototype.hasPokemonRemaining = function() {
+  var flag = false;
+  for(var i = 0; i < this.pokemon.length; i++) {
+    if(!this.pokemon[i].fainted()){
+      flag = true;
+      break
+    }
+  }
+  return flag;
+}
