@@ -67,35 +67,35 @@ $(function() {
       if(opponent.currentPokemon.fainted()) {
         console.log(opponent.currentPokemon.name + " fainted!")
         if(opponent.hasPokemonRemaining()){ 
-          opponent.switchPokemon()
-          console.log(opponent.currentPokemon.name + " switched in!")
-  
+          var newPokemon = opponent.switchPokemon()
+          console.log(newPokemon.name + " switched in!")
   
           //reinitialize box with new pokemon
           // name
-          $opponentBox.find('.name').text(opponent.currentPokemon.name)
+          $opponentBox.find('.name').text(newPokemon.name)
           
           // avatar
           if(player == 'player-1'){
-            $opponentBox.find('.avatar img').prop('src', opponent.currentPokemon.avatar.front)
+            $opponentBox.find('.avatar img').prop('src', newPokemon.avatar.front)
           }
           else {
-            $opponentBox.find('.avatar img').text('src', opponent.currentPokemon.avatar.back)
+            $opponentBox.find('.avatar img').text('src', newPokemon.avatar.back)
           }
   
           //health
-          $opponentBox.find('.health .remaining').text(opponent.currentPokemon.stats.health)
-          $opponentBox.find('.health .max').text(opponent.currentPokemon.stats.health)
+          $opponentBox.find('.health .remaining').text(newPokemon.stats.health)
+          $opponentBox.find('.health .max').text(newPokemon.stats.health)
   
           //moves
           var $moves = $opponentBox.find('.moves li')
           $moves.each(function(index, move){
             $(move).removeClass()
-            $(move).addClass(opponent.currentPokemon.moves[index].element)
-            $(move).text(opponent.currentPokemon.moves[index].name)
+            $(move).addClass(newPokemon.moves[index].element)
+            $(move).text(newPokemon.moves[index].name)
           })
   
           //party pokemon
+
   
           //tooltip text
         }

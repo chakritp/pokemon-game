@@ -13,6 +13,9 @@ html {
   background: white;
   margin-bottom: 40px;
   text-align: center;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 3px solid black;
 }
 
 h1:first-child {
@@ -22,9 +25,10 @@ h1:first-child {
 
 .player-board {
   width: 400px;
-  border: 2px solid black;
+  border: 5px solid grey;
+  border-radius: 5px;
   margin-bottom: 50px;
-  background: white;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 #player-1{
