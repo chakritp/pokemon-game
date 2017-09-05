@@ -46,7 +46,7 @@ $(function() {
     },
     setHealth: function(player) {
       if(player === 'player-1') {
-        currentHealth = game.player2.currentPokemon().stats.health
+        currentHealth = game.player2.currentPokemon.stats.health
         
         maxHealth = $playerTwoBox.find('.health-points .max').text()
         $playerTwoBox.find('.health .remaining').text(currentHealth)
@@ -55,13 +55,13 @@ $(function() {
         setCssHealthBox($playerTwoBox, currentHealth, maxHealth)
         
         // if pokemon fainted, switch to next pokemon
-        if(game.player2.currentPokemon().fainted()) {
-          console.log(game.player2.currentPokemon().name + " fainted!")
+        if(game.player2.currentPokemon.fainted()) {
+          console.log(game.player2.currentPokemon.name + " fainted!")
           game.player2.switchPokemon()
         }
       }
       else {
-        currentHealth = game.player1.currentPokemon().stats.health
+        currentHealth = game.player1.currentPokemon.stats.health
         
         maxHealth = $playerOneBox.find('.health-points .max').text()
         $playerOneBox.find('.health .remaining').text(currentHealth)
@@ -70,8 +70,8 @@ $(function() {
         setCssHealthBox($playerOneBox, currentHealth, maxHealth)
         
         // if pokemon fainted, switch to next pokemon
-        if(game.player1.currentPokemon().fainted()) {
-          console.log(game.player1.currentPokemon().name + " fainted!")
+        if(game.player1.currentPokemon.fainted()) {
+          console.log(game.player1.currentPokemon.name + " fainted!")
           game.player1.switchPokemon()
         }
       }
@@ -136,10 +136,10 @@ $(function() {
         var moveId = $(this).prop('id').replace('move-', '')
 
         if(game.currentPlayer == game.player1){
-          game.currentPlayer.currentPokemon().attack(moveId, game.player2.currentPokemon())
+          game.currentPlayer.currentPokemon.attack(moveId, game.player2.currentPokemon)
         }
         else {
-          game.currentPlayer.currentPokemon().attack(moveId, game.player1.currentPokemon())
+          game.currentPlayer.currentPokemon.attack(moveId, game.player1.currentPokemon)
         }
 
         //adjust health of pokemon

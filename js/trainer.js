@@ -1,6 +1,7 @@
 function Trainer(name, pokemon) {
   this.name = name
   this.pokemon = pokemon // array of pokemon objects
+  this.currentPokemon = pokemon[0]
 }
 // get current pokemon
 Trainer.prototype.currentPokemon = function() {
