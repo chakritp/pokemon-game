@@ -4,6 +4,10 @@ var trainer1 = new Trainer("Ash", pokemonPlayer1)
 var pokemonPlayer2 = [blastoise, mewtwo, moltres, pikachu, gyarados, aerodactyl]
 var trainer2 = new Trainer("Gary", pokemonPlayer2)
 
+function setDialogueBoxText(text) {
+  $('#dialogueBox').text(text)
+}
+
 function setCssHealthBox(box, currentHealth, maxHealth){
   currentHealth = Number(currentHealth)
   maxHealth = Number(maxHealth)
@@ -83,8 +87,10 @@ $(function() {
           }
   
           //health
-          $opponentBox.find('.health .remaining').text(newPokemon.stats.health)
-          $opponentBox.find('.health .max').text(newPokemon.stats.health)
+          var fullHealth = newPokemon.stats.health
+          $opponentBox.find('.health .remaining').text(fullHealth)
+          $opponentBox.find('.health .max').text(fullHealth)
+          setCssHealthBox($opponentBox, fullHealth, fullHealth)
   
           //moves
           var $moves = $opponentBox.find('.moves li')
@@ -102,9 +108,11 @@ $(function() {
         else { //opponent has lost
           if(player == 'player-1'){
             console.log("GAME OVER! " + game.player1.name + " has won")
+            setDialogueBoxText("GAME OVER! " + game.player1.name + " has won")
           }
           else {
             console.log("GAME OVER! " + game.player2.name + " has won")
+            setDialogueBoxText("GAME OVER! " + game.player2.name + " has won")
           }
         }
       }

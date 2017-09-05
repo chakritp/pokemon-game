@@ -366,7 +366,7 @@ var moltresProps = {
     },
     {
       name: "Fire Blast",
-      element: "psychic",
+      element: "fire",
       damage: 100
     },
     {
