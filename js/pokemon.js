@@ -261,6 +261,7 @@ var articunoProps = {
 var articuno = new Pokemon('Articuno', articunoProps)
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
+
 var blastoiseProps = {
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/blastoise.gif',

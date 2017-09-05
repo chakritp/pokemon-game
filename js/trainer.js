@@ -3,29 +3,20 @@ function Trainer(name, pokemon) {
   this.pokemon = pokemon // array of pokemon objects
   this.currentPokemon = pokemon[0]
 }
-// get current pokemon
-Trainer.prototype.currentPokemon = function() {
-  // return first pokemon that isn't fainted
-  var pokemonToReturn = false
-  for(var i = 0; i < this.pokemon.length; i++) {
-    if(!this.pokemon[i].fainted()){
-      pokemonToReturn = this.pokemon[i]
-      return pokemonToReturn
-    }
-  }
-
-  // Note: if no remaining pokemon left, it will return false
-  return false
-}
-
 
 // switch current pokemon
 Trainer.prototype.switchPokemon = function(index) {
-  if(index) {
-
+  if(index) { // switch to the pokemon specified in index
+    this.currentPokemon = this.pokemon[index]
   }
   else { // use the first non fainted pokemon
-
+    this.pokemon.forEach(function(currentPokemon){
+      if(!currentPokemon.fainted()){
+        this.currentPokemon = currentPokemon
+      }
+    })
   }
+
+  return this.currentPokemon
 }
 

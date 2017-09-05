@@ -146,12 +146,14 @@ $(function() {
         game.setHealth(currentPlayer)
 
         //switch turns
-        // game.switchPlayers()
+        game.switchPlayers()
       })
-    }
+    } // end game object
+
+    // switch pokemon when it dies
+    
   };
 
-  currentPlayer = game.player1
   game.start()
 })
 
