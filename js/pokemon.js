@@ -166,7 +166,7 @@ stats = {
   specialDefence: 4000
 }
 
-moves: [
+moves = [
   {
     name: 'Hydropump',
     damage: 100,
@@ -205,7 +205,7 @@ stats = {
   specialDefence: 4000
 }
 
-moves: [
+moves = [
   {
     name: 'Earthquake',
     damage: 100,
@@ -244,7 +244,7 @@ stats = {
   specialDefence: 4000
 }
 
-moves: [
+moves = [
   {
     name: 'Ice Beam',
     damage: 100,
@@ -309,182 +309,198 @@ moves = [
 
 var blastoise = new Pokemon('Blastoise', avatar, stats, moves)
 
-var pokemonB = {
-  name: 'Mewtwo',
-  avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/mewtwo.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/mewtwo.gif'
-  },
+
+stats = {
   health: 3500,
   attack: 3000,
   defence: 700,
   speed: 900,
   specialAttack: 3000,
-  specialDefence: 4000,
-  moves: [
-    {
-      name: "Psychic",
-      element: "psychic",
-      damage: 100
-    },
-    {
-      name: "Hyperbeam",
-      element: "normal",
-      damage: 100
-    },
-    {
-      name: "Psycho Cut",
-      element: "psychic",
-      damage: 100
-    },
-    {
-      name: "Swift",
-      element: "normal",
-      damage: 100
-    }
-  ]
+  specialDefence: 4000
 }
 
-var pokemonC = {
-  name: 'Moltres',
-  avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/moltres.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/moltres.gif'
-  },
-  health: 3500,
-  attack: 3000,
-  defence: 700,
-  speed: 900,
-  specialAttack: 3000,
-  specialDefence: 4000,
-  moves: [
-    {
-      name: "Flamethrower",
-      element: "fire",
-      damage: 100
-    },
-    {
-      name: "Fly",
-      element: "normal",
-      damage: 100
-    },
-    {
-      name: "Fire Blast",
-      element: "psychic",
-      damage: 100
-    },
-    {
-      name: "Sky Attack",
-      element: "flying",
-      damage: 100
-    }
-  ]
+avatar = {
+  front: 'http://www.pokestadium.com/sprites/xy/mewtwo.gif',
+  back: 'http://www.pokestadium.com/sprites/xy/back/mewtwo.gif'
 }
 
-var pokemonD = {
-  name: 'Pikachu',
-  avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/pikachu.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/pikachu.gif'
+moves = [
+  {
+    name: "Psychic",
+    element: "psychic",
+    damage: 100
   },
-  health: 3500,
-  attack: 3000,
-  defence: 700,
-  speed: 900,
-  specialAttack: 3000,
-  specialDefence: 4000,
-  moves: [
-    {
-      name: "Thunder",
-      element: "electric",
-      damage: 100
-    },
-    {
-      name: "Thunderbolt",
-      element: "electric",
-      damage: 100
-    },
-    {
-      name: "Quick Attack",
-      element: "normal",
-      damage: 100
-    },
-    {
-      name: "Slam",
-      element: "normal",
-      damage: 100
-    }
-  ]
+  {
+    name: "Hyperbeam",
+    element: "normal",
+    damage: 100
+  },
+  {
+    name: "Psycho Cut",
+    element: "psychic",
+    damage: 100
+  },
+  {
+    name: "Swift",
+    element: "normal",
+    damage: 100
+  }
+]
+
+var mewtwo = new Pokemon('Mewtwo', avatar, stats, moves)
+
+avatar =  {
+  front: 'http://www.pokestadium.com/sprites/xy/moltres.gif',
+  back: 'http://www.pokestadium.com/sprites/xy/back/moltres.gif'
 }
 
-var pokemonE = {
-  name: 'Gyarados',
-  avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/pikachu.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/pikachu.gif'
-  },
+stats = {
   health: 3500,
   attack: 3000,
   defence: 700,
   speed: 900,
   specialAttack: 3000,
-  specialDefence: 4000,
-  moves: [
-    {
-      name: "Hydropump",
-      element: "electric",
-      damage: 100
-    },
-    {
-      name: "Surf",
-      element: "electric",
-      damage: 100
-    },
-    {
-      name: "Hyperbeam",
-      element: "normal",
-      damage: 100
-    },
-    {
-      name: "Dragon Rage",
-      element: "dragon",
-      damage: 100
-    }
-  ]
+  specialDefence: 4000
 }
 
-var pokemonF = {
-  name: 'Aerodactyl',
-  avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/aerodactyl.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/aerodactyl.gif'
+moves = [
+  {
+    name: "Flamethrower",
+    element: "fire",
+    damage: 100
   },
+  {
+    name: "Fly",
+    element: "normal",
+    damage: 100
+  },
+  {
+    name: "Fire Blast",
+    element: "psychic",
+    damage: 100
+  },
+  {
+    name: "Sky Attack",
+    element: "flying",
+    damage: 100
+  }
+]
+
+var moltres = new Pokemon('Moltres', avatar, stats, moves)
+
+avatar = {
+  front: 'http://www.pokestadium.com/sprites/xy/pikachu.gif',
+  back: 'http://www.pokestadium.com/sprites/xy/back/pikachu.gif'
+}
+
+stats = {
   health: 3500,
   attack: 3000,
   defence: 700,
   speed: 900,
   specialAttack: 3000,
-  specialDefence: 4000,
-  moves: [
-    {
-      name: "Rock Slide",
-      element: "rock",
-      damage: 100
-    },
-    {
-      name: "Ancient Power",
-      element: "rock",
-      damage: 100
-    },
-    {
-      name: "Hyperbeam",
-      element: "normal",
-      damage: 100
-    },
-    {
-      name: "Wing Attack",
-      element: "flying",
-      damage: 100
-    }
-  ]
+  specialDefence: 4000
 }
+
+moves = [
+  {
+    name: "Thunder",
+    element: "electric",
+    damage: 100
+  },
+  {
+    name: "Thunderbolt",
+    element: "electric",
+    damage: 100
+  },
+  {
+    name: "Quick Attack",
+    element: "normal",
+    damage: 100
+  },
+  {
+    name: "Slam",
+    element: "normal",
+    damage: 100
+  }
+]
+
+var pikachu = new Pokemon('Pikachu', avatar, stats, moves)
+
+avatar = {
+  front: 'http://www.pokestadium.com/sprites/xy/pikachu.gif',
+  back: 'http://www.pokestadium.com/sprites/xy/back/pikachu.gif'
+}
+
+stats = {
+  health: 3500,
+  attack: 3000,
+  defence: 700,
+  speed: 900,
+  specialAttack: 3000,
+  specialDefence: 4000
+}
+
+moves = [
+  {
+    name: "Hydropump",
+    element: "water",
+    damage: 100
+  },
+  {
+    name: "Surf",
+    element: "water",
+    damage: 100
+  },
+  {
+    name: "Hyperbeam",
+    element: "normal",
+    damage: 100
+  },
+  {
+    name: "Dragon Rage",
+    element: "dragon",
+    damage: 100
+  }
+]
+
+var gyarados = new Pokemon('Gyarados', avatar, stats, moves)
+
+avatar = {
+  front: 'http://www.pokestadium.com/sprites/xy/aerodactyl.gif',
+  back: 'http://www.pokestadium.com/sprites/xy/back/aerodactyl.gif'
+}
+
+stats = {
+  health: 3500,
+  attack: 3000,
+  defence: 700,
+  speed: 900,
+  specialAttack: 3000,
+  specialDefence: 4000
+}
+
+moves = [
+  {
+    name: "Rock Slide",
+    element: "rock",
+    damage: 100
+  },
+  {
+    name: "Ancient Power",
+    element: "rock",
+    damage: 100
+  },
+  {
+    name: "Hyperbeam",
+    element: "normal",
+    damage: 100
+  },
+  {
+    name: "Wing Attack",
+    element: "flying",
+    damage: 100
+  }
+]
+
+var aerodactyl = new Pokemon('Aerodactyl', avatar, stats, moves)

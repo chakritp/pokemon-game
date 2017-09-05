@@ -1,23 +1,8 @@
-var ash = {
-  name: "Ash",
-  pokemon: [charizard, hooh, lugia, kyogre, groudon, articuno],
-  currentPokemon: function() {
-    return this.pokemon[0]
-  },
-  switchPokemon: function(index) {
-    if(index) {
-      this.currentPokemon
-    }
-  }
-}
+var pokemonPlayer1 = [charizard, hooh, lugia, kyogre, groudon, articuno]
+var trainer1 = new Trainer("Ash", pokemonPlayer1)
 
-var gary = {
-  name: "Gary",
-  pokemon: [blastoise, pokemonB, pokemonC, pokemonD, pokemonE, pokemonF],
-  currentPokemon: function() {
-    return this.pokemon[0]
-  }
-}
+var pokemonPlayer2 = [blastoise, mewtwo, moltres, pikachu, gyarados, aerodactyl]
+var trainer2 = new Trainer("Gary", pokemonPlayer2)
 
 function setCssHealthBox(box, currentHealth, maxHealth){
   currentHealth = Number(currentHealth)
@@ -48,9 +33,9 @@ $(function() {
   $playerTwoBox = $('#player-2')
 
   var game = {
-    player1: ash,
-    player2: gary,
-    currentPlayer: ash,
+    player1: trainer1,
+    player2: trainer2,
+    currentPlayer: trainer1,
     switchPlayers: function() {
       if(this.currentPlayer === this.player1) {
         this.currentPlayer = this.player2
