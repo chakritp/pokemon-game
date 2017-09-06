@@ -48,14 +48,6 @@ h1:first-child {
   z-index: 9999;
 }
 
-.overlay#player1Overlay {
-
-}
-
-.overlay#player2Overlay {
-  
-}
-
 #player-1{
   float: left;
   margin-left: 15%;

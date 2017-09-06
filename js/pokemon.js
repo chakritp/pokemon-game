@@ -3,6 +3,7 @@ function Pokemon(name, props) {
   this.avatar = props.avatar
   this.stats = props.stats
   this.moves = props.moves
+  this.remainingHealth = props.stats.health
 }
 
 // attack functionality
@@ -10,19 +11,19 @@ Pokemon.prototype.attack = function(moveIndex, opponent){
   moveName = this.moves[moveIndex].name
   damage = this.moves[moveIndex].damage
   console.log("Before attack: " + opponent.stats.health)
-  opponent.stats.health -= damage
+  opponent.remainingHealth -= damage
   
   // opponent's health can't drop below 0
-  if(opponent.stats.health < 0) {
-    opponent.stats.health = 0
+  if(opponent.remainingHealth < 0) {
+    opponent.remainingHealth = 0
   }
   
-  console.log(this.name + " used " + moveName + ". " + opponent.name + " has " + opponent.stats.health + " remaining")
+  console.log(this.name + " used " + moveName + ". " + opponent.name + " has " + opponent.remainingHealth + " remaining")
 }
 
 // check fainted
 Pokemon.prototype.fainted = function() {
-  return this.stats.health <= 0
+  return this.remainingHealth <= 0
 }
 
 var charizardProps = {

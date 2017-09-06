@@ -95,14 +95,15 @@ function setUpPlayerBoard($playerBox, newPokemon, game) {
 
   //health
   var fullHealth = newPokemon.stats.health
+  var remainingHealth = newPokemon.remainingHealth 
   
   $(":animated").promise().done(function() {
     //wait for all animations to finish before setting remaining health box again
-    $playerBox.find('.health .remaining').text(fullHealth)
+    $playerBox.find('.health .remaining').text(remainingHealth)
   });
 
   $playerBox.find('.health .max').text(fullHealth)
-  setCssHealthBox($playerBox, fullHealth, fullHealth)
+  setCssHealthBox($playerBox, remainingHealth, fullHealth)
 
   //moves
   var $moves = $playerBox.find('.moves li')
@@ -216,21 +217,22 @@ $(function() {
         opponent = game.player1
         $opponentBox = $playerOneBox
       }
-      currentHealth = opponent.currentPokemon.stats.health
-      
+      remainingHealth = opponent.currentPokemon.remainingHealth // the new remaining health
+
       maxHealth = $opponentBox.find('.health-points .max').text()
       
       //set text of health box
       var $healthBox = $opponentBox.find('.health .remaining')
-      var previousHealth = $opponentBox.find('.health .remaining').text()
+      var previousHealth = $opponentBox.find('.health .remaining').text() // the health before getting attacked
+
       // animated health box
-      animateHealthText($healthBox, previousHealth, currentHealth)
+      animateHealthText($healthBox, previousHealth, remainingHealth)
       
       // non animated health box
-      // $healthBox.text(currentHealth)
+      // $healthBox.text(remainingHealth)
       
       //set width of healthbox
-      setCssHealthBox($opponentBox, currentHealth, maxHealth)
+      setCssHealthBox($opponentBox, remainingHealth, maxHealth)
       
       // if pokemon fainted, switch to next pokemon if they have pokemon remaining
       checkOpponentFainted(player, opponent, $opponentBox, game)
@@ -238,7 +240,7 @@ $(function() {
     start: function(){
       p1FirstPokemon = this.player1.pokemon[0];
       p2FirstPokemon = this.player2.pokemon[0];
-      
+
       setUpPlayerBoard($playerOneBox, p1FirstPokemon, this)
       setUpPlayerBoard($playerTwoBox, p2FirstPokemon, this)
 
@@ -263,6 +265,9 @@ $(function() {
 
         //reinitialize player box with new pokmemon details
         setUpPlayerBoard($currentPlayerBox, newPokemon, game);
+
+        //switch players after switching pokemon
+        // game.switchPlayers()
       })
 
       // add listeners for moves
