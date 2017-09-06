@@ -15,7 +15,7 @@ html {
   text-align: center;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.8);
-  border: 3px solid black;
+  border: 3px solid grey;
   box-sizing: border-box;
   padding-top: 10px;
 }
@@ -206,6 +206,7 @@ h1:first-child {
   -o-transition-duration: 0.2s;
   -ms-transition-duration: 0.2s;
   transition-duration: 0.2s;
+  cursor: pointer;
 }
 
 .tooltip {

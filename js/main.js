@@ -63,13 +63,70 @@ function animateHealthText($healthBox, previousHealth, currentHealth) {
     easing:'linear',
     step: function() {
       $healthBox.text(Math.floor(this.countNum));
-      console.log(this.countNum);
+      // console.log(this.countNum);
     },
     complete: function() {
       $healthBox.text(this.countNum);
-      console.log('finished');
+      // console.log('finished');
     }
   });
+}
+
+function setUpPlayerBoard($playerBox, newPokemon, game) {
+  var player;
+
+  if($playerBox.prop('id') == 'player-1') {
+    player = game.player1
+  }
+  else {
+    player = game.player2
+  }
+  
+  // name
+  $playerBox.find('.name').text(newPokemon.name)
+  
+  // avatar
+  if($playerBox.prop('id') == 'player-1'){
+    $playerBox.find('.avatar img').prop('src', newPokemon.avatar.back)
+  }
+  else {
+    $playerBox.find('.avatar img').prop('src', newPokemon.avatar.front)
+  }
+
+  //health
+  var fullHealth = newPokemon.stats.health
+  
+  $(":animated").promise().done(function() {
+    //wait for all animations to finish before setting remaining health box again
+    $playerBox.find('.health .remaining').text(fullHealth)
+  });
+
+  $playerBox.find('.health .max').text(fullHealth)
+  setCssHealthBox($playerBox, fullHealth, fullHealth)
+
+  //moves
+  var $moves = $playerBox.find('.moves li')
+  $moves.each(function(index, move){
+    $(move).removeClass()
+    $(move).addClass(newPokemon.moves[index].element)
+    $(move).text(newPokemon.moves[index].name)
+  })
+
+  //party pokemon
+  var $partyPokemon = $playerBox.find('.party')
+    
+  //tooltip text
+  var indexToRemove = player.pokemon.indexOf(newPokemon)
+  var remainingPokemon = player.pokemon.slice(0, indexToRemove).concat(player.pokemon.slice(indexToRemove + 1, player.pokemon.length))
+  $partyPokemon.each(function(index, partyPokemon) {
+    // set text of other pokemon
+    $(partyPokemon).find('.tooltip').text(remainingPokemon[index].name)
+
+    //put an 'X' over the ball that can't be selected
+    if(remainingPokemon[index].fainted()){
+      $(partyPokemon).addClass('fainted')
+    }
+  })
 }
 
 function checkOpponentFainted(player, opponent, $opponentBox, game) {
@@ -80,51 +137,7 @@ function checkOpponentFainted(player, opponent, $opponentBox, game) {
       console.log(newPokemon.name + " switched in!")
 
       //reinitialize box with new pokemon
-      // name
-      $opponentBox.find('.name').text(newPokemon.name)
-      
-      // avatar
-      if(player == 'player-1'){
-        $opponentBox.find('.avatar img').prop('src', newPokemon.avatar.front)
-      }
-      else {
-        $opponentBox.find('.avatar img').prop('src', newPokemon.avatar.back)
-      }
-
-      //health
-      var fullHealth = newPokemon.stats.health
-      
-      $(":animated").promise().done(function() {
-        //wait for all animations to finish before setting remaining health box again
-        $opponentBox.find('.health .remaining').text(fullHealth)
-      });
-
-      $opponentBox.find('.health .max').text(fullHealth)
-      setCssHealthBox($opponentBox, fullHealth, fullHealth)
-
-      //moves
-      var $moves = $opponentBox.find('.moves li')
-      $moves.each(function(index, move){
-        $(move).removeClass()
-        $(move).addClass(newPokemon.moves[index].element)
-        $(move).text(newPokemon.moves[index].name)
-      })
-
-      //party pokemon
-      var $partyPokemon = $opponentBox.find('.party')
-        
-      //tooltip text
-      var indexToRemove = opponent.pokemon.indexOf(newPokemon)
-      var remainingPokemon = opponent.pokemon.slice(0, indexToRemove).concat(opponent.pokemon.slice(indexToRemove + 1, opponent.pokemon.length))
-      $partyPokemon.each(function(index, partyPokemon) {
-        // set text of other pokemon
-        $(partyPokemon).find('.tooltip').text(remainingPokemon[index].name)
-
-        //put an 'X' over the ball that can't be selected
-        if(remainingPokemon[index].fainted()){
-          $(partyPokemon).addClass('fainted')
-        }
-      })
+      setUpPlayerBoard($opponentBox, newPokemon, game)
     }
     else { //opponent has lost
       if(player == 'player-1'){
@@ -271,6 +284,19 @@ $(function() {
       //set listener to animate pokeballs
       $('.party-pokemon').on('mouseenter mouseout', '.party:not(".fainted") img', function() {
         $(this).toggleClass('rotate')
+      })
+
+      //set listener to switch pokemon
+      $('.party-pokemon').on('click', '.party:not(".fainted") img', function() {
+        var $currentPlayerBox = $(this).closest('.player-board')
+        console.log(currentPlayer)
+        var pokemonId = Number($(this).closest('.party').prop('id').replace('party-', ''))
+        console.log(pokemonId)
+
+        var newPokemon = game.currentPlayer.switchPokemon(pokemonId)
+
+        //reinitialize player box with new pokmemon details
+        setUpPlayerBoard($currentPlayerBox, newPokemon);
       })
 
       // add listeners for moves
