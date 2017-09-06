@@ -267,7 +267,7 @@ $(function() {
         setUpPlayerBoard($currentPlayerBox, newPokemon, game);
 
         //switch players after switching pokemon
-        // game.switchPlayers()
+        game.switchPlayers()
       })
 
       // add listeners for moves
