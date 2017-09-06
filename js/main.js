@@ -54,7 +54,12 @@ function disableBothPlayers() {
 }
 
 function setDialogueBoxText(text) {
-  $('#dialogueBox').text(text)
+  // $('#dialogueBox #text').text(text)
+
+  $('#dialogueBox #text').typeIt({
+    strings: text,
+    speed: 40
+  });
 }
 
 function animateHealthText($healthBox, previousHealth, currentHealth) {
@@ -281,6 +286,9 @@ $(function() {
         else {
           game.currentPlayer.currentPokemon.attack(moveId, game.player1.currentPokemon)
         }
+
+        // set text of dialog box
+        setDialogueBoxText(game.currentPlayer.currentPokemon.name + " used " + $(this).text() + "!")
 
         //adjust health of pokemon
         game.setHealth(currentPlayer)

@@ -8,6 +8,11 @@
   src: url('fonts/pokemon_sun_moon.ttf');
 }
 
+@font-face {
+  font-family: 'pokemon_black_white';
+  src: url('fonts/pokemon_black_white.ttf');
+}
+
 html { 
   background: url(../images/pokemon_background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -15,6 +20,7 @@ html {
   -o-background-size: cover;
   background-size: cover;
   font-family: 'pokemon_x_y', 'Arial';
+  text-transform: uppercase;
 }
 
 #dialogueBox {
@@ -31,6 +37,11 @@ html {
   padding-top: 10px;
 }
 
+#text {
+  /* width: 100%; */
+  font-size: 20px;
+}
+
 h1:first-child {
   text-align: center;
   text-transform: uppercase;
@@ -43,6 +54,7 @@ h1:first-child {
      1px -1px 0 #000,
      -1px 1px 0 #000,
       1px 1px 0 #000;
+  word-spacing: 10px;
 }
 
 .player-board {
