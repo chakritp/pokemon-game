@@ -20,25 +20,29 @@ function setTurn($player) {
   }
 }
 
-function checkSpeedAndSetTurn(player1Pokemon, player2Pokemon) {
+function checkSpeedAndSetTurn(player1Pokemon, player2Pokemon, game) {
   if(player1Pokemon.stats.speed > player2Pokemon.stats.speed) {
     setTurn($('.player-board#player-1'))
+    game.currentPlayer = game.player1
   }
   else if(player1Pokemon.stats.speed < player2Pokemon.stats.speed) {
     setTurn($('.player-board#player-2'))
+    game.currentPlayer = game.player2
   }
   else {
-    randomizeTurn()
+    randomizeTurn(game)
   }
 }
 
-function randomizeTurn() {
+function randomizeTurn(game) {
   var randomNumber = Math.floor(Math.random() * 2)
   if(randomNumber == 0) {
     setTurn($('.player-board#player-1'))
+    game.currentPlayer = game.player1
   }
   else {
     setTurn($('.player-board#player-2'))
+    game.currentPlayer = game.player2
   }
 }
 
@@ -282,7 +286,7 @@ $(function() {
       })
       
       // check speed initially only for now
-      checkSpeedAndSetTurn(p1FirstPokemon, p2FirstPokemon)
+      checkSpeedAndSetTurn(p1FirstPokemon, p2FirstPokemon, game)
     } // end start method
   }; // end game object
 
