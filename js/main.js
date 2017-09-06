@@ -93,7 +93,12 @@ function checkOpponentFainted(player, opponent, $opponentBox, game) {
 
       //health
       var fullHealth = newPokemon.stats.health
-      $opponentBox.find('.health .remaining').text(fullHealth)
+      
+      $(":animated").promise().done(function() {
+        //wait for all animations to finish before setting remaining health box again
+        $opponentBox.find('.health .remaining').text(fullHealth)
+      });
+
       $opponentBox.find('.health .max').text(fullHealth)
       setCssHealthBox($opponentBox, fullHealth, fullHealth)
 
@@ -160,6 +165,7 @@ function setCssHealthBox(box, currentHealth, maxHealth){
   }, {
     duration: 1000,
     complete: function() {
+      //set color after 
       $remainingHealthBox.css('background-color', color)
     }
   })
