@@ -57,7 +57,7 @@ function setDialogueBoxText(text) {
   $('#dialogueBox').text(text)
 }
 
-function animateHealthBox($healthBox, previousHealth, currentHealth) {
+function animateHealthText($healthBox, previousHealth, currentHealth) {
   $({ countNum: previousHealth }).animate({countNum: currentHealth}, {
     duration: 1000,
     easing:'linear',
@@ -150,12 +150,18 @@ function setCssHealthBox(box, currentHealth, maxHealth){
   } else {
     color = 'red'
   }
-
-  box.find('.health-bar > .remaining-health').css({
+  var $remainingHealthBox = box.find('.health-bar > .remaining-health')
+  // $remainingHealthBox.css('background-color', color)
+  // set width
+  $remainingHealthBox.animate({
     width: ratio  + '%',
-    background: color,
     borderTopRightRadius: '0',
     borderBottomRightRadius: '0'
+  }, {
+    duration: 1000,
+    complete: function() {
+      $remainingHealthBox.css('background-color', color)
+    }
   })
 }
 
@@ -196,7 +202,7 @@ $(function() {
       var $healthBox = $opponentBox.find('.health .remaining')
       var previousHealth = $opponentBox.find('.health .remaining').text()
       // animated health box
-      animateHealthBox($healthBox, previousHealth, currentHealth)
+      animateHealthText($healthBox, previousHealth, currentHealth)
       
       // non animated health box
       // $healthBox.text(currentHealth)
