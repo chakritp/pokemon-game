@@ -172,7 +172,25 @@ $(function() {
       currentHealth = opponent.currentPokemon.stats.health
       
       maxHealth = $opponentBox.find('.health-points .max').text()
-      $opponentBox.find('.health .remaining').text(currentHealth)
+      
+      //set text of health box
+      var $healthBox = $opponentBox.find('.health .remaining')
+      var previousHealth = $opponentBox.find('.health .remaining').text()
+      console.log(previousHealth, currentHealth)
+      $({ countNum: previousHealth }).animate({countNum: currentHealth}, {
+        duration: 1000,
+        easing:'linear',
+        step: function() {
+          $healthBox.text(this.countNum);
+          console.log(this.countNum);
+        },
+        complete: function() {
+          $healthBox.text(this.countNum);
+          console.log('finished');
+        }
+      });
+
+      // $healthBox.text(currentHealth)
       
       //set width of healthbox
       setCssHealthBox($opponentBox, currentHealth, maxHealth)
