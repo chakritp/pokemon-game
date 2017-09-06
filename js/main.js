@@ -31,6 +31,69 @@ function setDialogueBoxText(text) {
   $('#dialogueBox').text(text)
 }
 
+function checkOpponentFainted(player, opponent, $opponentBox, game) {
+  if(opponent.currentPokemon.fainted()) {
+    console.log(opponent.currentPokemon.name + " fainted!")
+    if(opponent.hasPokemonRemaining()){ 
+      var newPokemon = opponent.switchPokemon()
+      console.log(newPokemon.name + " switched in!")
+
+      //reinitialize box with new pokemon
+      // name
+      $opponentBox.find('.name').text(newPokemon.name)
+      
+      // avatar
+      if(player == 'player-1'){
+        $opponentBox.find('.avatar img').prop('src', newPokemon.avatar.front)
+      }
+      else {
+        $opponentBox.find('.avatar img').prop('src', newPokemon.avatar.back)
+      }
+
+      //health
+      var fullHealth = newPokemon.stats.health
+      $opponentBox.find('.health .remaining').text(fullHealth)
+      $opponentBox.find('.health .max').text(fullHealth)
+      setCssHealthBox($opponentBox, fullHealth, fullHealth)
+
+      //moves
+      var $moves = $opponentBox.find('.moves li')
+      $moves.each(function(index, move){
+        $(move).removeClass()
+        $(move).addClass(newPokemon.moves[index].element)
+        $(move).text(newPokemon.moves[index].name)
+      })
+
+      //party pokemon
+      var $partyPokemon = $opponentBox.find('.party')
+        
+      //tooltip text
+      var indexToRemove = opponent.pokemon.indexOf(newPokemon)
+      var remainingPokemon = opponent.pokemon.slice(0, indexToRemove).concat(opponent.pokemon.slice(indexToRemove + 1, opponent.pokemon.length))
+      $partyPokemon.each(function(index, partyPokemon) {
+        // set text of other pokemon
+        $(partyPokemon).find('.tooltip').text(remainingPokemon[index].name)
+
+        //put an 'X' over the ball that can't be selected
+        if(remainingPokemon[index].fainted()){
+          $(partyPokemon).addClass('fainted')
+        }
+      })
+    }
+    else { //opponent has lost
+      if(player == 'player-1'){
+        console.log("GAME OVER! " + game.player1.name + " has won")
+        setDialogueBoxText("GAME OVER! " + game.player1.name + " has won")
+      }
+      else {
+        console.log("GAME OVER! " + game.player2.name + " has won")
+        setDialogueBoxText("GAME OVER! " + game.player2.name + " has won")
+      }
+      gameOver = true
+    }
+  }
+}
+
 function setCssHealthBox(box, currentHealth, maxHealth){
   currentHealth = Number(currentHealth)
   maxHealth = Number(maxHealth)
@@ -93,67 +156,7 @@ $(function() {
       setCssHealthBox($opponentBox, currentHealth, maxHealth)
       
       // if pokemon fainted, switch to next pokemon if they have pokemon remaining
-      if(opponent.currentPokemon.fainted()) {
-        console.log(opponent.currentPokemon.name + " fainted!")
-        if(opponent.hasPokemonRemaining()){ 
-          var newPokemon = opponent.switchPokemon()
-          console.log(newPokemon.name + " switched in!")
-  
-          //reinitialize box with new pokemon
-          // name
-          $opponentBox.find('.name').text(newPokemon.name)
-          
-          // avatar
-          if(player == 'player-1'){
-            $opponentBox.find('.avatar img').prop('src', newPokemon.avatar.front)
-          }
-          else {
-            $opponentBox.find('.avatar img').prop('src', newPokemon.avatar.back)
-          }
-  
-          //health
-          var fullHealth = newPokemon.stats.health
-          $opponentBox.find('.health .remaining').text(fullHealth)
-          $opponentBox.find('.health .max').text(fullHealth)
-          setCssHealthBox($opponentBox, fullHealth, fullHealth)
-  
-          //moves
-          var $moves = $opponentBox.find('.moves li')
-          $moves.each(function(index, move){
-            $(move).removeClass()
-            $(move).addClass(newPokemon.moves[index].element)
-            $(move).text(newPokemon.moves[index].name)
-          })
-  
-          //party pokemon
-          var $partyPokemon = $opponentBox.find('.party')
-            
-          //tooltip text
-          var indexToRemove = opponent.pokemon.indexOf(newPokemon)
-          console.log(indexToRemove)
-          var remainingPokemon = opponent.pokemon.slice(0, indexToRemove).concat(opponent.pokemon.slice(indexToRemove + 1, opponent.pokemon.length))
-          $partyPokemon.each(function(index, partyPokemon) {
-            // set text of other pokemon
-            $(partyPokemon).find('.tooltip').text(remainingPokemon[index].name)
-
-            //put an 'X' over the ball that can't be selected
-            if(remainingPokemon[index].fainted()){
-              $(partyPokemon).addClass('fainted')
-            }
-          })
-        }
-        else { //opponent has lost
-          if(player == 'player-1'){
-            console.log("GAME OVER! " + game.player1.name + " has won")
-            setDialogueBoxText("GAME OVER! " + game.player1.name + " has won")
-          }
-          else {
-            console.log("GAME OVER! " + game.player2.name + " has won")
-            setDialogueBoxText("GAME OVER! " + game.player2.name + " has won")
-          }
-          gameOver = true
-        }
-      }
+      checkOpponentFainted(player, opponent, $opponentBox, game)
     },
     start: function(){
       // Name
