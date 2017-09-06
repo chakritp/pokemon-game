@@ -20,6 +20,28 @@ function setTurn($player) {
   }
 }
 
+function checkSpeedAndSetTurn(player1Pokemon, player2Pokemon) {
+  if(player1Pokemon.stats.speed > player2Pokemon.stats.speed) {
+    setTurn($('.player-board#player-1'))
+  }
+  else if(player1Pokemon.stats.speed < player2Pokemon.stats.speed) {
+    setTurn($('.player-board#player-2'))
+  }
+  else {
+    randomizeTurn()
+  }
+}
+
+function randomizeTurn() {
+  var randomNumber = Math.floor(Math.random() * 2)
+  if(randomNumber == 0) {
+    setTurn($('.player-board#player-1'))
+  }
+  else {
+    setTurn($('.player-board#player-2'))
+  }
+}
+
 function disableBothPlayers() {
   $('.overlay').css({
     height: "100%"
@@ -236,8 +258,8 @@ $(function() {
         }
       })
       
-      // set turn to player 1 (for now)
-      setTurn($playerOneBox)
+      // check speed initially only for now
+      checkSpeedAndSetTurn(p1FirstPokemon, p2FirstPokemon)
     } // end start method
   }; // end game object
 

@@ -271,7 +271,7 @@ var blastoiseProps = {
     health: 3500,
     attack: 500,
     defence: 700,
-    speed: 900,
+    speed: 500,
     specialAttack: 3000,
     specialDefence: 4000
   },
