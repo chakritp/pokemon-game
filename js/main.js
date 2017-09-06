@@ -1,3 +1,4 @@
+var gameOver = false
 var pokemonPlayer1 = [charizard, hooh, lugia, kyogre, groudon, articuno]
 var trainer1 = new Trainer("Ash", pokemonPlayer1)
 
@@ -150,6 +151,7 @@ $(function() {
             console.log("GAME OVER! " + game.player2.name + " has won")
             setDialogueBoxText("GAME OVER! " + game.player2.name + " has won")
           }
+          gameOver = true
         }
       }
     },
@@ -223,7 +225,12 @@ $(function() {
         game.setHealth(currentPlayer)
 
         //switch turns
-        game.switchPlayers()
+        if(!gameOver){
+          game.switchPlayers()
+        }
+        else {
+          disableBothPlayers()
+        }
       })
       
       // set turn to player 1 (for now)
