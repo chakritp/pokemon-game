@@ -122,6 +122,9 @@ function setUpPlayerBoard($playerBox, newPokemon, game) {
     // set text of other pokemon
     $(partyPokemon).find('.tooltip').text(remainingPokemon[index].name)
 
+    // set id to images
+    $(partyPokemon).find('img').prop('id', remainingPokemon[index].name)
+
     //put an 'X' over the ball that can't be selected
     if(remainingPokemon[index].fainted()){
       $(partyPokemon).addClass('fainted')
@@ -269,11 +272,15 @@ $(function() {
 
       // set tooltip text
       $partyPokemonP1.each(function(index, partyPokemon) {
-        $(partyPokemon).find('.tooltip').text(game.player1.pokemon[index + 1].name)
+        var pokemonName = game.player1.pokemon[index + 1].name
+        $(partyPokemon).find('.tooltip').text(pokemonName)
+        $(partyPokemon).find('img').prop('id', pokemonName)
       })
 
       $partyPokemonP2.each(function(index, partyPokemon) {
-        $(partyPokemon).find('.tooltip').text(game.player2.pokemon[index + 1].name)
+        var pokemonName = game.player2.pokemon[index + 1].name
+        $(partyPokemon).find('.tooltip').text(pokemonName)
+        $(partyPokemon).find('img').prop('id', pokemonName)
       })
 
       //set listener to show/hide tooltip
@@ -288,15 +295,15 @@ $(function() {
 
       //set listener to switch pokemon
       $('.party-pokemon').on('click', '.party:not(".fainted") img', function() {
+        //Note: 'this' is the img tag itself
         var $currentPlayerBox = $(this).closest('.player-board')
-        console.log(currentPlayer)
-        var pokemonId = Number($(this).closest('.party').prop('id').replace('party-', ''))
-        console.log(pokemonId)
+        var pokemonName = $(this).prop('id')
+        console.log(pokemonName)
 
-        var newPokemon = game.currentPlayer.switchPokemon(pokemonId)
+        var newPokemon = game.currentPlayer.switchPokemon(pokemonName)
 
         //reinitialize player box with new pokmemon details
-        setUpPlayerBoard($currentPlayerBox, newPokemon);
+        setUpPlayerBoard($currentPlayerBox, newPokemon, game);
       })
 
       // add listeners for moves
@@ -323,7 +330,7 @@ $(function() {
         }
       })
       
-      // check speed initially only for now
+      // check initial speed only for now
       checkSpeedAndSetTurn(p1FirstPokemon, p2FirstPokemon, game)
     } // end start method
   }; // end game object

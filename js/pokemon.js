@@ -101,7 +101,7 @@ var hoohProps = {
   ]
 }
 
-var hooh = new Pokemon('Ho Oh', hoohProps)
+var hooh = new Pokemon('Ho-Oh', hoohProps)
 
 var lugiaProps = {
   avatar: {

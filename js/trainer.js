@@ -4,10 +4,15 @@ function Trainer(name, pokemon) {
   this.currentPokemon = pokemon[0]
 }
 
-// switch current pokemon
-Trainer.prototype.switchPokemon = function(index) {
-  if(index) { // switch to the pokemon specified in index
-    this.currentPokemon = this.pokemon[index]
+// switch current pokemon by name
+Trainer.prototype.switchPokemon = function(name) {
+  if(name) { // switch to the pokemon specified in index
+    for(var i = 0; i < this.pokemon.length; i++) {
+      if(this.pokemon[i].name == name) {
+        this.currentPokemon = this.pokemon[i]
+        break;
+      }
+    }
   }
   else { // use the first non fainted pokemon
     for(var i = 0; i < this.pokemon.length; i++) {
