@@ -146,15 +146,15 @@ function checkOpponentFainted(player, opponent, $opponentBox, game) {
   if(opponent.currentPokemon.fainted()) {
     var faintedPokemonName = opponent.currentPokemon.name
     console.log(faintedPokemonName + " fainted!")
-    dialogTextArray.push(faintedPokemonName + " fainted!")
     if(opponent.hasPokemonRemaining()){ 
       var newPokemon = opponent.switchPokemon()
       console.log(newPokemon.name + " switched in!")
-      dialogTextArray.push(opponent.name + " switched " + newPokemon.name + " in!")
+      dialogTextArray.push(faintedPokemonName + " fainted! " + opponent.name + " switched " + newPokemon.name + " in!")
       //reinitialize box with new pokemon
       setUpPlayerBoard($opponentBox, newPokemon, game)
     }
     else { //opponent has lost
+      dialogTextArray.push(faintedPokemonName + " fainted!")
       if(player == 'player-1'){
         console.log("GAME OVER! " + game.player1.name + " has won")
         dialogTextArray.push("GAME OVER! " + game.player1.name + " has won")
