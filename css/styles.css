@@ -163,6 +163,11 @@ h1:first-child {
   border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.moves li:hover {
+  transform: scale(1.05)
 }
 
 /* End CSS for moves */

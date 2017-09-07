@@ -3,19 +3,9 @@
   background: red;
 }
 
-.fire:hover {
-  background: white;
-  color: red;
-}
-
 .normal {
   color: black;
   background: white;
-}
-
-.normal:hover {
-  background: black;
-  color: white;
 }
 
 .water {
@@ -23,36 +13,20 @@
   background: blue;
 }
 
-.water:hover {
-  background: white;
-  color: blue;
-}
 
 .ice {
   color: white;
   background: lightblue;
 }
 
-.ice:hover {
-  background: white;
-  color: lightblue;
-}
 
 
 .rock {
   color: white;
   background: grey;
 }
-.rock:hover {
-  background: white;
-  color: grey;
-}
 
 .ground {
-  color: white;
-  background: brown;
-}
-.ground:hover {
   color: white;
   background: brown;
 }
@@ -61,26 +35,13 @@
   color: black;
   background: yellow;
 }
-.electric:hover {
-  background: black;
-  color: yellow;
-}
 
 .flying {
   color: white;
   background: #914C1C;
 }
-.flying:hover {
-  background: white;
-  color: #914C1C;
-}
 
 .psychic {
   color: white;
   background: purple;
-}
-
-.psychic:hover {
-  background: white;
-  color: purple;
 }
