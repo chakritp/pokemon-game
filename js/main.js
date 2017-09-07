@@ -56,7 +56,7 @@ function displayDialogueBoxText(text) {
   // $('#dialogueBox #text').text(text)
   $('#dialogueBox #text').typeIt({
     strings: text,
-    speed: 30,
+    speed: 20,
     breakLines: false,
   })
   //empty text array to reset for next time
