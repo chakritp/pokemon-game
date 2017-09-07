@@ -6,6 +6,7 @@ var pokemonPlayer2 = [blastoise, mewtwo, moltres, pikachu, gyarados, aerodactyl]
 var trainer2 = new Trainer("Gary", pokemonPlayer2)
 
 var dialogTextArray = []
+var effectiveText = ""
 
 function setTurn($player) {
   $player.find('.overlay').hide()
@@ -61,6 +62,7 @@ function displayDialogueBoxText(text) {
   })
   //empty text array to reset for next time
   dialogTextArray = []
+  effectiveText = ""
 }
 
 function animateHealthText($healthBox, previousHealth, currentHealth) {
@@ -295,7 +297,30 @@ $(function() {
         }
 
         // set text of dialog box
-        dialogTextArray.push(game.currentPlayer.currentPokemon.name + " used " + $(this).text() + "!")
+        // check if super effective or not to add text
+        
+        var moveElement;
+        var opponentElement;
+
+        moveElement = game.currentPlayer.currentPokemon.moves[moveId].element;
+        
+        if(game.currentPlayer == game.player1){
+          opponentElement = game.player2.currentPokemon.type
+        }
+        else {
+          opponentElement = game.player1.currentPokemon.type
+        }
+
+        if(superEffective(moveElement, opponentElement)) {
+          console.log("It's super effective!")
+          effectiveText = " It's super effective!"
+        } 
+        else if(notVeryEffective(moveElement, opponentElement)) {
+          console.log(" It's not very effective!")
+          effectiveText = " It's not very effective!"
+        }
+
+        dialogTextArray.push(game.currentPlayer.currentPokemon.name + " used " + $(this).text() + "!" + effectiveText)
 
         //adjust health of pokemon
         game.setHealth(currentPlayer)
