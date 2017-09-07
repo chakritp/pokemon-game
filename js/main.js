@@ -49,9 +49,6 @@ function randomizeTurn(game) {
 }
 
 function disableBothPlayers() {
-  $('.overlay').css({
-    height: "100%"
-  })
   $('.overlay').show()
 }
 
@@ -59,7 +56,7 @@ function displayDialogueBoxText(text) {
   // $('#dialogueBox #text').text(text)
   $('#dialogueBox #text').typeIt({
     strings: text,
-    speed: 40,
+    speed: 30,
     breakLines: false,
   })
   //empty text array to reset for next time
@@ -275,6 +272,8 @@ $(function() {
 
         var newPokemon = game.currentPlayer.switchPokemon(pokemonName)
 
+        displayDialogueBoxText(game.currentPlayer.name + " switched " + newPokemon.name + " in!")
+
         //reinitialize player box with new pokmemon details
         setUpPlayerBoard($currentPlayerBox, newPokemon, game);
 
@@ -284,6 +283,7 @@ $(function() {
 
       // add listeners for moves
       $('.moves').on('click', 'li', function() {
+        disableBothPlayers()
         var currentPlayer = $(this).closest('.player-board').prop('id')
         var moveId = $(this).prop('id').replace('move-', '')
 
