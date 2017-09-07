@@ -48,24 +48,26 @@ function setBeam(player, move) {
 
   if(player == 'player-1') {
     $particle.css({
-      left: 0
+      width: 0
     })
     $particle.show()
     $particle.animate({
-      left: '100%'
-    }, 300, function(){
+      width: '100%'
+    }, 400, function(){
       $particle.removeAttr('style')
       $particle.hide()
     })
   }
   else {
     $particle.css({
-      right: 0
+      right: 0,
+      width: 0,
+      transform: 'rotateZ(180deg)'
     })
     $particle.show()
     $particle.animate({
-      right: '100%'
-    }, 300, function(){
+      width: '100%'
+    }, 400, function(){
       $particle.removeAttr('style')
       $particle.hide()
     })
