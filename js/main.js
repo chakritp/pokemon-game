@@ -8,6 +8,56 @@ var trainer2 = new Trainer("Gary", pokemonPlayer2)
 var dialogTextArray = []
 var effectiveText = ""
 
+function flickerOpponent(player) {
+  console.log('flicker')
+  if(player == "player-1") {
+    $('.player-board#player-1 .avatar img').animate({
+      opacity: 0
+    }, 100, function(){
+      $('.player-board#player-1 .avatar img').animate({
+        opacity: 1
+      }, 100)
+    })
+  } 
+  else {
+    $('.player-board#player-2 .avatar img').animate({
+      opacity: 0
+    }, 100, function(){
+      $('.player-board#player-2 .avatar img').animate({
+        opacity: 1
+      }, 100)
+    })
+  }
+
+}
+
+function animateAttack(player, $image) {
+  if(player == "player-1") {
+    $image.animate({
+      left: '20px'
+    }, 100, function(){
+      $image.animate({
+        left: 0
+      }, 100)
+
+      //flicker player-2
+      flickerOpponent('player-2')
+    })
+  } 
+  else {
+    $image.animate({
+      left: '-20px'
+    }, 100, function(){
+      $image.animate({
+        left: 0
+      }, 100)
+
+      //flicker player-1
+      flickerOpponent('player-1')
+    })
+  }
+}
+
 function setTurn($player) {
   $player.find('.overlay').hide()
   $player.addClass('active-player')
@@ -290,11 +340,14 @@ $(function() {
         var currentPlayer = $(this).closest('.player-board').prop('id')
         var moveId = $(this).prop('id').replace('move-', '')
 
+        var $currentAvatar = $(this).closest('.player-board').find('.avatar img')
         if(game.currentPlayer == game.player1){
           game.currentPlayer.currentPokemon.attack(moveId, game.player2.currentPokemon)
+          animateAttack("player-1", $currentAvatar)
         }
         else {
           game.currentPlayer.currentPokemon.attack(moveId, game.player1.currentPokemon)
+          animateAttack("player-2", $currentAvatar)
         }
 
         // set text of dialog box

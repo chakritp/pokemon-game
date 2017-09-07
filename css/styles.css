@@ -106,9 +106,15 @@ h1:first-child {
 .avatar {
   text-align: center;
   margin: 50px auto 0;
+  position: relative;
+  width: 100px;
+  height: 100px;
 }
 
 .avatar img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100px;
   height: 100px;
 }
