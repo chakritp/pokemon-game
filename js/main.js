@@ -28,11 +28,55 @@ function flickerOpponent(player) {
       }, 100)
     })
   }
+}
 
+function setParticleImage(move) {
+  var imageSrc = "images/animations/fire.png"
+  return imageSrc
+}
+
+function setBeam(player, move) {
+  var $particle = $('#attackBox #particle')
+
+  //set particle image
+  var particleImage = setParticleImage(move)
+  $particle.prop('src', particleImage)
+
+  $particle.css({
+    display: 'inline-block'
+  })
+
+  if(player == 'player-1') {
+    $particle.css({
+      left: 0
+    })
+    $particle.show()
+    $particle.animate({
+      left: '100%'
+    }, 300, function(){
+      $particle.removeAttr('style')
+      $particle.hide()
+    })
+  }
+  else {
+    $particle.css({
+      right: 0
+    })
+    $particle.show()
+    $particle.animate({
+      right: '100%'
+    }, 300, function(){
+      $particle.removeAttr('style')
+      $particle.hide()
+    })
+  }
 }
 
 function animateAttack(player, $image) {
   if(player == "player-1") {
+    //check move and attach the image to the animation
+    setBeam('player-1')
+
     $image.animate({
       left: '30px'
     }, 100, function(){
@@ -45,6 +89,9 @@ function animateAttack(player, $image) {
     })
   } 
   else {
+    //check move and attach the image to the animation
+    setBeam('player-2')
+
     $image.animate({
       left: '-30px'
     }, 100, function(){
