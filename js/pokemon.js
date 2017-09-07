@@ -7,12 +7,82 @@ function Pokemon(name, props) {
   this.type = props.type
 }
 
+//the move type on the left is super effective AGAINST the pokemon type on the right
+var superEffectiveTable = {
+  water: ["fire"],
+  flying: ["grass"],
+  grass: ["water", "rock", "ground"],
+  electric: ["water", "flying"],
+  ice: ["grass", "ground", "flying"],
+  rock: ["flying", "fire"],
+  ground: ["electric", "rock"],
+  fire: ["grass", "ice"]
+}
+
+//the move type on the left is not very effective AGAINST the pokemon type on the right
+var notVeryEffectiveTable = {
+  water: ["water", "grass"],
+  flying: ["electric", "rock"],
+  grass: ["fire", "grass", "flying"],
+  electric: ["electric", "grass", "ground"],
+  ice: ["fire", "water", "ice"],
+  rock: ["ground"],
+  ground: ["flying", "grass"],
+  normal: ["ghost"],
+  fire: ["fire", "rock", "water"]
+}
+
+function superEffective(moveElement, pokemonType) {
+  var isSuperEffective = false;
+
+  // if key is existent in the super effective table and the pokemonType is in the array, return true
+  if(superEffectiveTable[moveElement] && $.inArray(pokemonType, superEffectiveTable[moveElement]) != -1){
+    isSuperEffective = true;
+  }
+  return isSuperEffective;
+}
+
+function notVeryEffective(moveElement, pokemonType) {
+  var isNotVeryEffective = false;
+  
+  // if key is existent in the super effective table and the pokemonType is in the array, return true
+  if(notVeryEffectiveTable[moveElement] && $.inArray(pokemonType, notVeryEffectiveTable[moveElement]) != -1){
+    isNotVeryEffective = true;
+  }
+  return isNotVeryEffective;
+}
+
+function calculateDamage(power, attack, defence, modifier) {
+  var damageDealt = null;
+  console.log(typeof power, typeof attack, typeof defence, typeof modifier)
+  // Note: 42 is (2 x level/5) + 2 and assuming pokemon level is at 100
+  damageDealt = Math.floor(( ((42 * power * attack / defence) / 50) + 2 ) * modifier)
+  console.log("damage dealt: " + damageDealt)
+  return damageDealt;
+}
+
 // attack functionality
 Pokemon.prototype.attack = function(moveIndex, opponent){
-  moveName = this.moves[moveIndex].name
-  damage = this.moves[moveIndex].damage
+  var move = this.moves[moveIndex]
+  var moveName = move.name
+  var damage = move.damage
+
   console.log("Before attack: " + opponent.stats.health)
-  opponent.remainingHealth -= damage
+
+  //super effective deals 1.4 damage
+  //not very effective deals 0.51 damage
+  //calculate multiplier here
+  var modifier = 1;
+  console.log(move.element, opponent.type)
+  if(superEffective(move.element, opponent.type)) {
+    modifier = 1.4
+  }
+  else if(notVeryEffective(move.element, opponent.type)) {
+    modifier = 0.51
+  }
+  console.log('modifier: ' + modifier)
+  var damageDealt = calculateDamage(move.damage, this.stats.attack, this.stats.defence, modifier)
+  opponent.remainingHealth -= damageDealt
   
   // opponent's health can't drop below 0
   if(opponent.remainingHealth < 0) {
@@ -31,6 +101,9 @@ Pokemon.prototype.fainted = function() {
 Pokemon.prototype.checkEffective = function(move) {
   var type = this.type
 }
+
+// Pokemon are defined below
+// ------------------------------------------------------------------------------------------------------------------------------------------------
 
 var charizardProps = {
   type: 'fire',
@@ -206,7 +279,7 @@ var moltresProps = {
 var moltres = new Pokemon('Moltres', moltresProps)
 
 var pikachuProps = {
-  type: 'lightning',
+  type: 'electric',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/pikachu.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/pikachu.gif'
@@ -279,10 +352,10 @@ var venusaurProps = {
   moves: [razorLeaf, bodySlam, solarBeam, earthquake]
 }
 
-var venusaur = new Pokemon('Venusaur', venasaurProps)
+var venusaur = new Pokemon('Venusaur', venusaurProps)
 
 var zapdosProps = {
-  type: 'lightning',
+  type: 'electric',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/zapdos.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/zapdos.gif'

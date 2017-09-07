@@ -11,7 +11,7 @@ var firePunch = new Move("Fire Punch", 75, "fire")
 var flameThrower = new Move("Flame Thrower", 90, "fire")
 var fireBlast = new Move("Fire Blast", 110, "fire")
 var sacredFire = new Move("Sacred Fire", 100, "fire")
-var willOWisp = new Moove("Will-O-Wisp", 100, "fire")
+var willOWisp = new Move("Will-O-Wisp", 100, "fire")
 
 // Normal
 var scratch = new Move("Scratch", 40, "normal")
