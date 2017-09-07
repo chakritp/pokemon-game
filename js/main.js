@@ -5,6 +5,8 @@ var trainer1 = new Trainer("Ash", pokemonPlayer1)
 var pokemonPlayer2 = [blastoise, mewtwo, moltres, pikachu, gyarados, aerodactyl]
 var trainer2 = new Trainer("Gary", pokemonPlayer2)
 
+var dialogTextArray = []
+
 function setTurn($player) {
   $player.find('.overlay').hide()
   $player.addClass('active-player')
@@ -53,21 +55,15 @@ function disableBothPlayers() {
   $('.overlay').show()
 }
 
-function setDialogueBoxText(text, fainted) {
+function displayDialogueBoxText(text) {
   // $('#dialogueBox #text').text(text)
-  if(fainted) {
-    $('#dialogueBox #text').typeIt({
-      strings: text,
-      speed: 40,
-      breakLines: false
-    });
-  } 
-  else {
-    $('#dialogueBox #text').typeIt({
-      strings: text,
-      speed: 40
-    });
-  }
+  $('#dialogueBox #text').typeIt({
+    strings: text,
+    speed: 40,
+    breakLines: false,
+  })
+  //empty text array to reset for next time
+  dialogTextArray = []
 }
 
 function animateHealthText($healthBox, previousHealth, currentHealth) {
@@ -150,25 +146,27 @@ function checkOpponentFainted(player, opponent, $opponentBox, game) {
   if(opponent.currentPokemon.fainted()) {
     var faintedPokemonName = opponent.currentPokemon.name
     console.log(faintedPokemonName + " fainted!")
+    dialogTextArray.push(faintedPokemonName + " fainted!")
     if(opponent.hasPokemonRemaining()){ 
       var newPokemon = opponent.switchPokemon()
       console.log(newPokemon.name + " switched in!")
-      setDialogueBoxText([faintedPokemonName + " fainted!", opponent.name + " switched " + newPokemon.name + " in!"], true)
+      dialogTextArray.push(opponent.name + " switched " + newPokemon.name + " in!")
       //reinitialize box with new pokemon
       setUpPlayerBoard($opponentBox, newPokemon, game)
     }
     else { //opponent has lost
       if(player == 'player-1'){
         console.log("GAME OVER! " + game.player1.name + " has won")
-        setDialogueBoxText("GAME OVER! " + game.player1.name + " has won")
+        dialogTextArray.push("GAME OVER! " + game.player1.name + " has won")
       }
       else {
         console.log("GAME OVER! " + game.player2.name + " has won")
-        setDialogueBoxText("GAME OVER! " + game.player2.name + " has won")
+        dialogTextArray.push("GAME OVER! " + game.player2.name + " has won")
       }
       gameOver = true
     }
   }
+  displayDialogueBoxText(dialogTextArray)
 }
 
 function setCssHealthBox(box, currentHealth, maxHealth){
@@ -297,7 +295,7 @@ $(function() {
         }
 
         // set text of dialog box
-        setDialogueBoxText(game.currentPlayer.currentPokemon.name + " used " + $(this).text() + "!")
+        dialogTextArray.push(game.currentPlayer.currentPokemon.name + " used " + $(this).text() + "!")
 
         //adjust health of pokemon
         game.setHealth(currentPlayer)
