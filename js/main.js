@@ -301,12 +301,17 @@ $(function() {
         game.setHealth(currentPlayer)
 
         //switch turns
-        if(!gameOver){
-          game.switchPlayers()
-        }
-        else {
-          disableBothPlayers()
-        }
+        // wait for all animations before switching turns
+
+        $(".remaining-health").promise().done(function() {
+          console.log('here')
+          if(!gameOver){
+            game.switchPlayers()
+          }
+          else {
+            disableBothPlayers()
+          }
+        })
       })
       
       // check initial speed only for now
