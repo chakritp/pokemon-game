@@ -159,51 +159,6 @@ h1:first-child {
   cursor: pointer;
 }
 
-.fire {
-  color: white;
-  background: red;
-}
-
-.normal {
-  color: black;
-  background: white;
-}
-
-.water {
-  color: white;
-  background: blue;
-}
-
-.ice {
-  color: white;
-  background: lightblue;
-}
-
-.rock {
-  color: white;
-  background: grey;
-}
-
-.ground {
-  color: white;
-  background: brown;
-}
-
-.electric {
-  color: black;
-  background: yellow;
-}
-
-.flying {
-  color: white;
-  background: #914C1C;
-}
-
-.psychic {
-  color: white;
-  background: purple;
-}
-
 /* End CSS for moves */
 
 .party-pokemon {
