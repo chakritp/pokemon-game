@@ -4,6 +4,7 @@ function Pokemon(name, props) {
   this.stats = props.stats
   this.moves = props.moves
   this.remainingHealth = props.stats.health
+  this.type = props.type
 }
 
 // attack functionality
@@ -27,6 +28,7 @@ Pokemon.prototype.fainted = function() {
 }
 
 var charizardProps = {
+  type: 'fire',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/charizard-megay.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/charizard.gif'
@@ -66,6 +68,7 @@ var charizardProps = {
 var charizard = new Pokemon('Charizard', charizardProps)
 
 var hoohProps = {
+  type: 'fire',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/ho-oh.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/ho-oh.gif'
@@ -105,6 +108,7 @@ var hoohProps = {
 var hooh = new Pokemon('Ho-Oh', hoohProps)
 
 var lugiaProps = {
+  type: 'psychic',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/lugia.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/lugia.gif'
@@ -130,7 +134,7 @@ var lugiaProps = {
     },
     {
       name: 'Surf',
-      damage: 100,
+      damage: 90,
       element: 'water'
     },
     {
@@ -144,6 +148,7 @@ var lugiaProps = {
 var lugia = new Pokemon('Lugia', lugiaProps)
 
 var kyogreProps = {
+  type: 'water',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/kyogre.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/kyogre.gif'
@@ -163,17 +168,17 @@ var kyogreProps = {
       element: 'water'
     },
     {
-      name: 'Waterfall',
+      name: 'Ice Beam',
+      damage: 100,
+      element: 'ice'
+    },
+    {
+      name: 'Body Slam',
       damage: 100,
       element: 'water'
     },
     {
       name: 'Surf',
-      damage: 100,
-      element: 'water'
-    },
-    {
-      name: 'Dive',
       damage: 100,
       element: 'water'
     }
@@ -183,6 +188,7 @@ var kyogreProps = {
 var kyogre = new Pokemon('Kyogre', kyogreProps)
 
 var groudonProps = {
+  type: 'fire',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/groudon.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/groudon.gif'
@@ -212,7 +218,7 @@ var groudonProps = {
       element: 'fire'
     },
     {
-      name: 'Blaze',
+      name: 'Sacred Fire',
       damage: 100,
       element: 'fire'
     }
@@ -222,6 +228,7 @@ var groudonProps = {
 var groudon = new Pokemon('Groudon', groudonProps)
 
 var articunoProps = {
+  type: 'ice',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/articuno.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/articuno.gif'
@@ -264,6 +271,7 @@ var articuno = new Pokemon('Articuno', articunoProps)
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 var blastoiseProps = {
+  type: 'water',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/blastoise.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/blastoise.gif'
@@ -293,7 +301,7 @@ var blastoiseProps = {
       damage: 100
     },
     {
-      name: "Dive",
+      name: "Body Slam",
       element: "water",
       damage: 100
     }
@@ -303,6 +311,7 @@ var blastoiseProps = {
 var blastoise = new Pokemon('Blastoise', blastoiseProps)
 
 var mewtwoProps = {
+  type: 'psychic',
   stats: {
     health: 3500,
     attack: 3000,
@@ -327,8 +336,8 @@ var mewtwoProps = {
       damage: 100
     },
     {
-      name: "Psycho Cut",
-      element: "psychic",
+      name: "Earthquake",
+      element: "ground",
       damage: 100
     },
     {
@@ -342,6 +351,7 @@ var mewtwoProps = {
 var mewtwo = new Pokemon('Mewtwo', mewtwoProps)
 
 var moltresProps = {
+  type: 'fire',
   avatar:  {
     front: 'http://www.pokestadium.com/sprites/xy/moltres.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/moltres.gif'
@@ -362,7 +372,7 @@ var moltresProps = {
     },
     {
       name: "Fly",
-      element: "normal",
+      element: "flying",
       damage: 100
     },
     {
@@ -371,8 +381,8 @@ var moltresProps = {
       damage: 100
     },
     {
-      name: "Sky Attack",
-      element: "flying",
+      name: "Swift",
+      element: "normal",
       damage: 100
     }
   ]
@@ -381,6 +391,7 @@ var moltresProps = {
 var moltres = new Pokemon('Moltres', moltresProps)
 
 var pikachuProps = {
+  type: 'lightning',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/pikachu.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/pikachu.gif'
@@ -405,12 +416,12 @@ var pikachuProps = {
       damage: 100
     },
     {
-      name: "Quick Attack",
+      name: "Swift",
       element: "normal",
       damage: 100
     },
     {
-      name: "Slam",
+      name: "Body Slam",
       element: "normal",
       damage: 100
     }
@@ -420,6 +431,7 @@ var pikachuProps = {
 var pikachu = new Pokemon('Pikachu', pikachuProps)
 
 var gyaradosProps = {
+  type: 'water',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/gyarados.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/gyarados.gif'
@@ -449,8 +461,8 @@ var gyaradosProps = {
       damage: 100
     },
     {
-      name: "Dragon Rage",
-      element: "dragon",
+      name: "Thunder",
+      element: "electric",
       damage: 100
     }
   ]
@@ -459,6 +471,7 @@ var gyaradosProps = {
 var gyarados = new Pokemon('Gyarados', gyaradosProps)
 
 var aerodactylProps = {
+  type: 'rock',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/aerodactyl.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/aerodactyl.gif'
@@ -496,3 +509,123 @@ var aerodactylProps = {
 }
 
 var aerodactyl = new Pokemon('Aerodactyl', aerodactylProps)
+
+var venusaurProps = {
+  type: 'grass',
+  avatar: {
+    front: 'http://www.pokestadium.com/sprites/xy/venusaur.gif',
+    back: 'http://www.pokestadium.com/sprites/xy/back/venusaur.gif'
+  },
+  stats: {
+    health: 3500,
+    attack: 3000,
+    defence: 700,
+    speed: 900,
+    specialAttack: 3000,
+    specialDefence: 4000
+  },
+  moves: [
+    {
+      name: "Razor Leaf",
+      element: "grass",
+      damage: 1000
+    },
+    {
+      name: "Body Slam",
+      element: "normal",
+      damage: 100
+    },
+    {
+      name: "Solar Beam",
+      element: "grass",
+      damage: 100
+    },
+    {
+      name: "Earthquake",
+      element: "ground",
+      damage: 100
+    }
+  ]
+}
+
+var venusaur = new Pokemon('Venusaur', venasaurProps)
+
+var zapdosProps = {
+  type: 'lightning',
+  avatar: {
+    front: 'http://www.pokestadium.com/sprites/xy/zapdos.gif',
+    back: 'http://www.pokestadium.com/sprites/xy/back/zapdos.gif'
+  },
+  stats: {
+    health: 3500,
+    attack: 3000,
+    defence: 700,
+    speed: 900,
+    specialAttack: 3000,
+    specialDefence: 4000
+  },
+  moves: [
+    {
+      name: "Thunder",
+      element: "lightning",
+      damage: 1000
+    },
+    {
+      name: "Wing Attack",
+      element: "flying",
+      damage: 100
+    },
+    {
+      name: "Thunder Bolt",
+      element: "normal",
+      damage: 100
+    },
+    {
+      name: "Swift",
+      element: "normal",
+      damage: 100
+    }
+  ]
+}
+
+var zapdos = new Pokemon('Zapdos', zapdosProps)
+
+var gengarProps = {
+  type: 'ghost',
+  avatar: {
+    front: 'http://www.pokestadium.com/sprites/xy/gengar.gif',
+    back: 'http://www.pokestadium.com/sprites/xy/back/gengar.gif'
+  },
+  stats: {
+    health: 3500,
+    attack: 3000,
+    defence: 700,
+    speed: 900,
+    specialAttack: 3000,
+    specialDefence: 4000
+  },
+  moves: [
+    {
+      name: "Lick",
+      element: "ghost",
+      damage: 1000
+    },
+    {
+      name: "Shadow Ball",
+      element: "ghost",
+      damage: 100
+    },
+    {
+      name: "Psychic",
+      element: "psychic",
+      damage: 100
+    },
+    {
+      name: "Will-O-Wisp",
+      element: "fire",
+      damage: 100
+    }
+  ]
+}
+
+var gengar = new Pokemon("Gengar", gengarProps)
