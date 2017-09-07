@@ -105,8 +105,9 @@ function setUpPlayerBoard($playerBox, newPokemon, game) {
   var fullHealth = newPokemon.stats.health
   var remainingHealth = newPokemon.remainingHealth 
   
-  $(":animated").promise().done(function() {
+  $(".remaining-health").promise().done(function() {
     //wait for all animations to finish before setting remaining health box again
+    console.log("Remaining health: " + remainingHealth)
     $playerBox.find('.health .remaining').text(remainingHealth)
   });
 
