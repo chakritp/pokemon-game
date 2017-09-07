@@ -53,13 +53,21 @@ function disableBothPlayers() {
   $('.overlay').show()
 }
 
-function setDialogueBoxText(text) {
+function setDialogueBoxText(text, fainted) {
   // $('#dialogueBox #text').text(text)
-
-  $('#dialogueBox #text').typeIt({
-    strings: text,
-    speed: 40
-  });
+  if(fainted) {
+    $('#dialogueBox #text').typeIt({
+      strings: text,
+      speed: 40,
+      breakLines: false
+    });
+  } 
+  else {
+    $('#dialogueBox #text').typeIt({
+      strings: text,
+      speed: 40
+    });
+  }
 }
 
 function animateHealthText($healthBox, previousHealth, currentHealth) {
@@ -140,11 +148,12 @@ function setUpPlayerBoard($playerBox, newPokemon, game) {
 
 function checkOpponentFainted(player, opponent, $opponentBox, game) {
   if(opponent.currentPokemon.fainted()) {
-    console.log(opponent.currentPokemon.name + " fainted!")
+    var faintedPokemonName = opponent.currentPokemon.name
+    console.log(faintedPokemonName + " fainted!")
     if(opponent.hasPokemonRemaining()){ 
       var newPokemon = opponent.switchPokemon()
       console.log(newPokemon.name + " switched in!")
-
+      setDialogueBoxText([faintedPokemonName + " fainted!", opponent.name + " switched " + newPokemon.name + " in!"], true)
       //reinitialize box with new pokemon
       setUpPlayerBoard($opponentBox, newPokemon, game)
     }
