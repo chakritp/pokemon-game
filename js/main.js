@@ -34,7 +34,7 @@ function flickerOpponent(player) {
 function animateAttack(player, $image) {
   if(player == "player-1") {
     $image.animate({
-      left: '20px'
+      left: '30px'
     }, 100, function(){
       $image.animate({
         left: 0
@@ -46,7 +46,7 @@ function animateAttack(player, $image) {
   } 
   else {
     $image.animate({
-      left: '-20px'
+      left: '-30px'
     }, 100, function(){
       $image.animate({
         left: 0
