@@ -27,6 +27,11 @@ Pokemon.prototype.fainted = function() {
   return this.remainingHealth <= 0
 }
 
+// check super effective / not very effective
+Pokemon.prototype.checkEffective = function(move) {
+  var type = this.type
+}
+
 var charizardProps = {
   type: 'fire',
   avatar: {
@@ -34,35 +39,14 @@ var charizardProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/charizard.gif'
   },
   stats: {
-    health: 3500,
-    attack: 500,
-    defence: 200,
-    speed: 500,
-    specialAttack: 2000,
-    specialDefence: 1000
+    health: 360,
+    attack: 293,
+    defence: 280,
+    speed: 328,
+    specialAttack: 348,
+    specialDefence: 295
   },
-  moves: [
-    {
-      name: 'Fire Punch',
-      damage: 1000,
-      element: 'fire'
-    },
-    {
-      name: 'Flamethrower',
-      damage: 100,
-      element: 'fire'
-    },
-    {
-      name: 'Scratch',
-      damage: 100,
-      element: 'normal'
-    },
-    {
-      name: 'Fire Blast',
-      damage: 100,
-      element: 'fire'
-    }
-  ]
+  moves: [firePunch, flameThrower, scratch, fireBlast]
 }
 
 var charizard = new Pokemon('Charizard', charizardProps)
@@ -74,35 +58,14 @@ var hoohProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/ho-oh.gif'
   },
   stats: {
-    health: 3000,
-    attack: 240,
-    defence: 500,
-    speed: 800,
-    specialAttack: 4000,
-    specialDefence: 2000,
+    health: 416,
+    attack: 394,
+    defence: 306,
+    speed: 306,
+    specialAttack: 350,
+    specialDefence: 447,
   },
-  moves: [
-    {
-      name: 'Fly',
-      damage: 1000,
-      element: 'flying'
-    },
-    {
-      name: 'Fireblast',
-      damage: 100,
-      element: 'fire'
-    },
-    {
-      name: 'Rainbow Blast',
-      damage: 100,
-      element: 'fire'
-    },
-    {
-      name: 'Peck',
-      damage: 100,
-      element: 'flying'
-    }
-  ]
+  moves: [fly, fireBlast, sacredFire, wingAttack]
 }
 
 var hooh = new Pokemon('Ho-Oh', hoohProps)
@@ -114,35 +77,14 @@ var lugiaProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/lugia.gif'
   },
   stats: {
-    health: 3000,
-    attack: 3000,
-    defence: 700,
-    speed: 900,
-    specialAttack: 3000,
-    specialDefence: 4000,
+    health: 416,
+    attack: 306,
+    defence: 394,
+    speed: 350,
+    specialAttack: 306,
+    specialDefence: 447,
   },
-  moves: [
-    {
-      name: 'Hydropump',
-      damage: 1000,
-      element: 'water'
-    },
-    {
-      name: 'Hyper Beam',
-      damage: 100,
-      element: 'normal'
-    },
-    {
-      name: 'Surf',
-      damage: 90,
-      element: 'water'
-    },
-    {
-      name: 'Psychic',
-      damage: 100,
-      element: 'psychic'
-    }
-  ]
+  moves: [hydroPump, hyperBeam, surf, psychic]
 }
 
 var lugia = new Pokemon('Lugia', lugiaProps)
@@ -154,35 +96,14 @@ var kyogreProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/kyogre.gif'
   },
   stats: {
-    health: 3500,
-    attack: 3000,
-    defence: 700,
-    speed: 900,
-    specialAttack: 3000,
-    specialDefence: 4000
+    health: 404,
+    attack: 328,
+    defence: 306,
+    speed: 306,
+    specialAttack: 438,
+    specialDefence: 416
   },
-  moves: [
-    {
-      name: 'Hydropump',
-      damage: 1000,
-      element: 'water'
-    },
-    {
-      name: 'Ice Beam',
-      damage: 100,
-      element: 'ice'
-    },
-    {
-      name: 'Body Slam',
-      damage: 100,
-      element: 'water'
-    },
-    {
-      name: 'Surf',
-      damage: 100,
-      element: 'water'
-    }
-  ]
+  moves: [hydroPump, iceBeam, bodySlam, surf]
 }
 
 var kyogre = new Pokemon('Kyogre', kyogreProps)
@@ -194,35 +115,14 @@ var groudonProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/groudon.gif'
   },
   stats: {
-    health: 3500,
-    attack: 3000,
-    defence: 700,
-    speed: 900,
-    specialAttack: 3000,
-    specialDefence: 4000
+    health: 404,
+    attack: 438,
+    defence: 416,
+    speed: 306,
+    specialAttack: 328,
+    specialDefence: 306
   },
-  moves: [
-    {
-      name: 'Earthquake',
-      damage: 1000,
-      element: 'ground'
-    },
-    {
-      name: 'Hyper Beam',
-      damage: 100,
-      element: 'normal'
-    },
-    {
-      name: 'Fire Blast',
-      damage: 100,
-      element: 'fire'
-    },
-    {
-      name: 'Sacred Fire',
-      damage: 100,
-      element: 'fire'
-    }
-  ]
+  moves: [earthquake, hyperBeam, fireBlast, sacredFire]
 }
 
 var groudon = new Pokemon('Groudon', groudonProps)
@@ -234,36 +134,14 @@ var articunoProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/articuno.gif'
   },
   stats: {
-    health: 3500,
-    attack: 3000,
-    defence: 700,
-    speed: 900,
-    specialAttack: 3000,
-    specialDefence: 4000
+    health: 384,
+    attack: 295,
+    defence: 328,
+    speed: 295,
+    specialAttack: 317,
+    specialDefence: 383
   },
-  moves: [
-    {
-      name: 'Ice Beam',
-      damage: 1000,
-      element: 'ice'
-    },
-    {
-      name: 'Hyper Beam',
-      damage: 100,
-      element: 'normal'
-    },
-    {
-      name: 'Fly',
-      damage: 100,
-      element: 'flying'
-    },
-    {
-      name: 'Blizzard',
-      damage: 100,
-      element: 'ice'
-    }
-  ]
-
+  moves: [iceBeam, hyperBeam, wingAttack, blizzard]
 }
 
 var articuno = new Pokemon('Articuno', articunoProps)
@@ -277,35 +155,14 @@ var blastoiseProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/blastoise.gif'
   },
   stats: {
-    health: 3500,
-    attack: 500,
-    defence: 700,
-    speed: 500,
-    specialAttack: 3000,
-    specialDefence: 4000
+    health: 362,
+    attack: 291,
+    defence: 328,
+    speed: 280,
+    specialAttack: 295,
+    specialDefence: 339
   },
-  moves: [
-    {
-      name: "Hydropump",
-      element: "water",
-      damage: 1000
-    },
-    {
-      name: "Surf",
-      element: "water",
-      damage: 100
-    },
-    {
-      name: "Ice Beam",
-      element: "ice",
-      damage: 100
-    },
-    {
-      name: "Body Slam",
-      element: "water",
-      damage: 100
-    }
-  ]
+  moves: [hydroPump, surf, iceBeam, bodySlam]
 }
 
 var blastoise = new Pokemon('Blastoise', blastoiseProps)
@@ -313,39 +170,18 @@ var blastoise = new Pokemon('Blastoise', blastoiseProps)
 var mewtwoProps = {
   type: 'psychic',
   stats: {
-    health: 3500,
-    attack: 3000,
-    defence: 700,
-    speed: 900,
-    specialAttack: 3000,
-    specialDefence: 4000
+    health: 416,
+    attack: 350,
+    defence: 306,
+    speed: 394,
+    specialAttack: 447,
+    specialDefence: 306
   },
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/mewtwo.gif',
     back: 'http://www.pokestadium.com/sprites/xy/back/mewtwo.gif'
   },
-  moves: [
-    {
-      name: "Psychic",
-      element: "psychic",
-      damage: 1000
-    },
-    {
-      name: "Hyperbeam",
-      element: "normal",
-      damage: 100
-    },
-    {
-      name: "Earthquake",
-      element: "ground",
-      damage: 100
-    },
-    {
-      name: "Swift",
-      element: "normal",
-      damage: 100
-    }
-  ]
+  moves: [psychic, hyperBeam, earthquake, swift]
 }
 
 var mewtwo = new Pokemon('Mewtwo', mewtwoProps)
@@ -357,35 +193,14 @@ var moltresProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/moltres.gif'
   },
   stats: {
-    health: 3500,
-    attack: 3000,
-    defence: 700,
-    speed: 900,
-    specialAttack: 3000,
-    specialDefence: 4000
+    health: 384,
+    attack: 328,
+    defence: 306,
+    speed: 306,
+    specialAttack: 383,
+    specialDefence: 295
   },
-  moves: [
-    {
-      name: "Flamethrower",
-      element: "fire",
-      damage: 1000
-    },
-    {
-      name: "Fly",
-      element: "flying",
-      damage: 100
-    },
-    {
-      name: "Fire Blast",
-      element: "fire",
-      damage: 100
-    },
-    {
-      name: "Swift",
-      element: "normal",
-      damage: 100
-    }
-  ]
+  moves: [flameThrower, wingAttack, fireBlast, swift]
 }
 
 var moltres = new Pokemon('Moltres', moltresProps)
@@ -397,35 +212,14 @@ var pikachuProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/pikachu.gif'
   },
   stats: {
-    health: 3500,
-    attack: 3000,
-    defence: 700,
-    speed: 900,
-    specialAttack: 3000,
-    specialDefence: 4000
+    health: 274,
+    attack: 229,
+    defence: 196,
+    speed: 306,
+    specialAttack: 218,
+    specialDefence: 218
   },
-  moves: [
-    {
-      name: "Thunder",
-      element: "electric",
-      damage: 1000
-    },
-    {
-      name: "Thunderbolt",
-      element: "electric",
-      damage: 100
-    },
-    {
-      name: "Swift",
-      element: "normal",
-      damage: 100
-    },
-    {
-      name: "Body Slam",
-      element: "normal",
-      damage: 100
-    }
-  ]
+  moves: [thunder, thunderBolt, swift, bodySlam]
 }
 
 var pikachu = new Pokemon('Pikachu', pikachuProps)
@@ -437,35 +231,14 @@ var gyaradosProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/gyarados.gif'
   },
   stats: {
-    health: 3500,
-    attack: 3000,
-    defence: 700,
-    speed: 900,
-    specialAttack: 3000,
-    specialDefence: 4000
+    health: 394,
+    attack: 383,
+    defence: 282,
+    speed: 287,
+    specialAttack: 240,
+    specialDefence: 328
   },
-  moves: [
-    {
-      name: "Hydropump",
-      element: "water",
-      damage: 1000
-    },
-    {
-      name: "Surf",
-      element: "water",
-      damage: 100
-    },
-    {
-      name: "Hyperbeam",
-      element: "normal",
-      damage: 100
-    },
-    {
-      name: "Thunder",
-      element: "electric",
-      damage: 100
-    }
-  ]
+  moves: [hydroPump, surf, hyperBeam, thunder]
 }
 
 var gyarados = new Pokemon('Gyarados', gyaradosProps)
@@ -477,35 +250,14 @@ var aerodactylProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/aerodactyl.gif'
   },
   stats: {
-    health: 3500,
-    attack: 3000,
-    defence: 700,
-    speed: 900,
-    specialAttack: 3000,
-    specialDefence: 4000
+    health: 364,
+    attack: 339,
+    defence: 251,
+    speed: 394,
+    specialAttack: 240,
+    specialDefence: 273
   },
-  moves: [
-    {
-      name: "Rock Slide",
-      element: "rock",
-      damage: 1000
-    },
-    {
-      name: "Ancient Power",
-      element: "rock",
-      damage: 100
-    },
-    {
-      name: "Hyperbeam",
-      element: "normal",
-      damage: 100
-    },
-    {
-      name: "Wing Attack",
-      element: "flying",
-      damage: 100
-    }
-  ]
+  moves: [rockSlide, ancientPower, hyperBeam, wingAttack]
 }
 
 var aerodactyl = new Pokemon('Aerodactyl', aerodactylProps)
@@ -517,35 +269,14 @@ var venusaurProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/venusaur.gif'
   },
   stats: {
-    health: 3500,
-    attack: 3000,
-    defence: 700,
-    speed: 900,
-    specialAttack: 3000,
-    specialDefence: 4000
+    health: 364,
+    attack: 289,
+    defence: 291,
+    speed: 284,
+    specialAttack: 328,
+    specialDefence: 328
   },
-  moves: [
-    {
-      name: "Razor Leaf",
-      element: "grass",
-      damage: 1000
-    },
-    {
-      name: "Body Slam",
-      element: "normal",
-      damage: 100
-    },
-    {
-      name: "Solar Beam",
-      element: "grass",
-      damage: 100
-    },
-    {
-      name: "Earthquake",
-      element: "ground",
-      damage: 100
-    }
-  ]
+  moves: [razorLeaf, bodySlam, solarBeam, earthquake]
 }
 
 var venusaur = new Pokemon('Venusaur', venasaurProps)
@@ -557,35 +288,14 @@ var zapdosProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/zapdos.gif'
   },
   stats: {
-    health: 3500,
-    attack: 3000,
-    defence: 700,
-    speed: 900,
-    specialAttack: 3000,
-    specialDefence: 4000
+    health: 384,
+    attack: 306,
+    defence: 295,
+    speed: 328,
+    specialAttack: 383,
+    specialDefence: 306
   },
-  moves: [
-    {
-      name: "Thunder",
-      element: "lightning",
-      damage: 1000
-    },
-    {
-      name: "Wing Attack",
-      element: "flying",
-      damage: 100
-    },
-    {
-      name: "Thunder Bolt",
-      element: "normal",
-      damage: 100
-    },
-    {
-      name: "Swift",
-      element: "normal",
-      damage: 100
-    }
-  ]
+  moves: [thunder, wingAttack, thunderBolt, swift]
 }
 
 var zapdos = new Pokemon('Zapdos', zapdosProps)
@@ -597,35 +307,14 @@ var gengarProps = {
     back: 'http://www.pokestadium.com/sprites/xy/back/gengar.gif'
   },
   stats: {
-    health: 3500,
-    attack: 3000,
-    defence: 700,
-    speed: 900,
-    specialAttack: 3000,
-    specialDefence: 4000
+    health: 324,
+    attack: 251,
+    defence: 240,
+    speed: 350,
+    specialAttack: 394,
+    specialDefence: 273
   },
-  moves: [
-    {
-      name: "Lick",
-      element: "ghost",
-      damage: 1000
-    },
-    {
-      name: "Shadow Ball",
-      element: "ghost",
-      damage: 100
-    },
-    {
-      name: "Psychic",
-      element: "psychic",
-      damage: 100
-    },
-    {
-      name: "Will-O-Wisp",
-      element: "fire",
-      damage: 100
-    }
-  ]
+  moves: [lick, shadowBall, psychic, willOWisp]
 }
 
 var gengar = new Pokemon("Gengar", gengarProps)

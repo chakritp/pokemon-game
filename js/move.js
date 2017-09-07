@@ -1,3 +1,5 @@
+// weak to method
+
 function Move(name, damage, element) {
   this.name = name
   this.damage = damage
