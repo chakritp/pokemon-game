@@ -236,13 +236,13 @@ function checkOpponentFainted(player, opponent, $opponentBox, game) {
     else { //opponent has lost
       dialogTextArray.push(faintedPokemonName + " fainted!")
       if(player == 'player-1'){
-        console.log("GAME OVER! " + game.player1.name + " has won")
-        dialogTextArray.push("GAME OVER! " + game.player1.name + " has won")
+        console.log("GAME OVER! " + game.player1.name + " has won!")
+        dialogTextArray.push("GAME OVER! " + game.player1.name + " has won!")
         $('#trainer-1').addClass('winner')
       }
       else {
-        console.log("GAME OVER! " + game.player2.name + " has won")
-        dialogTextArray.push("GAME OVER! " + game.player2.name + " has won")
+        console.log("GAME OVER! " + game.player2.name + " has won!")
+        dialogTextArray.push("GAME OVER! " + game.player2.name + " has won!")
         $('#trainer-2').addClass('winner')
       }
       $('.remaining-health').promise().done(function(){
@@ -494,7 +494,7 @@ $(function() {
             })
 
             
-            $tooltip.css('display', 'none')
+            $tooltip.addClass('hide')
             console.log(pokemon.avatar.thumbnail)
             var $newThumbnail = $('<img>').prop('src', pokemon.avatar.thumbnail)
             $tooltip.text(pokemon.name).append($newThumbnail)
@@ -511,14 +511,10 @@ $(function() {
   })
 
   // show tooltip of pokemon when hovering
-  $('#pokemonSelectContainer').on('mouseenter', '.pokemon', function(){
-    $(this).find('.tooltip').css('display', 'block')
+  $('#pokemonSelectContainer').on('mouseenter mouseout', '.pokeball', function(){
+    $(this).closest('.pokemon').find('.tooltip').toggleClass('hide')
   })
 
-  // hide tooltip of pokemon after hovering
-  $('#pokemonSelectContainer').on('mouseout', '.pokemon', function(){
-    $(this).find('.tooltip').css('display', 'none')
-  })
 
   $('#pokemonSelectContainer').on('click', '.pokeball', function(){
     //cannot select more than 6

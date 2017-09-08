@@ -67,6 +67,11 @@
   color: black;
   background: #ccc;
   width: 130%;
-  opacity: 1;
-  transition: opacity 0.1s ease-in;
+  display: inline-block;
+  transition: display 0.1s ease-in;
+}
+
+#pokemonSelectContainer .tooltip.hide {
+  display: none;
+  transition: display 0.1s ease-out;
 }
