@@ -15,7 +15,7 @@ Based on one of the all-time classics, Pokemon Battle arena is a battle between 
 	- Certain moves can do more damage or less damage depending on the element of the move chosen and the opponent's element type
 
 	
---
+---
 ### Development and Technologies
 Pokemon Battle Arena was built using HTML, CSS, Javascript and the jQuery library. Additional libraries include:
 
