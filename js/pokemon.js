@@ -113,7 +113,8 @@ var charizardProps = {
   type: 'fire',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/charizard-megay.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/charizard.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/charizard.gif',
+    thumbnail: 'http://www.pokestadium.com/sprites/black-white/charizard.png'
   },
   stats: {
     health: 360,
@@ -132,7 +133,8 @@ var hoohProps = {
   type: 'fire',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/ho-oh.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/ho-oh.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/ho-oh.gif',
+    thumbnail: 'http://www.pokestadium.com/sprites/black-white/ho-oh.png'
   },
   stats: {
     health: 416,
@@ -151,7 +153,8 @@ var lugiaProps = {
   type: 'psychic',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/lugia.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/lugia.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/lugia.gif',
+    thumbnail: 'http://www.pokestadium.com/sprites/black-white/lugia.png'
   },
   stats: {
     health: 416,
@@ -170,7 +173,8 @@ var kyogreProps = {
   type: 'water',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/kyogre.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/kyogre.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/kyogre.gif',
+    thumbnail: 'http://www.pokestadium.com/sprites/black-white/kyogre.png'
   },
   stats: {
     health: 404,
@@ -189,7 +193,8 @@ var groudonProps = {
   type: 'fire',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/groudon.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/groudon.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/groudon.gif',
+    thumbnail: 'http://www.pokestadium.com/sprites/black-white/groudon.png'
   },
   stats: {
     health: 404,
@@ -208,7 +213,8 @@ var articunoProps = {
   type: 'ice',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/articuno.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/articuno.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/articuno.gif',
+    thumbnail: 'http://www.pokestadium.com/sprites/black-white/articuno.png'
   },
   stats: {
     health: 384,
@@ -229,7 +235,8 @@ var blastoiseProps = {
   type: 'water',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/blastoise.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/blastoise.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/blastoise.gif',
+    thumbnail: 'http://www.pokestadium.com/sprites/black-white/blastoise.png'
   },
   stats: {
     health: 362,
@@ -256,7 +263,8 @@ var mewtwoProps = {
   },
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/mewtwo.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/mewtwo.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/mewtwo.gif',
+    thumbnail: 'http://www.pokestadium.com/sprites/black-white/mewtwo.png'
   },
   moves: [psychic, hyperBeam, earthquake, swift]
 }
@@ -267,7 +275,8 @@ var moltresProps = {
   type: 'fire',
   avatar:  {
     front: 'http://www.pokestadium.com/sprites/xy/moltres.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/moltres.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/moltres.gif',
+    thumbnail: 'http://www.pokestadium.com/sprites/black-white/moltres.png'
   },
   stats: {
     health: 384,
@@ -286,7 +295,8 @@ var pikachuProps = {
   type: 'electric',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/pikachu.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/pikachu.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/pikachu.gif',
+    thumbnail: 'http://www.pokestadium.com/sprites/black-white/pikachu.png'
   },
   stats: {
     health: 274,
@@ -305,7 +315,8 @@ var gyaradosProps = {
   type: 'water',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/gyarados.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/gyarados.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/gyarados.gif',
+    thumbnail: 'http://www.pokestadium.com/sprites/black-white/gyarados.png'
   },
   stats: {
     health: 394,
@@ -324,7 +335,8 @@ var aerodactylProps = {
   type: 'rock',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/aerodactyl.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/aerodactyl.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/aerodactyl.gif',
+    thumbnail: 'http://www.pokestadium.com/sprites/black-white/aerodactyl.png'
   },
   stats: {
     health: 364,
@@ -343,7 +355,8 @@ var venusaurProps = {
   type: 'grass',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/venusaur.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/venusaur.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/venusaur.gif',
+    avatar: 'http://www.pokestadium.com/sprites/black-white/venusaur.png'
   },
   stats: {
     health: 364,
@@ -362,7 +375,8 @@ var zapdosProps = {
   type: 'electric',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/zapdos.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/zapdos.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/zapdos.gif',
+    avatar: 'http://www.pokestadium.com/sprites/black-white/zapdos.png'
   },
   stats: {
     health: 384,
@@ -381,7 +395,8 @@ var gengarProps = {
   type: 'ghost',
   avatar: {
     front: 'http://www.pokestadium.com/sprites/xy/gengar.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/gengar.gif'
+    back: 'http://www.pokestadium.com/sprites/xy/back/gengar.gif',
+    avatar: 'http://www.pokestadium.com/sprites/black-white/gengar.png'
   },
   stats: {
     health: 324,

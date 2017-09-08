@@ -193,6 +193,10 @@ function setUpPlayerBoard($playerBox, newPokemon, game) {
     // set text of other pokemon
     $(partyPokemon).find('.tooltip').text(remainingPokemon[index].name)
 
+    //add image
+    var $thumbnail = $('<img>').prop('src', remainingPokemon[index].avatar.thumbnail)
+    $(partyPokemon).find('.tooltip').append($thumbnail)
+
     // set id to images
     $(partyPokemon).find('img').prop('id', remainingPokemon[index].name)
 
