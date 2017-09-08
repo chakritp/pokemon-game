@@ -20,7 +20,8 @@ var superEffectiveTable = {
   ice: ["grass", "ground", "flying"],
   rock: ["flying", "fire"],
   ground: ["electric", "rock"],
-  fire: ["grass", "ice"]
+  fire: ["grass", "ice"],
+  ghost: ["psychic", "ghost"]
 }
 
 //the move type on the left is not very effective AGAINST the pokemon type on the right
