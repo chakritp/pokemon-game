@@ -315,6 +315,10 @@ $(function() {
       checkOpponentFainted(player, opponent, $opponentBox, game)
     },
     start: function(){
+      //set trainer text
+      $('#trainer-1 .trainer-name').text(this.player1.name)
+      $('#trainer-2 .trainer-name').text(this.player2.name)
+
       p1FirstPokemon = this.player1.pokemon[0];
       p2FirstPokemon = this.player2.pokemon[0];
 
@@ -419,7 +423,7 @@ $(function() {
   var pokemonSong = new Audio('images/pokemon.mp3')
 
   pokemonSong.loop = true
-  pokemonSong.play()
+  // pokemonSong.play()
 })
 
 

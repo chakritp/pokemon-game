@@ -107,14 +107,52 @@ h1:first-child {
   z-index: 9999;
 }
 
+.trainer-board {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 3px solid grey;
+}
+
+.trainer-board img{
+  width: 50%;
+}
+
+#trainer-1 img {
+  margin-left: 15px;
+}
+
+#trainer-2 img {
+  margin-top: 11px;
+  margin-right: 25px;
+}
+
+#trainer-1 {
+  float: left;
+  margin-left: 1%;
+}
+
+#trainer-2 {
+  float: right;
+  margin-right: 1%;
+}
+
+.trainer-name {
+  margin-top: 10px;
+  font-size: 30px;
+}
+
 #player-1{
   float: left;
-  margin-left: 15%;
+  margin-left: 2%;
 }
 
 #player-2{
   float: right;
-  margin-right: 15%;
+  margin-right: 2%;
 }
 
 .name, .health {
