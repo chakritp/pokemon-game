@@ -25,6 +25,71 @@ Pokemon Battle Arena was built using HTML, CSS, Javascript and the jQuery librar
 ### Approach Taken
 User stories can be found at the following [Trello Board](https://trello.com/b/iUwEn7jg/pokemon-game). Features were developed based on getting the basic battle gameplay working, followed by battle animations. The final features added were the menu features where players can input their names and select their personal pokemon to battle.
 
+The game broken down into several javascript objects:
+
+- Pokemon Object (the information of each pokemon)
+```javascript
+function Pokemon(name, props) {
+  this.name = name
+  this.avatar = props.avatar
+  this.stats = props.stats
+  this.moves = props.moves
+  // this.moves = []
+  // for (moveName in props.moves){
+  //   this.move.push(moves[moveName])
+  // }
+  this.remainingHealth = props.stats.health
+  this.type = props.type
+}
+
+var charizardProps = {
+  type: 'fire',
+  avatar: {
+    front: 'images/pokemon/charizard-front.gif',
+    back: 'images/pokemon/charizard-back.gif',
+    thumbnail: 'images/pokemon/charizard-thumbnail.png'
+  },
+  stats: {
+    health: 360,
+    attack: 293,
+    defence: 280,
+    speed: 328,
+    specialAttack: 348,
+    specialDefence: 295
+  },
+  moves: [firePunch, flameThrower, scratch, fireBlast]
+}
+
+var charizard = new Pokemon('Charizard', charizardProps)
+
+```
+
+- Move Object (contains the details of each of the moves in the game)
+```javascript
+function Move(name, damage, element, img, animation) {
+  this.name = name
+  this.damage = damage
+  this.element = element
+  this.image = img
+  this.animation = animation
+}
+
+var flameThrower = new Move("Flame Thrower", 90, "fire", "images/animations/fire.png", "beam")
+
+```
+
+- Trainer (information about each of the players and what pokemon they have)
+```javascript
+function Trainer(name, pokemon) {
+  this.name = name
+  this.pokemon = pokemon // array of pokemon objects
+  this.currentPokemon = pokemon[0]
+}
+
+trainer1 = new Trainer(trainer1Name, pokemonPlayer1)
+
+```
+
 ---
 ### Unsolved Problems / Dream Features
 - The pokemon selection page may at times have bugs when trying to select more than 6 pokemon
