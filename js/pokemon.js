@@ -3,6 +3,10 @@ function Pokemon(name, props) {
   this.avatar = props.avatar
   this.stats = props.stats
   this.moves = props.moves
+  // this.moves = []
+  // for (moveName in props.moves){
+  //   this.move.push(moves[moveName])
+  // }
   this.remainingHealth = props.stats.health
   this.type = props.type
 }

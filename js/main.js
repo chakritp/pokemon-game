@@ -47,18 +47,32 @@ function setBeam(player, move) {
   })
 
   if(player == 'player-1') {
-    $particle.css({
-      width: 0
-    })
-    $particle.show()
-    $particle.animate({
-      width: '100%'
-    }, 400, function(){
-      $particle.removeAttr('style')
-      $particle.hide()
-    })
+    // animate beam
+    // $particle.css({
+    //   width: 0
+    // })
+    // $particle.show()
+    // $particle.animate({
+    //   width: '100%'
+    // }, 400, function(){
+    //   $particle.removeAttr('style')
+    //   $particle.hide()
+    // })
+
+    // animate single image
+    // $particle.css({
+    //   left: 0
+    // })
+    // $particle.show()
+    // $particle.animate({
+    //   left: '100%'
+    // }, 400, function(){
+    //   $particle.removeAttr('style')
+    //   $particle.hide()
+    // })
   }
   else {
+    // animate beam
     $particle.css({
       right: 0,
       width: 0,
@@ -71,6 +85,18 @@ function setBeam(player, move) {
       $particle.removeAttr('style')
       $particle.hide()
     })
+
+    // animate single image
+    // $particle.css({
+    //   right: 0
+    // })
+    // $particle.show()
+    // $particle.animate({
+    //   right: '100%'
+    // }, 400, function(){
+    //   $particle.removeAttr('style')
+    //   $particle.hide()
+    // })
   }
 }
 
