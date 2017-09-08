@@ -541,7 +541,6 @@ $(function() {
   //set submit button active if 6 are selected
   $('#pokemonSelectContainer').on('click', '#submitPokemonButton', function(){
     if(!$(this).hasClass('disabled')){
-      console.log('here')
       //set trainer 1 pokemon if null
       if(pokemonPlayer1.length == 0){
         var pokemonNames = [];
@@ -568,35 +567,36 @@ $(function() {
           pokemonPlayer2.push($.extend(true, {}, pokemon)) //clone the pokemon
         })
       }
-    }
 
-    if(pokemonPlayer2.length == 0){
-      //clear the selection
-      $('.active').removeClass('active')
-      $('#submitPokemonButton').addClass('disabled')
 
-      // set dialog box for player 2 to pick
-      dialogTextArray.push("Please select your 6 pokemon to battle  , " + trainer2Name)
-      displayDialogueBoxText(dialogTextArray)
-    }
-    else { // both players have selected
-      //hide the container
-      $('#pokemonSelectContainer').fadeOut('slow', function(){
-        // start the game
-        dialogTextArray.push(trainer1Name + " challenged " + trainer2Name + " to a battle")
+      if(pokemonPlayer2.length == 0){
+        //clear the selection
+        $('.active').removeClass('active')
+        $('#submitPokemonButton').addClass('disabled')
+  
+        // set dialog box for player 2 to pick
+        dialogTextArray.push("Please select your 6 pokemon to battle  , " + trainer2Name)
         displayDialogueBoxText(dialogTextArray)
-
-        trainer1 = new Trainer(trainer1Name, pokemonPlayer1)
-        trainer2 = new Trainer(trainer2Name, pokemonPlayer2)
-        
-        game.player1 = trainer1
-        game.player2 = trainer2
-
-        introSong.pause()
-        battleSong.play()
-        game.start()
-        $('#playerContainer').fadeIn('slow')
-      })
+      }
+      else { // both players have selected
+        //hide the container
+        $('#pokemonSelectContainer').fadeOut('slow', function(){
+          // start the game
+          dialogTextArray.push(trainer1Name + " challenged " + trainer2Name + " to a battle")
+          displayDialogueBoxText(dialogTextArray)
+  
+          trainer1 = new Trainer(trainer1Name, pokemonPlayer1)
+          trainer2 = new Trainer(trainer2Name, pokemonPlayer2)
+          
+          game.player1 = trainer1
+          game.player2 = trainer2
+  
+          introSong.pause()
+          battleSong.play()
+          game.start()
+          $('#playerContainer').fadeIn('slow')
+        })
+      }
     }
   })
 
