@@ -32,6 +32,7 @@ User stories can be found at the following [Trello Board](https://trello.com/b/i
 - Implementing battle sounds of each pokemon and sounds of the moves
 - Implementing personalized animations for each pokemon move
 - Responsive sizing across different size screens
+- Toggle volume on/off button
 - Choice of a ***Random Mode*** where both players are assigned 6 random pokemon each
 
 ---
