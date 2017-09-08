@@ -92,7 +92,6 @@ trainer1 = new Trainer(trainer1Name, pokemonPlayer1)
 
 ---
 ### Unsolved Problems / Dream Features
-- The pokemon selection page may at times have bugs when trying to select more than 6 pokemon
 - An increased selection of pokemon
 - Implementing battle sounds of each pokemon and sounds of the moves
 - Implementing personalized animations for each pokemon move
