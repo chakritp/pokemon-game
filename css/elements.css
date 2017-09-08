@@ -23,6 +23,11 @@
   background: grey;
 }
 
+.grass {
+  color: white;
+  background: green;
+}
+
 .ground {
   color: white;
   background: brown;
@@ -41,4 +46,9 @@
 .psychic {
   color: white;
   background: purple;
+}
+
+.ghost {
+  color: white;
+  background: black;
 }

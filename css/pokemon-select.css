@@ -15,7 +15,12 @@
 #pokemonSelectContainer .pokemon-list img.pokeball {
   width: 80px;
   height: 80px;
-  border: 1px solid transparent;
+  border: 3px solid transparent;
+}
+
+#pokemonSelectContainer .pokemon-list img.pokeball.active {
+  border-color: yellow;
+  border-radius: 50%;
 }
 
 #pokemonSelectContainer .pokemon-list img.pokeball:hover {
@@ -50,12 +55,13 @@
 
 #pokemonSelectContainer .pokemon {
   position: relative;
+  cursor: pointer;
 }
 
 #pokemonSelectContainer .tooltip {
   position: absolute;
-  bottom: 70px;
-  left: -5px;
+  bottom: 80px;
+  left: -20px;
   padding: 5px;
   border: 2px solid black;
   color: black;

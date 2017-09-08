@@ -65,6 +65,17 @@ function calculateDamage(power, attack, defence, modifier) {
   return damageDealt;
 }
 
+function getPokemonByNameFromArray(pokemonArray, pokemonName){
+  var pokemonToReturn;
+
+  pokemonArray.forEach(function(pokemon){
+    if(pokemon.name == pokemonName){
+      pokemonToReturn = pokemon
+    }
+  })
+  return pokemonToReturn;
+}
+
 // attack functionality
 Pokemon.prototype.attack = function(moveIndex, opponent){
   var move = this.moves[moveIndex]
@@ -356,7 +367,7 @@ var venusaurProps = {
   avatar: {
     front: 'images/pokemon/venusaur-front.gif',
     back: 'images/pokemon/venusaur-back.gif',
-    avatar: 'images/pokemon/venusaur-thumbnail.png'
+    thumbnail: 'images/pokemon/venusaur-thumbnail.png'
   },
   stats: {
     health: 364,
@@ -376,7 +387,7 @@ var zapdosProps = {
   avatar: {
     front: 'images/pokemon/zapdos-front.gif',
     back: 'images/pokemon/zapdos-back.gif',
-    avatar: 'images/pokemon/zapdos-thumbnail.png'
+    thumbnail: 'images/pokemon/zapdos-thumbnail.png'
   },
   stats: {
     health: 384,
@@ -396,7 +407,7 @@ var gengarProps = {
   avatar: {
     front: 'images/pokemon/gengar-front.gif',
     back: 'images/pokemon/gengar-back.gif',
-    avatar: 'images/pokemon/gengar-thumbnail.png'
+    thumbnail: 'images/pokemon/gengar-thumbnail.png'
   },
   stats: {
     health: 324,

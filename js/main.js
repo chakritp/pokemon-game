@@ -1,9 +1,13 @@
 var gameOver = false
-var pokemonPlayer1 = [charizard, hooh, lugia, kyogre, groudon, articuno]
-var trainer1 = new Trainer("Ash", pokemonPlayer1)
+// var pokemonPlayer1 = [charizard, hooh, lugia, kyogre, groudon, articuno]
+// var trainer1 = new Trainer("Ash", pokemonPlayer1)
+// var pokemonPlayer2 = [blastoise, mewtwo, moltres, pikachu, gyarados, aerodactyl]
+// var trainer2 = new Trainer("Gary", pokemonPlayer2)
 
-var pokemonPlayer2 = [blastoise, mewtwo, moltres, pikachu, gyarados, aerodactyl]
-var trainer2 = new Trainer("Gary", pokemonPlayer2)
+var pokemonPlayer1 = [];
+var pokemonPlayer2 = [];
+var trainer1 = null;
+var trainer2 = null;
 
 var dialogTextArray = []
 var effectiveText = ""
@@ -479,6 +483,7 @@ $(function() {
 
             
             $tooltip.css('display', 'none')
+            console.log(pokemon.avatar.thumbnail)
             var $newThumbnail = $('<img>').prop('src', pokemon.avatar.thumbnail)
             $tooltip.text(pokemon.name).append($newThumbnail)
 
@@ -495,12 +500,91 @@ $(function() {
 
   // show tooltip of pokemon when hovering
   $('#pokemonSelectContainer').on('mouseenter', '.pokemon', function(){
-    console.log(this)
     $(this).find('.tooltip').css('display', 'block')
   })
 
+  // hide tooltip of pokemon after hovering
   $('#pokemonSelectContainer').on('mouseout', '.pokemon', function(){
     $(this).find('.tooltip').css('display', 'none')
+  })
+
+  $('#pokemonSelectContainer').on('click', '.pokeball', function(){
+    //cannot select more than 6
+    if($('.pokeball.active').length != 6){
+      $(this).toggleClass('active')
+
+      if($('.pokeball.active').length == 6) {
+        $('#pokemonSelectContainer #submitPokemonButton').removeClass('disabled')
+      }
+      else {
+        $('#pokemonSelectContainer #submitPokemonButton').addClass('disabled')
+      }
+    }
+    else if($('.pokeball.active').length == 6) {
+      $('.pokeball.active').first().removeClass('active')
+      $(this).addClass('active')
+    }
+  })
+
+  //set submit button active if 6 are selected
+  $('#pokemonSelectContainer').on('click', '#submitPokemonButton', function(){
+    if(!$(this).hasClass('disabled')){
+      console.log('here')
+      //set trainer 1 pokemon if null
+      if(pokemonPlayer1.length == 0){
+        var pokemonNames = [];
+        $('.active').each(function(index, pokemon){
+          pokemonNames.push($(pokemon).prop('id'))
+        })
+
+        console.log(pokemonNames)
+
+        pokemonNames.forEach(function(pokemonName){
+          var pokemon = getPokemonByNameFromArray(allPokemon, pokemonName)
+          //push pokemon object
+          pokemonPlayer1.push(pokemon)
+        })
+      }
+      // trainer 1 has already selected (time to set trainer 2's pokemon)
+      else {
+        var pokemonNames = [];
+        $('.active').each(function(index, pokemon){
+          pokemonNames.push($(pokemon).prop('id'))
+        })
+
+        pokemonNames.forEach(function(pokemonName){
+          var pokemon = getPokemonByNameFromArray(allPokemon, pokemonName)
+          //push pokemon object
+          pokemonPlayer2.push($.extend(true, {}, pokemon)) //clone the pokemon
+        })
+      }
+    }
+
+    if(pokemonPlayer2.length == 0){
+      //clear the selection
+      $('.active').removeClass('active')
+
+      // set dialog box for player 2 to pick
+      dialogTextArray.push("Please select your 6 pokemon to battle  , " + trainer2Name)
+      displayDialogueBoxText(dialogTextArray)
+    }
+    else { // both players have selected
+      //hide the container
+      $('#pokemonSelectContainer').fadeOut('slow', function(){
+        // start the game
+        dialogTextArray.push(trainer1Name + " challenged " + trainer2Name + " to a battle")
+        displayDialogueBoxText(dialogTextArray)
+
+        trainer1 = new Trainer(trainer1Name, pokemonPlayer1)
+        trainer2 = new Trainer(trainer2Name, pokemonPlayer2)
+        
+        game.player1 = trainer1
+        game.player2 = trainer2
+
+        game.start()
+        $('#playerContainer').fadeIn('slow')
+      })
+    }
   })
 
   //4. show player select for player 2
