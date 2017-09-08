@@ -1,0 +1,66 @@
+#pokemonSelectContainer {
+  width: 800px;
+  border: 5px solid grey;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin: 0 auto;
+  display: none;
+}
+
+#pokemonSelectContainer .pokemon-list div {
+  display: inline-block;
+}
+
+#pokemonSelectContainer .pokemon-list img.pokeball {
+  width: 80px;
+  height: 80px;
+  border: 1px solid transparent;
+}
+
+#pokemonSelectContainer .pokemon-list img.pokeball:hover {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  -ms-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+#pokemonSelectContainer #submitPokemonButton {
+  width: 100px;
+  margin: 50px auto;
+  padding: 10px;
+  font-size: 20px;
+  border: 3px solid black;
+  color: white;
+  background: #E55EA2;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#pokemonSelectContainer #submitPokemonButton.disabled {
+  opacity: 0.5; 
+  cursor: not-allowed;
+}
+
+#pokemonSelectContainer .pokemon {
+  position: relative;
+}
+
+#pokemonSelectContainer .tooltip {
+  position: absolute;
+  bottom: 70px;
+  left: -5px;
+  padding: 5px;
+  border: 2px solid black;
+  color: black;
+  background: #ccc;
+  width: 130%;
+  opacity: 1;
+  transition: opacity 0.1s ease-in;
+}

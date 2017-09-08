@@ -42,7 +42,7 @@ html {
   font-size: 20px;
 }
 
-h1:first-child {
+h1#title {
   text-align: center;
   text-transform: uppercase;
   font-family: 'pokemon_sun_moon', 'Arial';
@@ -55,6 +55,10 @@ h1:first-child {
      -1px 1px 0 #000,
       1px 1px 0 #000;
   word-spacing: 10px;
+}
+
+#playerContainer {
+  display: none;
 }
 
 #attackBoxContainer {
@@ -142,6 +146,7 @@ h1:first-child {
 }
 
 .trainer-name {
+  word-wrap: break-word;
   margin-top: 10px;
   font-size: 30px;
 }

@@ -7,7 +7,10 @@
   <title>Pokemon Battle</title>
 
   <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <link rel="stylesheet" href="css/trainer-name.css" type="text/css">
+  <link rel="stylesheet" href="css/pokemon-select.css" type="text/css">
   <link rel="stylesheet" href="css/elements.css" type="text/css">
+
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js"></script>
   <script src="js/move.js"></script>
@@ -16,10 +19,37 @@
   <script src="js/main.js"></script>
 </head>
 <body>
-  <h1>Pokemon Battle Arena</h1>
+  <h1 id="title">Pokemon Battle Arena</h1>
   <div id="dialogueBox">
     <div id="text"></div>
   </div>
+  <!-- Trainers' Name Container -->
+  <div id="inputTrainerContainer">
+    <h1>Trainer 1 Name</h1>
+    <div class="trainer-1">
+      <input type="text"  id="trainer1Input">
+    </div>
+    
+    <h1>Trainer 2 Name</h1>
+    <div class="trainer-2">
+      <input type="text" id="trainer2Input">
+    </div>
+
+    <div class="button-row">
+      <div class="disabled" id="submitNamesButton">Submit</div>
+    </div>
+  </div>
+  
+  <!-- Pokemon Select Container -->
+  <div id="pokemonSelectContainer">
+    <h1>Select Pokemon</h1>
+    <div class="pokemon-list"></div>
+    <div class="button-row">
+      <div class="disabled" id="submitPokemonButton">Submit</div>
+    </div>
+  </div>
+
+  <!-- Player Container -->
   <div id="playerContainer">
     <div id="attackBoxContainer">
       <div id="attackBox">
@@ -65,23 +95,23 @@
       <div class="party-pokemon">
         <div class="party" id="party-1">
           <div class="tooltip hide">Tooltip</div>
-          <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+          <img src="images/pokeball.svg">
         </div>
         <div class="party" id="party-2">
           <div class="tooltip hide">Tooltip</div>
-          <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+          <img src="images/pokeball.svg">
         </div>
         <div class="party" id="party-3">
           <div class="tooltip hide">Tooltip</div>
-          <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+          <img src="images/pokeball.svg">
         </div>
         <div class="party" id="party-4">
           <div class="tooltip hide">Tooltip</div>
-          <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+          <img src="images/pokeball.svg">
         </div>
         <div class="party" id="party-5">
           <div class="tooltip hide">Tooltip</div>
-          <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+          <img src="images/pokeball.svg">
         </div>
       </div>
     </div>
@@ -100,7 +130,7 @@
     
         <!-- Avatar -->
         <div class="avatar">
-          <img src="http://thecraftchop.com/files/others/Pokeball.svg" alt="">
+          <img src="images/pokeball.svg" alt="">
         </div>
     
         <!-- Health -->
@@ -126,23 +156,23 @@
         <div class="party-pokemon">
           <div class="party" id="party-1">
             <div class="tooltip hide">Tooltip</div>
-            <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+            <img src="images/pokeball.svg">
           </div>
           <div class="party" id="party-2">
             <div class="tooltip hide">Tooltip</div>
-            <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+            <img src="images/pokeball.svg">
           </div>
           <div class="party" id="party-3">
             <div class="tooltip hide">Tooltip</div>
-            <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+            <img src="images/pokeball.svg">
           </div>
           <div class="party" id="party-4">
             <div class="tooltip hide">Tooltip</div>
-            <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+            <img src="images/pokeball.svg">
           </div>
           <div class="party" id="party-5">
             <div class="tooltip hide">Tooltip</div>
-            <img src="http://thecraftchop.com/files/others/Pokeball.svg">
+            <img src="images/pokeball.svg">
           </div>
         </div>
     </div>

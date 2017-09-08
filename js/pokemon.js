@@ -410,3 +410,5 @@ var gengarProps = {
 }
 
 var gengar = new Pokemon("Gengar", gengarProps)
+
+var allPokemon = [pikachu, venusaur, charizard, blastoise, gyarados, gengar, aerodactyl, articuno, zapdos, moltres, mewtwo, hooh, lugia, groudon, kyogre]

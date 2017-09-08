@@ -419,13 +419,93 @@ $(function() {
     } // end start method
   }; // end game object
 
-  game.start()
+  // game.start()
   
   //add sound
   var pokemonSong = new Audio('images/pokemon.mp3')
 
   pokemonSong.loop = true
-  pokemonSong.play()
+  // pokemonSong.play()
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  //1. hide everything initially
+
+  //2. show player name div
+  dialogTextArray.push("Please input your trainer names")
+  displayDialogueBoxText(dialogTextArray)
+  var trainer1Name;
+  var trainer2Name;
+
+  //disable button if name is not filled
+  $('#inputTrainerContainer input').on('input', function(){
+    if($('#trainer1Input').val() != '' && $('#trainer2Input').val() != '') {
+      $('#submitNamesButton').removeClass('disabled')
+    }
+    else {
+      $('#submitNamesButton').addClass('disabled')
+    }
+  })
+
+  $('#submitNamesButton').on('click', function() {
+    //check text fields aren't empty
+    if($('#trainer1Input').val() != '' && $('#trainer2Input').val() != '') {
+      trainer1Name = $('#trainer1Input').val()
+      trainer2Name = $('#trainer2Input').val()
+
+      console.log(trainer1Name, trainer2Name)
+
+      //fade out inputTrainerContainer
+      $('#inputTrainerContainer').fadeOut('slow', function(){
+        
+        //3. show pokemon select for player 1
+        dialogTextArray.push("Please select your 6 pokemon to battle  , " + trainer1Name)
+        displayDialogueBoxText(dialogTextArray)
+        $('#pokemonSelectContainer').fadeIn('slow', function(){
+
+          // append pokemon to list
+          allPokemon.forEach(function(pokemon){
+            var $newPokemonImg = $('<img>').prop({
+              src: "images/pokeball.svg",
+              id: pokemon.name,
+              class: 'pokeball'
+            })
+
+            var $tooltip = $('<div>').prop({
+              class: 'tooltip'
+            })
+
+            
+            $tooltip.css('display', 'none')
+            var $newThumbnail = $('<img>').prop('src', pokemon.avatar.thumbnail)
+            $tooltip.text(pokemon.name).append($newThumbnail)
+
+            var $newPokemonDiv = $('<div>').addClass('pokemon')
+
+            $newPokemonDiv.append($tooltip, $newPokemonImg)
+
+            $('#pokemonSelectContainer .pokemon-list').append($newPokemonDiv)
+          })
+        })
+      })
+    }
+  })
+
+  // show tooltip of pokemon when hovering
+  $('#pokemonSelectContainer').on('mouseenter', '.pokemon', function(){
+    console.log(this)
+    $(this).find('.tooltip').css('display', 'block')
+  })
+
+  $('#pokemonSelectContainer').on('mouseout', '.pokemon', function(){
+    $(this).find('.tooltip').css('display', 'none')
+  })
+
+  //4. show player select for player 2
+  //5. start game
+
 })
 
 
