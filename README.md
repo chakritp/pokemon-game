@@ -1,4 +1,4 @@
-# Pokemon Battle Arena
+# Pokemon Battle Arena ![Pokeball](https://cdn.emojidex.com/emoji/px32/Pokeball.png "Pokeball")
 
 Play the game [here](https://chakritp.github.io/pokemon-game)
 
@@ -92,10 +92,10 @@ trainer1 = new Trainer(trainer1Name, pokemonPlayer1)
 
 ---
 ### Unsolved Problems / Dream Features
-- The pokemon selection page may at times have bugs when trying to select more than 6 pokemon
 - An increased selection of pokemon
 - Implementing battle sounds of each pokemon and sounds of the moves
 - Implementing personalized animations for each pokemon move
+- Adding animations when switching pokemon in and out
 - Responsive sizing across different size screens
 - Toggle volume on/off button
 - Choice of a ***Random Mode*** where both players are assigned 6 random pokemon each
