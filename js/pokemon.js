@@ -112,9 +112,9 @@ Pokemon.prototype.checkEffective = function(move) {
 var charizardProps = {
   type: 'fire',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/charizard-megay.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/charizard.gif',
-    thumbnail: 'http://www.pokestadium.com/sprites/black-white/charizard.png'
+    front: 'images/pokemon/charizard-front.gif',
+    back: 'images/pokemon/charizard-back.gif',
+    thumbnail: 'images/pokemon/charizard-thumbnail.png'
   },
   stats: {
     health: 360,
@@ -132,9 +132,9 @@ var charizard = new Pokemon('Charizard', charizardProps)
 var hoohProps = {
   type: 'fire',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/ho-oh.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/ho-oh.gif',
-    thumbnail: 'http://www.pokestadium.com/sprites/black-white/ho-oh.png'
+    front: 'images/pokemon/ho-oh-front.gif',
+    back: 'images/pokemon/ho-oh-back.gif',
+    thumbnail: 'images/pokemon/ho-oh-thumbnail.png'
   },
   stats: {
     health: 416,
@@ -152,9 +152,9 @@ var hooh = new Pokemon('Ho-Oh', hoohProps)
 var lugiaProps = {
   type: 'psychic',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/lugia.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/lugia.gif',
-    thumbnail: 'http://www.pokestadium.com/sprites/black-white/lugia.png'
+    front: 'images/pokemon/lugia-front.gif',
+    back: 'images/pokemon/lugia-back.gif',
+    thumbnail: 'images/pokemon/lugia-thumbnail.png'
   },
   stats: {
     health: 416,
@@ -172,9 +172,9 @@ var lugia = new Pokemon('Lugia', lugiaProps)
 var kyogreProps = {
   type: 'water',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/kyogre.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/kyogre.gif',
-    thumbnail: 'http://www.pokestadium.com/sprites/black-white/kyogre.png'
+    front: 'images/pokemon/kyogre-front.gif',
+    back: 'images/pokemon/kyogre-back.gif',
+    thumbnail: 'images/pokemon/kyogre-thumbnail.png'
   },
   stats: {
     health: 404,
@@ -192,9 +192,9 @@ var kyogre = new Pokemon('Kyogre', kyogreProps)
 var groudonProps = {
   type: 'fire',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/groudon.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/groudon.gif',
-    thumbnail: 'http://www.pokestadium.com/sprites/black-white/groudon.png'
+    front: 'images/pokemon/groudon-front.gif',
+    back: 'images/pokemon/groudon-back.gif',
+    thumbnail: 'images/pokemon/groudon-thumbnail.png'
   },
   stats: {
     health: 404,
@@ -212,9 +212,9 @@ var groudon = new Pokemon('Groudon', groudonProps)
 var articunoProps = {
   type: 'ice',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/articuno.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/articuno.gif',
-    thumbnail: 'http://www.pokestadium.com/sprites/black-white/articuno.png'
+    front: 'images/pokemon/articuno-front.gif',
+    back: 'images/pokemon/articuno-back.gif',
+    thumbnail: 'images/pokemon/articuno-thumbnail.png'
   },
   stats: {
     health: 384,
@@ -234,9 +234,9 @@ var articuno = new Pokemon('Articuno', articunoProps)
 var blastoiseProps = {
   type: 'water',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/blastoise.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/blastoise.gif',
-    thumbnail: 'http://www.pokestadium.com/sprites/black-white/blastoise.png'
+    front: 'images/pokemon/blastoise-front.gif',
+    back: 'images/pokemon/blastoise-back.gif',
+    thumbnail: 'images/pokemon/blastoise-thumbnail.png'
   },
   stats: {
     health: 362,
@@ -262,9 +262,9 @@ var mewtwoProps = {
     specialDefence: 306
   },
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/mewtwo.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/mewtwo.gif',
-    thumbnail: 'http://www.pokestadium.com/sprites/black-white/mewtwo.png'
+    front: 'images/pokemon/mewtwo-front.gif',
+    back: 'images/pokemon/mewtwo-back.gif',
+    thumbnail: 'images/pokemon/mewtwo-thumbnail.png'
   },
   moves: [psychic, hyperBeam, earthquake, swift]
 }
@@ -274,9 +274,9 @@ var mewtwo = new Pokemon('Mewtwo', mewtwoProps)
 var moltresProps = {
   type: 'fire',
   avatar:  {
-    front: 'http://www.pokestadium.com/sprites/xy/moltres.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/moltres.gif',
-    thumbnail: 'http://www.pokestadium.com/sprites/black-white/moltres.png'
+    front: 'images/pokemon/moltres-front.gif',
+    back: 'images/pokemon/moltres-back.gif',
+    thumbnail: 'images/pokemon/moltres-thumbnail.png'
   },
   stats: {
     health: 384,
@@ -294,9 +294,9 @@ var moltres = new Pokemon('Moltres', moltresProps)
 var pikachuProps = {
   type: 'electric',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/pikachu.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/pikachu.gif',
-    thumbnail: 'http://www.pokestadium.com/sprites/black-white/pikachu.png'
+    front: 'images/pokemon/pikachu-front.gif',
+    back: 'images/pokemon/pikachu-back.gif',
+    thumbnail: 'images/pokemon/pikachu-thumbnail.png'
   },
   stats: {
     health: 274,
@@ -314,9 +314,9 @@ var pikachu = new Pokemon('Pikachu', pikachuProps)
 var gyaradosProps = {
   type: 'water',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/gyarados.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/gyarados.gif',
-    thumbnail: 'http://www.pokestadium.com/sprites/black-white/gyarados.png'
+    front: 'images/pokemon/gyarados-front.gif',
+    back: 'images/pokemon/gyarados-back.gif',
+    thumbnail: 'images/pokemon/gyarados-thumbnail.png'
   },
   stats: {
     health: 394,
@@ -334,9 +334,9 @@ var gyarados = new Pokemon('Gyarados', gyaradosProps)
 var aerodactylProps = {
   type: 'rock',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/aerodactyl.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/aerodactyl.gif',
-    thumbnail: 'http://www.pokestadium.com/sprites/black-white/aerodactyl.png'
+    front: 'images/pokemon/aerodactyl-front.gif',
+    back: 'images/pokemon/aerodactyl-back.gif',
+    thumbnail: 'images/pokemon/aerodactyl-thumbnail.png'
   },
   stats: {
     health: 364,
@@ -354,9 +354,9 @@ var aerodactyl = new Pokemon('Aerodactyl', aerodactylProps)
 var venusaurProps = {
   type: 'grass',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/venusaur.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/venusaur.gif',
-    avatar: 'http://www.pokestadium.com/sprites/black-white/venusaur.png'
+    front: 'images/pokemon/venusaur-front.gif',
+    back: 'images/pokemon/venusaur-back.gif',
+    avatar: 'images/pokemon/venusaur-thumbnail.png'
   },
   stats: {
     health: 364,
@@ -374,9 +374,9 @@ var venusaur = new Pokemon('Venusaur', venusaurProps)
 var zapdosProps = {
   type: 'electric',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/zapdos.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/zapdos.gif',
-    avatar: 'http://www.pokestadium.com/sprites/black-white/zapdos.png'
+    front: 'images/pokemon/zapdos-front.gif',
+    back: 'images/pokemon/zapdos-back.gif',
+    avatar: 'images/pokemon/zapdos-thumbnail.png'
   },
   stats: {
     health: 384,
@@ -394,9 +394,9 @@ var zapdos = new Pokemon('Zapdos', zapdosProps)
 var gengarProps = {
   type: 'ghost',
   avatar: {
-    front: 'http://www.pokestadium.com/sprites/xy/gengar.gif',
-    back: 'http://www.pokestadium.com/sprites/xy/back/gengar.gif',
-    avatar: 'http://www.pokestadium.com/sprites/black-white/gengar.png'
+    front: 'images/pokemon/gengar-front.gif',
+    back: 'images/pokemon/gengar-back.gif',
+    avatar: 'images/pokemon/gengar-thumbnail.png'
   },
   stats: {
     health: 324,
