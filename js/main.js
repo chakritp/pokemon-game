@@ -216,7 +216,9 @@ function checkOpponentFainted(player, opponent, $opponentBox, game) {
       console.log(newPokemon.name + " switched in!")
       dialogTextArray.push(faintedPokemonName + " fainted! " + opponent.name + " switched " + newPokemon.name + " in!")
       //reinitialize box with new pokemon
-      setUpPlayerBoard($opponentBox, newPokemon, game)
+      $('.remaining-health').promise().done(function() {
+        setUpPlayerBoard($opponentBox, newPokemon, game)
+      })
     }
     else { //opponent has lost
       dialogTextArray.push(faintedPokemonName + " fainted!")
