@@ -122,11 +122,12 @@ h1:first-child {
 }
 
 #trainer-1 img {
+  margin-top: 15px;
   margin-left: 15px;
 }
 
 #trainer-2 img {
-  margin-top: 11px;
+  margin-top: 20px;
   margin-right: 25px;
 }
 
