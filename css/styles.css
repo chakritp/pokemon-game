@@ -296,13 +296,13 @@ h1#title {
   color: black;
   background: #ccc;
   width: 130%;
-  opacity: 1;
-  transition: opacity 0.1s ease-in;
+  display: block;
+  transition: display 0.1s ease-in;
 }
 
 .hide {
-  opacity: 0;
-  transition: opacity 0.1s ease-out;
+  display: none;
+  transition: display 0.1s ease-out;
 }
 
 .options {
