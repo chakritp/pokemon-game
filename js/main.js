@@ -38,13 +38,15 @@ function animateAttack(player, $image, pokemon, moveId) {
     // move pokemon
     $image.animate({
       left: '30px'
-    }, 100, function(){
+    }, 200, function(){
       $image.animate({
         left: 0
-      }, 100)
+      }, 200)
 
       //flicker player-2
-      flickerOpponent('player-2')
+      $image.promise().done(function(){
+        flickerOpponent('player-2')
+      })
     })
   } 
   else {
@@ -60,7 +62,9 @@ function animateAttack(player, $image, pokemon, moveId) {
       }, 100)
 
       //flicker player-1
-      flickerOpponent('player-1')
+      $image.promise().done(function(){
+        flickerOpponent('player-1')
+      })
     })
   }
 }

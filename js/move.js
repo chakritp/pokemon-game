@@ -26,12 +26,13 @@ Move.prototype.animate = function(player){
       if(this.animation == 'beam') {
         // animate beam
         $particle.css({
-          width: 0
+          width: 0,
+          borderRadius: '20px'
         })
         $particle.show()
         $particle.animate({
           width: '100%'
-        }, 400, function(){
+        }, 500, function(){
           $particle.removeAttr('style')
           $particle.hide()
         })
@@ -56,12 +57,13 @@ Move.prototype.animate = function(player){
         $particle.css({
           right: 0,
           width: 0,
+          borderRadius: '20px',
           transform: 'rotateZ(180deg)'
         })
         $particle.show()
         $particle.animate({
           width: '100%'
-        }, 400, function(){
+        }, 500, function(){
           $particle.removeAttr('style')
           $particle.hide()
         })
@@ -126,7 +128,7 @@ var rockSlide = new Move("Rock Slide", 75, "rock", "images/animations/rock_slide
 var ancientPower = new Move("Ancient Power", 60, "rock", "images/animations/rock_slide.png", "particle")
 
 // Ground
-var earthquake = new Move("Earthquake", 100, "ground", "images/animations/earthquake.png", "beam")
+var earthquake = new Move("Earthquake", 100, "ground", "images/animations/earthquake.jpg", "beam")
 
 // Electric
 var thunder = new Move("Thunder", 110, "electric", "images/animations/thunder.jpg", "beam")
