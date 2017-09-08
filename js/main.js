@@ -425,7 +425,7 @@ $(function() {
   var pokemonSong = new Audio('images/pokemon.mp3')
 
   pokemonSong.loop = true
-  // pokemonSong.play()
+  pokemonSong.play()
 })
 
 
