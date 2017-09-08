@@ -1,4 +1,4 @@
-# Pokemon Battle Arena
+# Pokemon Battle Arena ![Pokeball](https://cdn.emojidex.com/emoji/px32/Pokeball.png "Pokeball")
 
 Play the game [here](https://chakritp.github.io/pokemon-game)
 
