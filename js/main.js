@@ -30,81 +30,12 @@ function flickerOpponent(player) {
   }
 }
 
-function setParticleImage(move) {
-  var imageSrc = "images/animations/fire.png"
-  return imageSrc
-}
-
-function setBeam(player, move) {
-  var $particle = $('#attackBox #particle')
-
-  //set particle image
-  var particleImage = setParticleImage(move)
-  $particle.prop('src', particleImage)
-
-  $particle.css({
-    display: 'inline-block'
-  })
-
-  if(player == 'player-1') {
-    // animate beam
-    // $particle.css({
-    //   width: 0
-    // })
-    // $particle.show()
-    // $particle.animate({
-    //   width: '100%'
-    // }, 400, function(){
-    //   $particle.removeAttr('style')
-    //   $particle.hide()
-    // })
-
-    // animate single image
-    // $particle.css({
-    //   left: 0
-    // })
-    // $particle.show()
-    // $particle.animate({
-    //   left: '100%'
-    // }, 400, function(){
-    //   $particle.removeAttr('style')
-    //   $particle.hide()
-    // })
-  }
-  else {
-    // animate beam
-    $particle.css({
-      right: 0,
-      width: 0,
-      transform: 'rotateZ(180deg)'
-    })
-    $particle.show()
-    $particle.animate({
-      width: '100%'
-    }, 400, function(){
-      $particle.removeAttr('style')
-      $particle.hide()
-    })
-
-    // animate single image
-    // $particle.css({
-    //   right: 0
-    // })
-    // $particle.show()
-    // $particle.animate({
-    //   right: '100%'
-    // }, 400, function(){
-    //   $particle.removeAttr('style')
-    //   $particle.hide()
-    // })
-  }
-}
-
-function animateAttack(player, $image) {
+function animateAttack(player, $image, pokemon, moveId) {
   if(player == "player-1") {
     //check move and attach the image to the animation
-    setBeam('player-1')
+    pokemon.moves[moveId].animate('player-1')
 
+    // move pokemon
     $image.animate({
       left: '30px'
     }, 100, function(){
@@ -118,8 +49,9 @@ function animateAttack(player, $image) {
   } 
   else {
     //check move and attach the image to the animation
-    setBeam('player-2')
+    pokemon.moves[moveId].animate('player-2')
 
+    // move pokemon
     $image.animate({
       left: '-30px'
     }, 100, function(){
@@ -418,11 +350,11 @@ $(function() {
         var $currentAvatar = $(this).closest('.player-board').find('.avatar img')
         if(game.currentPlayer == game.player1){
           game.currentPlayer.currentPokemon.attack(moveId, game.player2.currentPokemon)
-          animateAttack("player-1", $currentAvatar)
+          animateAttack("player-1", $currentAvatar, game.currentPlayer.currentPokemon, moveId)
         }
         else {
           game.currentPlayer.currentPokemon.attack(moveId, game.player1.currentPokemon)
-          animateAttack("player-2", $currentAvatar)
+          animateAttack("player-2", $currentAvatar, game.currentPlayer.currentPokemon, moveId)
         }
 
         // set text of dialog box

@@ -5,19 +5,90 @@ function Move(name, damage, element, img, animation) {
   this.damage = damage
   this.element = element
   this.image = img
-  this.animation
+  this.animation = animation
 }
 
-Move.prototype.animate = function(style){
-  console.log('animate', style, this.image)
+Move.prototype.animate = function(player){
+  var $particle = $('#attackBox #particle')
+  
+  //set particle image
+  var particleImage = this.image
+  console.log(particleImage)
+  if(particleImage) {
+    $particle.prop('src', particleImage)
+
+    $particle.css({
+      display: 'inline-block'
+    })
+
+    if(player == 'player-1') {
+      console.log('here')
+      if(this.animation == 'beam') {
+        // animate beam
+        $particle.css({
+          width: 0
+        })
+        $particle.show()
+        $particle.animate({
+          width: '100%'
+        }, 400, function(){
+          $particle.removeAttr('style')
+          $particle.hide()
+        })
+      }
+      else {
+        // animate single image
+        $particle.css({
+          left: 0
+        })
+        $particle.show()
+        $particle.animate({
+          left: '100%'
+        }, 500, function(){
+          $particle.removeAttr('style')
+          $particle.hide()
+        })
+      }
+    }
+    else {
+      if(this.animation == 'beam') {
+        // animate beam
+        $particle.css({
+          right: 0,
+          width: 0,
+          transform: 'rotateZ(180deg)'
+        })
+        $particle.show()
+        $particle.animate({
+          width: '100%'
+        }, 400, function(){
+          $particle.removeAttr('style')
+          $particle.hide()
+        })
+      }
+      else {
+        // animate single image
+        $particle.css({
+          right: 0
+        })
+        $particle.show()
+        $particle.animate({
+          right: '100%'
+        }, 500, function(){
+          $particle.removeAttr('style')
+          $particle.hide()
+        })
+      }
+    }
+  }
 }
 
 // Fire
 var firePunch = new Move("Fire Punch", 75, "fire", "images/animations/fire.png", "particle")
 var flameThrower = new Move("Flame Thrower", 90, "fire", "images/animations/fire.png", "beam")
 var fireBlast = new Move("Fire Blast", 110, "fire", "images/animations/fire.png", "beam")
-var sacredFire = new Move("Sacred Fire", 100, "fire", "images/animations/rainbow_fire.png", "beam")
-var willOWisp = new Move("Will-O-Wisp", 100, "fire", "images/animations/rainbow_fire.png", "particle")
+var sacredFire = new Move("Sacred Fire", 100, "fire", "images/animations/rainbow_fire.jpg", "beam")
+var willOWisp = new Move("Will-O-Wisp", 100, "fire", "images/animations/rainbow_fire.jpg", "particle")
 
 // Normal
 var scratch = new Move("Scratch", 40, "normal")
@@ -36,7 +107,7 @@ var lick = new Move("Lick", 30, "ghost")
 var shadowBall = new Move("Shadow Ball", 80, "ghost", "images/animations/shadow_ball.png", "particle")
 
 // Psychic
-var psychic = new Move("Psychic", 90, "psychic", "images/animations/psychic.jpg", "particle")
+var psychic = new Move("Psychic", 90, "psychic", "images/animations/psychic.png", "particle")
 
 // Water
 var hydroPump = new Move("Hydropump", 110, "water", "images/animations/water.jpg", "beam")
@@ -59,7 +130,7 @@ var earthquake = new Move("Earthquake", 100, "ground", "images/animations/earthq
 
 // Electric
 var thunder = new Move("Thunder", 110, "electric", "images/animations/thunder.jpg", "beam")
-var thunderBolt = new Move("Thunder Bolt", 90, "electric", "images/animations/thunderbolt.png", "particle")
+var thunderBolt = new Move("Thunder Bolt", 90, "electric", "images/animations/thunder_bolt.png", "particle")
 
 /**
  * 
