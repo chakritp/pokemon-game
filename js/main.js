@@ -1,3 +1,12 @@
+//add sound
+var introSong = new Audio('images/opening.mp3')
+var battleSong = new Audio('images/pokemon.mp3')
+var victorySong = new Audio('images/victory.mp3')
+
+introSong.loop = true
+battleSong.loop = true
+victorySong.loop = true
+
 var gameOver = false
 // var pokemonPlayer1 = [charizard, hooh, lugia, kyogre, groudon, articuno]
 // var trainer1 = new Trainer("Ash", pokemonPlayer1)
@@ -229,11 +238,18 @@ function checkOpponentFainted(player, opponent, $opponentBox, game) {
       if(player == 'player-1'){
         console.log("GAME OVER! " + game.player1.name + " has won")
         dialogTextArray.push("GAME OVER! " + game.player1.name + " has won")
+        $('#trainer-1').addClass('winner')
       }
       else {
         console.log("GAME OVER! " + game.player2.name + " has won")
         dialogTextArray.push("GAME OVER! " + game.player2.name + " has won")
+        $('#trainer-2').addClass('winner')
       }
+      $('.remaining-health').promise().done(function(){
+        battleSong.pause()
+        victorySong.play()
+        $('#dialogueBox').addClass('winner')
+      })
       gameOver = true
     }
   }
@@ -425,19 +441,15 @@ $(function() {
 
   // game.start()
   
-  //add sound
-  var pokemonSong = new Audio('images/pokemon.mp3')
-
-  pokemonSong.loop = true
-  // pokemonSong.play()
+  
 
 
 
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+  ///////////////////////////////////////////////////The game begins here/////////////////////////////////////////////////////////////
   //1. hide everything initially
-
+  
   //2. show player name div
+  introSong.play()
   dialogTextArray.push("Please input your trainer names")
   displayDialogueBoxText(dialogTextArray)
   var trainer1Name;
@@ -537,8 +549,6 @@ $(function() {
           pokemonNames.push($(pokemon).prop('id'))
         })
 
-        console.log(pokemonNames)
-
         pokemonNames.forEach(function(pokemonName){
           var pokemon = getPokemonByNameFromArray(allPokemon, pokemonName)
           //push pokemon object
@@ -563,6 +573,7 @@ $(function() {
     if(pokemonPlayer2.length == 0){
       //clear the selection
       $('.active').removeClass('active')
+      $('#submitPokemonButton').addClass('disabled')
 
       // set dialog box for player 2 to pick
       dialogTextArray.push("Please select your 6 pokemon to battle  , " + trainer2Name)
@@ -581,6 +592,8 @@ $(function() {
         game.player1 = trainer1
         game.player2 = trainer2
 
+        introSong.pause()
+        battleSong.play()
         game.start()
         $('#playerContainer').fadeIn('slow')
       })

@@ -37,6 +37,10 @@ html {
   padding-top: 10px;
 }
 
+#dialogueBox.winner {
+  border-color: #FFFF33;
+}
+
 #text {
   /* width: 100%; */
   font-size: 20px;
@@ -123,6 +127,10 @@ h1#title {
 
 .trainer-board img{
   width: 50%;
+}
+
+.trainer-board.winner {
+  border-color: #FFFF33;
 }
 
 #trainer-1 img {
