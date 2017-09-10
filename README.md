@@ -34,10 +34,6 @@ function Pokemon(name, props) {
   this.avatar = props.avatar
   this.stats = props.stats
   this.moves = props.moves
-  // this.moves = []
-  // for (moveName in props.moves){
-  //   this.move.push(moves[moveName])
-  // }
   this.remainingHealth = props.stats.health
   this.type = props.type
 }
@@ -93,6 +89,8 @@ trainer1 = new Trainer(trainer1Name, pokemonPlayer1)
 ---
 ### Unsolved Problems / Dream Features
 - An increased selection of pokemon
+- A more intuitive pokemon select screen (currently it's hard to see what pokemon you've selected)
+- Keyboard controls
 - Implementing battle sounds of each pokemon and sounds of the moves
 - Implementing personalized animations for each pokemon move
 - Adding animations when switching pokemon in and out
