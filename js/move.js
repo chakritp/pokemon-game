@@ -29,12 +29,13 @@ Move.prototype.animate = function(player){
           width: 0,
           borderRadius: '20px'
         })
-        $particle.show()
-        $particle.animate({
-          width: '100%'
-        }, 500, function(){
-          $particle.removeAttr('style')
-          $particle.hide()
+        $particle.show(400, function(){
+          $particle.animate({
+            width: '100%'
+          }, 500, function(){
+            $particle.removeAttr('style')
+            $particle.hide()
+          })
         })
       }
       else {
@@ -42,12 +43,13 @@ Move.prototype.animate = function(player){
         $particle.css({
           left: 0
         })
-        $particle.show()
-        $particle.animate({
-          left: '100%'
-        }, 500, function(){
-          $particle.removeAttr('style')
-          $particle.hide()
+        $particle.show(400, function() {
+          $particle.animate({
+            left: '100%'
+          }, 500, function(){
+            $particle.removeAttr('style')
+            $particle.hide()
+          })
         })
       }
     }
@@ -60,12 +62,13 @@ Move.prototype.animate = function(player){
           borderRadius: '20px',
           transform: 'rotateZ(180deg)'
         })
-        $particle.show()
-        $particle.animate({
-          width: '100%'
-        }, 500, function(){
-          $particle.removeAttr('style')
-          $particle.hide()
+        $particle.show(400, function() {
+          $particle.animate({
+            width: '100%'
+          }, 500, function(){
+            $particle.removeAttr('style')
+            $particle.hide()
+          })
         })
       }
       else {
@@ -73,12 +76,13 @@ Move.prototype.animate = function(player){
         $particle.css({
           right: 0
         })
-        $particle.show()
-        $particle.animate({
-          right: '100%'
-        }, 500, function(){
-          $particle.removeAttr('style')
-          $particle.hide()
+        $particle.show(400, function(){
+          $particle.animate({
+            right: '100%'
+          }, 500, function(){
+            $particle.removeAttr('style')
+            $particle.hide()
+          })
         })
       }
     }

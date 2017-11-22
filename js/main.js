@@ -287,6 +287,8 @@ function setCssHealthBox(box, currentHealth, maxHealth){
   })
 }
 
+//////////////////////////////// set up game states here ////////////////////////////////////////
+
 $(function() {
   $playerOneBox = $('#player-1')
   $playerTwoBox = $('#player-2')
