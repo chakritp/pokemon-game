@@ -7,6 +7,7 @@ introSong.loop = true
 battleSong.loop = true
 victorySong.loop = true
 
+var volumeOn = true
 var gameOver = false
 // var pokemonPlayer1 = [charizard, hooh, lugia, kyogre, groudon, articuno]
 // var trainer1 = new Trainer("Ash", pokemonPlayer1)
@@ -20,6 +21,38 @@ var trainer2 = null;
 
 var dialogTextArray = []
 var effectiveText = ""
+
+function toggleVolume(song) {
+  //update dom
+  if(song.volume == 0) {
+    $('#volumeBox .fa').removeClass('fa-volume-off').addClass('fa-volume-up')
+    song.volume = 1
+    return volumeOn = true
+  }
+  else {
+    $('#volumeBox .fa').removeClass('fa-volume-up').addClass('fa-volume-off')
+    song.volume = 0
+    return volumeOn = false
+  }
+}
+
+function toggleMusic() {
+  //check if intro song playing
+  if(!introSong.paused) {
+    toggleVolume(introSong)
+  }
+  else if(!battleSong.paused) {
+    toggleVolume(battleSong)
+  }
+  else if (!victorySong.paused) {
+    toggleVolume(victorySong)
+  }
+}
+
+function playIfVolumeOn(song){
+  song.play()
+  return volumeOn ? song.volume = 1 : song.volume = 0
+}
 
 function flickerOpponent(player) {
   console.log('flicker')
@@ -247,7 +280,7 @@ function checkOpponentFainted(player, opponent, $opponentBox, game) {
       }
       $('.remaining-health').promise().done(function(){
         battleSong.pause()
-        victorySong.play()
+        playIfVolumeOn(victorySong)
         $('#dialogueBox').addClass('winner')
       })
       gameOver = true
@@ -288,6 +321,9 @@ function setCssHealthBox(box, currentHealth, maxHealth){
 }
 
 $(function() {
+  // Toggle music
+  $('#volumeBox').on('click', toggleMusic)
+
   $playerOneBox = $('#player-1')
   $playerTwoBox = $('#player-2')
 
@@ -424,7 +460,6 @@ $(function() {
         // wait for all animations before switching turns
 
         $(".remaining-health").promise().done(function() {
-          console.log('here')
           if(!gameOver){
             game.switchPlayers()
           }
@@ -449,7 +484,7 @@ $(function() {
   //1. hide everything initially
   
   //2. show player name div
-  introSong.play()
+  playIfVolumeOn(introSong)
   dialogTextArray.push("Please input your trainer names")
   displayDialogueBoxText(dialogTextArray)
   var trainer1Name;
@@ -588,7 +623,7 @@ $(function() {
           game.player2 = trainer2
   
           introSong.pause()
-          battleSong.play()
+          playIfVolumeOn(battleSong)
           game.start()
           $('#playerContainer').fadeIn('slow')
         })

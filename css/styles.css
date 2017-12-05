@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'pokemon_x_y';
-  src: url('fonts/pokemon_x_y.ttf')
+  src: url('../fonts/pokemon_x_y.ttf')
 }
 
 @font-face {
   font-family: 'pokemon_sun_moon';
-  src: url('fonts/pokemon_sun_moon.ttf');
+  src: url('../fonts/pokemon_sun_moon.ttf');
 }
 
 @font-face {
   font-family: 'pokemon_black_white';
-  src: url('fonts/pokemon_black_white.ttf');
+  src: url('../fonts/pokemon_black_white.ttf');
 }
 
 html { 
@@ -310,4 +310,22 @@ h1#title {
   margin: 0 auto;
   text-align: center;
   width: 400px;
+}
+
+#volumeContainer {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  text-align: right;
+}
+
+#volumeContainer #volumeBox {
+  text-align: center;
+  width: 30px;
+  padding: 8px 0;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 3px solid grey;
+  cursor: pointer;
+
 }
