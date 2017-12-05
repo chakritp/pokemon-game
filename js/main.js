@@ -93,9 +93,10 @@ function preloadImageMoves() {
   })
 
   // for each image preload them
-  var imageToPreload = new Image()
-  movesToPreload.forEach(function(move) {
-    imageToPreload.src = move.image
+  var imagesToPreload = new Array()
+  movesToPreload.forEach(function(move, index) {
+    imagesToPreload[index] = new Image()
+    imagesToPreload[index].src = move.image
   })
   return true
 }
