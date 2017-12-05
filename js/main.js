@@ -1,3 +1,9 @@
+//detect user agent
+var ua = window.navigator.userAgent;
+var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+var webkit = !!ua.match(/WebKit/i);
+var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+
 //add sound
 var introSong = new Audio('images/opening.mp3')
 var battleSong = new Audio('images/pokemon.mp3')
@@ -7,7 +13,7 @@ introSong.loop = true
 battleSong.loop = true
 victorySong.loop = true
 
-var volumeOn = true
+var volumeOn = (iOS || iOSSafari) ? false : true
 var gameOver = false
 // var pokemonPlayer1 = [charizard, hooh, lugia, kyogre, groudon, articuno]
 // var trainer1 = new Trainer("Ash", pokemonPlayer1)
@@ -22,18 +28,22 @@ var trainer2 = null;
 var dialogTextArray = []
 var effectiveText = ""
 
-function toggleVolume(song) {
-  //update dom
-  if(song.volume == 0) {
+
+// volume functions
+function turnVolumeOn(song, turnOn = true) {
+  if(turnOn) {
     $('#volumeBox .fa').removeClass('fa-volume-off').addClass('fa-volume-up')
     song.volume = 1
     return volumeOn = true
-  }
-  else {
+  } else {
     $('#volumeBox .fa').removeClass('fa-volume-up').addClass('fa-volume-off')
     song.volume = 0
     return volumeOn = false
   }
+}
+function toggleVolume(song) {
+  //update dom
+  return song.volume == 0 ? turnVolumeOn(song) : turnVolumeOn(song, false)
 }
 
 function toggleMusic() {
@@ -53,6 +63,12 @@ function playIfVolumeOn(song){
   song.play()
   return volumeOn ? song.volume = 1 : song.volume = 0
 }
+
+function initializeVolume() {
+  return turnVolumeOn(introSong, volumeOn)
+}
+
+//end volume functions
 
 function flickerOpponent(player) {
   console.log('flicker')
@@ -486,6 +502,7 @@ $(function() {
   //1. hide everything initially
   
   //2. show player name div
+  initializeVolume()
   playIfVolumeOn(introSong)
   dialogTextArray.push("Please input your trainer names")
   displayDialogueBoxText(dialogTextArray)
