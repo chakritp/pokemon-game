@@ -68,7 +68,37 @@ function initializeVolume() {
   return turnVolumeOn(introSong, volumeOn)
 }
 
+function moveExistsInArray(moves, moveToCheck) {
+  var flag = false
+  moves.forEach(function(move) {
+    if(move.name == moveToCheck.name) flag = true
+  })
+  return flag
+}
+
 //end volume functions
+function preloadImageMoves() {
+  //extract all unique moves from pokemonPlayer1 and pokemonPlayer2
+  var movesToPreload = []
+  pokemonPlayer1.forEach(function(pokemon) {
+    pokemon.moves.forEach(function(move) {
+      if (!moveExistsInArray(movesToPreload, move)) { movesToPreload.push(move) } //prevent duplicate moves from being pre-loaded
+    })
+  })
+
+  pokemonPlayer2.forEach(function (pokemon) {
+    pokemon.moves.forEach(function (move) {
+      if(!moveExistsInArray(movesToPreload, move)) { movesToPreload.push(move) }
+    })
+  })
+
+  // for each image preload them
+  var imageToPreload = new Image()
+  movesToPreload.forEach(function(move) {
+    imageToPreload.src = move.image
+  })
+  return true
+}
 
 function flickerOpponent(player) {
   console.log('flicker')
@@ -398,6 +428,7 @@ $(function() {
       p1FirstPokemon = this.player1.pokemon[0];
       p2FirstPokemon = this.player2.pokemon[0];
 
+      preloadImageMoves() //preloads the images to prevent lag
       setUpPlayerBoard($playerOneBox, p1FirstPokemon, this)
       setUpPlayerBoard($playerTwoBox, p2FirstPokemon, this)
 
