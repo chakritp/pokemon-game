@@ -30,7 +30,7 @@ var effectiveText = ""
 
 
 // volume functions
-function turnVolumeOn(song, turnOn = true) {
+function turnVolumeOn(song, turnOn) {
   if(turnOn) {
     $('#volumeBox .fa').removeClass('fa-volume-off').addClass('fa-volume-up')
     song.volume = 1
@@ -43,7 +43,7 @@ function turnVolumeOn(song, turnOn = true) {
 }
 function toggleVolume(song) {
   //update dom
-  return song.volume == 0 ? turnVolumeOn(song) : turnVolumeOn(song, false)
+  return song.volume == 0 ? turnVolumeOn(song, true) : turnVolumeOn(song, false)
 }
 
 function toggleMusic() {
